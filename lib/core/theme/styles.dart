@@ -1,0 +1,31 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:skin_care_app/core/theme/colors.dart';
+
+class Styles {
+  static TextStyle font24Black600Weight = TextStyle(
+    fontSize: 24.sp,
+    fontWeight: FontWeight.w600,
+    color: ColorManager.black,
+  );
+  static TextStyle font16Black400Weight = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w400,
+    color: ColorManager.black,
+  );
+  static TextStyle font16Gray300Weight = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w300,
+    color: ColorManager.gray,
+  );
+  static TextStyle font14LightGray300Weight = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w300,
+    color: ColorManager.lightGray,
+  );
+  static TextStyle font14PrimaryBlue300Weight = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w300,
+    color: ColorManager.primaryBlue,
+  );
+}
