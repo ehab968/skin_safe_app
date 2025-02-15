@@ -25,6 +25,7 @@ class CustomTextFormField extends StatelessWidget {
     this.isObscure,
     this.focusNode,
     required this.validator,
+    this.autovalidateMode,
   });
   final String hint;
   final int maxline;
@@ -43,6 +44,7 @@ class CustomTextFormField extends StatelessWidget {
   final double borderRadius;
   final TextStyle? hintStyle, textStyle;
   final Function(String?) validator;
+  final AutovalidateMode? autovalidateMode;
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +54,7 @@ class CustomTextFormField extends StatelessWidget {
       autofocus: autoFocus ?? false,
       onChanged: onChanged,
       onSaved: onSaved,
+      autovalidateMode: autovalidateMode,
       validator: (value) {
         return validator(value);
       },
@@ -72,7 +75,7 @@ class CustomTextFormField extends StatelessWidget {
         contentPadding: padding ??
             EdgeInsets.symmetric(
               horizontal: 20.w,
-              vertical: 17.h,
+              vertical: 15.h,
             ),
         hintText: hint,
         hintStyle: hintStyle ?? Styles.font14LightGray300Weight,

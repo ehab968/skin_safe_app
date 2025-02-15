@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 
-class LoginAndWelcomeText extends StatelessWidget {
-  const LoginAndWelcomeText({super.key});
+class ForgetYourPasswordSection extends StatelessWidget {
+  const ForgetYourPasswordSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,14 +12,14 @@ class LoginAndWelcomeText extends StatelessWidget {
       children: [
         verticalSpace(height: 80),
         Text(
-          'Login',
-          style: Styles.font24Black600Weight,     
+          'Forgot your password?',
+          style: Styles.font24Black600Weight,
         ),
         verticalSpace(height: 8),
         Text(
-          'Welcome! enter your mail id and password to login',
+          'Enter your email address or phone number, we will send you a confirmation code',
           style: Styles.font16Gray300Weight,
-        ),
+        )
       ],
     );
   }
