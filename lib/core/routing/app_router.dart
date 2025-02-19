@@ -5,6 +5,7 @@ import 'package:skin_care_app/features/authentication/confirmation_code/ui/confi
 import 'package:skin_care_app/features/authentication/forget_password/ui/forget_password_view.dart';
 import 'package:skin_care_app/features/authentication/login/logic/login_cubit/login_cubit.dart';
 import 'package:skin_care_app/features/authentication/login/ui/login_view.dart';
+import 'package:skin_care_app/features/authentication/reset_password/ui/reset_password_view.dart';
 import 'package:skin_care_app/features/authentication/sign_up/ui/sign_up_view.dart';
 import 'package:skin_care_app/features/splash/splash_view.dart';
 
@@ -33,6 +34,10 @@ class AppRouter {
       case Routes.confirmationCodeView:
         return MaterialPageRoute(
           builder: (_) => const ConfirmationCodeView(),
+        );
+      case Routes.resetPasswordView:
+        return MaterialPageRoute(
+          builder: (_) => const ResetPasswordView(),
         );
       default:
         return MaterialPageRoute(

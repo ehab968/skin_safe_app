@@ -20,7 +20,7 @@ class ForgetPasswordTextField extends StatefulWidget {
 class _ForgetPasswordTextFieldState extends State<ForgetPasswordTextField> {
   FocusNode forgetPasswordFocusNode = FocusNode();
   bool isForgetPasswordFocused = false;
-  final forgetPasswordFormKey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -37,12 +37,13 @@ class _ForgetPasswordTextFieldState extends State<ForgetPasswordTextField> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: forgetPasswordFormKey,
+      key: formKey,
       child: Column(
         children: [
           CustomTextFormField(
             hint: 'Enter Your Email Or Phone Numbers',
             autovalidateMode: AutovalidateMode.onUserInteraction,
+            // String? Function(String?)? validator
             validator: AppValidators.validateEmailOrPhone,
             focusNode: forgetPasswordFocusNode,
             borderRadius: 10,
@@ -60,7 +61,7 @@ class _ForgetPasswordTextFieldState extends State<ForgetPasswordTextField> {
             width: double.infinity,
             textStyle: Styles.font16White500Weight,
             onPressed: () {
-              if (forgetPasswordFormKey.currentState!.validate()) {
+              if (formKey.currentState!.validate()) {
                 context.pushNamed(Routes.confirmationCodeView);
               }
             },

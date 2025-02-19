@@ -25,7 +25,7 @@ class LoginButtonAndOr extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           onPressed: () {
             if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-              context.pushNamed(Routes.homeView);
+              context.pushReplacementNamed(Routes.homeView);
             }
           },
         ),

@@ -1,4 +1,21 @@
 class AppValidators {
+  
+  static String? validateEmpty(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'field is required';
+    }
+    return null;
+  }
+  static String? validatePin(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'field is required';
+    }
+    if (value.length < 4) {
+      return 'Pin must be at least 4 characters long';
+    }
+    return null;
+  }
+  
   static String? validateEmailOrPhone(String? value) {
     if (value == null || value.isEmpty) {
       return 'field is required';
@@ -11,6 +28,8 @@ class AppValidators {
     }
     return null;
   }
+
+
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
       return 'field is required';
@@ -21,6 +40,7 @@ class AppValidators {
     }
     return null;
   }
+
 
   static String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {

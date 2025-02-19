@@ -4,6 +4,7 @@ class Routes {
   static const String loginView = '/loginView';
   static const String forgotPasswordView = '/forgotPasswordView';
   static const String confirmationCodeView = '/confirmationCodeView';
+  static const String resetPasswordView = '/resetPasswordView';
   static const String signUpView = '/signUpView';
   static const String homeView = '/homeView';
 }

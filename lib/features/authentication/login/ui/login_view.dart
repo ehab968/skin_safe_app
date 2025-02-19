@@ -27,7 +27,7 @@ class LoginView extends StatelessWidget {
               const RememberAndForgetPassword(),
               verticalSpace(height: 42),
               const LoginButtonAndOr(),
-              verticalSpace(height: 16),
+              verticalSpace(height: 42),
               const LoginWithGoogle(),
               verticalSpace(height: 42),
               const DontHaveAccountSection(),

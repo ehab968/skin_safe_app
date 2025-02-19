@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 
-class CustomTextButton extends StatelessWidget {
+class CustomTextButton extends StatefulWidget {
   const CustomTextButton({
     super.key,
     this.backgroundColor,
@@ -13,6 +13,7 @@ class CustomTextButton extends StatelessWidget {
     required this.textStyle,
     this.child,
   });
+
   final String? textName;
   final Color? backgroundColor;
   final BorderRadiusGeometry? borderRadius;
@@ -20,24 +21,58 @@ class CustomTextButton extends StatelessWidget {
   final double height, width;
   final TextStyle textStyle;
   final Widget? child;
+
+  @override
+  State<CustomTextButton> createState() => _CustomTextButtonState();
+}
+
+class _CustomTextButtonState extends State<CustomTextButton> {
+  bool isPressed = false;
+
+  void handlePress() {
+    setState(() {
+      isPressed = true;
+    });
+    Future.delayed(const Duration(milliseconds: 250), () {
+      setState(() {
+        isPressed = false;
+      });
+    });
+    widget.onPressed?.call();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: height,
-      width: width,
-      child: TextButton(
-        onPressed: onPressed,
-        style: TextButton.styleFrom(
-          backgroundColor: backgroundColor ?? ColorManager.primaryBlue,
-          shape: RoundedRectangleBorder(
-            borderRadius: borderRadius ?? BorderRadius.circular(10),
-          ),
+      height: widget.height,
+      width: widget.width,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 250),
+        curve: Curves.easeIn,
+        decoration: BoxDecoration(
+          color: isPressed
+              ? Colors.white
+              : (widget.backgroundColor ?? ColorManager.primaryBlue),
+          borderRadius: widget.borderRadius ?? BorderRadius.circular(10),
         ),
-        child: child ??
-            Text(
-              textName!,
-              style: textStyle,
+        child: TextButton(
+          onPressed: handlePress,
+          style: TextButton.styleFrom(
+            backgroundColor: Colors.transparent,
+            shape: RoundedRectangleBorder(
+              borderRadius: widget.borderRadius ?? BorderRadius.circular(10),
             ),
+          ),
+          child: widget.child ??
+              Text(
+                widget.textName!,
+                style: widget.textStyle.copyWith(
+                  color: isPressed
+                      ? ColorManager.primaryBlue
+                      : widget.textStyle.color,
+                ),
+              ),
+        ),
       ),
     );
   }

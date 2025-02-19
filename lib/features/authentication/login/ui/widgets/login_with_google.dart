@@ -13,26 +13,12 @@ class LoginWithGoogle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.center,
-      child: Column(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CustomTextButton(
-            backgroundColor: ColorManager.black,
-            height: 48.h,
-            width: double.infinity,
-            textStyle: Styles.font16White500Weight,
-            borderRadius: BorderRadius.circular(10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SvgPicture.asset('assets/svgs/Google.svg'),
-                horizontalSpace(width: 10),
-                Text(
-                  'Login with Google',
-                  style: Styles.font16White500Weight,
-                ),
-              ],
-            ),
-          )
+          SvgPicture.asset('assets/svgs/Google.svg'),
+          horizontalSpace(width: 120),
+          SvgPicture.asset('assets/svgs/Facebook.svg')
         ],
       ),
     );
