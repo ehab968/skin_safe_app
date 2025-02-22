@@ -1,11 +1,11 @@
 class AppValidators {
-  
   static String? validateEmpty(String? value) {
     if (value == null || value.isEmpty) {
       return 'field is required';
     }
     return null;
   }
+
   static String? validatePin(String? value) {
     if (value == null || value.isEmpty) {
       return 'field is required';
@@ -15,7 +15,7 @@ class AppValidators {
     }
     return null;
   }
-  
+
   static String? validateEmailOrPhone(String? value) {
     if (value == null || value.isEmpty) {
       return 'field is required';
@@ -29,6 +29,17 @@ class AppValidators {
     return null;
   }
 
+  static String? validatePhoneNumber(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'field is required';
+    }
+    final phoneRegex = RegExp(r'^(01[0-2]|015)[0-9]{8}$');
+
+    if (!phoneRegex.hasMatch(value)) {
+      return 'Please enter a valid phone number';
+    }
+    return null;
+  }
 
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
@@ -40,7 +51,6 @@ class AppValidators {
     }
     return null;
   }
-
 
   static String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {
@@ -60,6 +70,20 @@ class AppValidators {
     }
     if (!RegExp(r'[!@#\$%^&*(),.?":{}|<>]').hasMatch(value)) {
       return 'Password must contain at least one special character (!@#\$%^&*)';
+    }
+    return null;
+  }
+
+  static String? validateDate(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'field is required';
+    }
+
+    final dateRegex =
+        RegExp(r'^(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[0-2])\/\d{4}$');
+
+    if (!dateRegex.hasMatch(value)) {
+      return 'Please enter a valid date';
     }
     return null;
   }

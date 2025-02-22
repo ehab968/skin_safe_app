@@ -17,8 +17,6 @@ class EmailAndPassword extends StatefulWidget {
 class _EmailAndPasswordState extends State<EmailAndPassword> {
   FocusNode passwordFocusNode = FocusNode();
   bool isPasswordFocused = false;
-  FocusNode emailFocusNode = FocusNode();
-  bool isEmailFocused = false;
   bool isobsecure = true;
   @override
   void initState() {
@@ -28,10 +26,10 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
 
   @override
   void dispose() {
-    emailFocusNode.dispose();
     passwordFocusNode.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -44,15 +42,9 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             style: Styles.font16Black400Weight,
           ),
           verticalSpace(height: 8),
-          CustomTextFormField(
+          const CustomTextFormField(
             hint: 'Enter Your Email Or Phone Number',
             autovalidateMode: AutovalidateMode.onUserInteraction,
-            focusNode: emailFocusNode,
-            backgroundColor:
-                isEmailFocused ? Colors.white : ColorManager.lighterGray,
-            hintStyle: isEmailFocused
-                ? Styles.font14PrimaryBlue300Weight
-                : Styles.font14LightGray300Weight,
             borderRadius: 10,
             validator: AppValidators.validateEmailOrPhone,
           ),
@@ -95,12 +87,6 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
   }
 
   void setupEmailAndPasswordFocusNode() {
-    emailFocusNode.addListener(() {
-      setState(() {
-        isEmailFocused = emailFocusNode.hasFocus;
-      });
-    });
-
     passwordFocusNode.addListener(() {
       setState(() {
         isPasswordFocused = passwordFocusNode.hasFocus;

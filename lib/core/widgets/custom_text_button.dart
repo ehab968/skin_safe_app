@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 
 class CustomTextButton extends StatefulWidget {
@@ -8,8 +9,8 @@ class CustomTextButton extends StatefulWidget {
     this.borderRadius,
     this.textName,
     this.onPressed,
-    required this.height,
-    required this.width,
+    this.height,
+    this.width,
     required this.textStyle,
     this.child,
   });
@@ -18,7 +19,7 @@ class CustomTextButton extends StatefulWidget {
   final Color? backgroundColor;
   final BorderRadiusGeometry? borderRadius;
   final void Function()? onPressed;
-  final double height, width;
+  final double? height, width;
   final TextStyle textStyle;
   final Widget? child;
 
@@ -44,8 +45,8 @@ class _CustomTextButtonState extends State<CustomTextButton> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: widget.height,
-      width: widget.width,
+      height: widget.height ?? 48.h,
+      width: widget.width ?? double.infinity,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 250),
         curve: Curves.easeIn,
