@@ -10,6 +10,7 @@ import 'package:skin_care_app/core/widgets/custom_text_button.dart';
 import 'package:skin_care_app/features/authentication/sign_up/logic/sign_up_cubit/sign_up_cubit.dart';
 import 'package:skin_care_app/features/authentication/sign_up/ui/widgets/gender_radio_button.dart';
 import 'package:skin_care_app/features/authentication/sign_up/ui/widgets/name_phone_number_birth_date_textfield.dart';
+import 'package:skin_care_app/features/authentication/sign_up/ui/widgets/skin_tone_drop_down.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({super.key});
@@ -34,6 +35,10 @@ class SignUpView extends StatelessWidget {
                 const NamePhoneNumberBirthDateTextfield(),
                 verticalSpace(height: 16),
                 const GenderRadioButtons(),
+                const SkinToneDropDown(),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.14,
+                ),
                 CustomTextButton(
                   textStyle: Styles.font16White500Weight,
                   textName: 'Continue',
@@ -46,7 +51,8 @@ class SignUpView extends StatelessWidget {
                       context.pushNamed(Routes.loginView);
                     }
                   },
-                )
+                ),
+                verticalSpace(height: 50),
               ],
             ),
           ),

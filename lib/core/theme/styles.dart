@@ -18,9 +18,19 @@ class Styles {
     fontWeight: FontWeight.w400,
     color: ColorManager.black,
   );
+  static TextStyle font14Black500Weight = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w500,
+    color: ColorManager.black,
+  );
   static TextStyle font14darkGray400Weight = TextStyle(
     fontSize: 14.sp,
     fontWeight: FontWeight.w400,
+    color: ColorManager.darkGray,
+  );
+  static TextStyle font14darkGray500Weight = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w500,
     color: ColorManager.darkGray,
   );
   static TextStyle font16Gray300Weight = TextStyle(

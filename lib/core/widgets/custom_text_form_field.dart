@@ -77,13 +77,6 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       validator: (value) {
         return widget.validator(value);
       },
-      // (value) {
-      //   if (value?.isEmpty ?? true) {
-      //     return 'Field Is Required';
-      //   } else {
-      //     return null;
-      //   }
-      // },
       style: widget.textStyle ?? Styles.font14PrimaryBlue300Weight,
       keyboardType: widget.keyboardType,
       obscureText: widget.isObscure ?? false,
