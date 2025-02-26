@@ -1,0 +1,2 @@
+E:/flutter course/flutter projects/skin_safe_app/android/app/.cxx/Debug/5661402l/armeabi-v7a/CMakeFiles/edit_cache.dir
+E:/flutter course/flutter projects/skin_safe_app/android/app/.cxx/Debug/5661402l/armeabi-v7a/CMakeFiles/rebuild_cache.dir
