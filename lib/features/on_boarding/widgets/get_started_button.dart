@@ -56,17 +56,17 @@ class GetStartedButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(24),
       child: SizedBox(
-        width: double.infinity, // يجعل الزر يأخذ عرض الشاشة بالكامل
+        width: double.infinity,
         child: ElevatedButton(
           onPressed: () {
-            // الحدث عند الضغط
+           
           },
           style: ElevatedButton.styleFrom(
-            backgroundColor: ColorManager.primaryBlue, // لون الزر
-            foregroundColor: ColorManager.white, // لون النص
-            padding: EdgeInsets.symmetric(vertical: 16), // تكبير الزر عمودياً فقط
+            backgroundColor: ColorManager.primaryBlue, 
+            foregroundColor: ColorManager.white,  
+            padding: EdgeInsets.symmetric(vertical: 16), 
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(24), // حواف مستديرة
+              borderRadius: BorderRadius.circular(24),
             ),
           ),
           child: Text('Get Started', style: Styles.font16White500Weight),
