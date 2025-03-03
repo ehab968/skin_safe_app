@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 import 'package:skin_care_app/features/on_boarding/widgets/bottom_of_onBoarding.dart';
@@ -15,41 +17,42 @@ class ThirdOnBoardingView extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 96),
+              // SizedBox(height: 96.h),
+              verticalSpace(height: 96),
               Center(
                 child: Container(
-                  width: 294,
-                  height: 294,
+                  width: 294.w,
+                  height: 294.h,
                   child: Image.asset('assets/images/third_onboarding_screen_pic.png')),
               ),
-                SizedBox(height: 32,),
+                verticalSpace(height: 32),
               Center(child: thirdtogglebutton()),
-              SizedBox(height: 40),
+              verticalSpace(height: 40),
              RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
               children: [
                 TextSpan(
           text: "Informative",
-          style:  Styles.font14PrimaryBlue400Weight,
+          style:  Styles.font32PrimaryBlue400Weight,
                 ),
                 TextSpan(
           text: " articles\n",
-          style: Styles.font14Black500Weight,
+          style: Styles.font32Black500Weight,
                 ),
                 TextSpan(
           text: " for your skin",
-          style: Styles.font14Black500Weight,
+          style: Styles.font32Black500Weight,
                 ),
               ],
             ),
           ),
-           SizedBox(height: 16,),
+           verticalSpace(height: 16),
            Center(
              child: Text( "Learn about skin cancer types, symptomps,\n          prevention tips and treatments",
              style: Styles.font14Black300Weight ,),
         ),
-        SizedBox(height: 40,),
+        verticalSpace(height: 40),
 GetStartedButton(),
 
         ],

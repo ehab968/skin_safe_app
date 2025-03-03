@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:skin_care_app/core/helper/extensions.dart';
+import 'package:skin_care_app/core/routing/routes.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
+import 'package:skin_care_app/features/Home/home_view.dart';
 
 class GetStartedButton extends StatelessWidget {
   const GetStartedButton({super.key});
@@ -54,19 +58,19 @@ class GetStartedButton extends StatelessWidget {
     //   );
     // }
     return Padding(
-      padding: const EdgeInsets.all(24),
+      padding: const EdgeInsets.all(16),
       child: SizedBox(
         width: double.infinity,
         child: ElevatedButton(
           onPressed: () {
-           
+            context.pushNamed(Routes.homeView);
           },
           style: ElevatedButton.styleFrom(
-            backgroundColor: ColorManager.primaryBlue, 
-            foregroundColor: ColorManager.white,  
-            padding: EdgeInsets.symmetric(vertical: 16), 
+            backgroundColor: ColorManager.primaryBlue,
+            foregroundColor: ColorManager.white,
+            padding: EdgeInsets.symmetric(vertical: 8.h),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(24),
+              borderRadius: BorderRadius.circular(22),
             ),
           ),
           child: Text('Get Started', style: Styles.font16White500Weight),

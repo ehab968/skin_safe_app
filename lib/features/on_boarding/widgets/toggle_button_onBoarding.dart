@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 
 class ToggleButtonOnboarding extends StatelessWidget {
@@ -9,26 +11,27 @@ class ToggleButtonOnboarding extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container( width: 26,
-            height: 8,
+        Container( width: 26.w,
+            height: 8.h,
             decoration: BoxDecoration(
               color: ColorManager.primaryBlue,
               borderRadius: BorderRadius.circular(5),
             ),
           ),
-          SizedBox(width: 4),
+          // SizedBox(width: 4.w),
+          horizontalSpace(width: 4),
           Container(
-             width: 8,
-            height: 8,
+             width: 8.w,
+            height: 8.h,
             decoration: BoxDecoration(
               color: ColorManager.morelightergray,
               shape: BoxShape.circle, 
             ),
           ),
-          SizedBox(width: 4),
+          horizontalSpace(width: 4),
            Container(
-             width: 8,
-            height: 8,
+             width: 8.w,
+            height: 8.h,
             decoration: BoxDecoration(
               color: ColorManager.morelightergray,
               shape: BoxShape.circle, 
@@ -47,25 +50,25 @@ class secondtoggleButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
           Container(
-             width: 8,
-            height: 8,
+             width: 8.w,
+            height: 8.h,
             decoration: BoxDecoration(
               color: ColorManager.morelightergray,
               shape: BoxShape.circle, 
             ),
           ),
-          SizedBox(width: 4,),
-           Container( width: 26,
-            height: 8,
+          horizontalSpace(width: 4),
+           Container( width: 26.w,
+            height: 8.h,
             decoration: BoxDecoration(
               color: ColorManager.primaryBlue,
               borderRadius: BorderRadius.circular(5),
             ),
           ),
-          SizedBox(width: 4),
+          horizontalSpace(width: 4),
            Container(
-             width: 8,
-            height: 8,
+             width: 8.w,
+            height: 8.h,
             decoration: BoxDecoration(
               color: ColorManager.morelightergray,
               shape: BoxShape.circle, 
@@ -84,25 +87,25 @@ class thirdtogglebutton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
           Container(
-             width: 8,
-            height: 8,
+             width: 8.w,
+            height: 8.h,
             decoration: BoxDecoration(
               color: ColorManager.morelightergray,
               shape: BoxShape.circle, 
             ),
           ),
-          SizedBox(width: 4,),
+          horizontalSpace(width: 4),
            Container(
-             width: 8,
-            height: 8,
+             width: 8.w,
+            height: 8.h,
             decoration: BoxDecoration(
               color: ColorManager.morelightergray,
               shape: BoxShape.circle, 
             ),
           ),
-          SizedBox(width: 4,),
-          Container( width: 26,
-            height: 8,
+          horizontalSpace(width: 4),
+          Container( width: 26.w,
+            height: 8.h,
             decoration: BoxDecoration(
               color: ColorManager.primaryBlue,
               borderRadius: BorderRadius.circular(5),

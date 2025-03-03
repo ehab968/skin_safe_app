@@ -5,7 +5,7 @@ class Routes {
   static const String homeView = '/homeView';
   static const String SecondOnBoardingView = '/SecondOnBoardingView';
   static const String ThirdOnBoardingView = '/ThirdOnBoardingView';
-
+  
 
 
 }
