@@ -17,6 +17,10 @@ class SkinSafeApp extends StatelessWidget {
         initialRoute: Routes.splashView,
         onGenerateRoute: AppRouter().generateRoute,
         theme: ThemeData(
+          textSelectionTheme: const TextSelectionThemeData(
+            cursorColor: ColorManager.primaryBlue,
+            selectionHandleColor: ColorManager.primaryBlue,
+          ),
           fontFamily: 'Poppins',
           scaffoldBackgroundColor: Colors.white,
           primaryColor: ColorManager.primaryBlue,

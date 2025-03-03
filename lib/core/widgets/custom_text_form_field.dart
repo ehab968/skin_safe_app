@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 
-class CustomTextFormField extends StatelessWidget {
+class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({
     super.key,
     required this.hint,
@@ -25,6 +25,8 @@ class CustomTextFormField extends StatelessWidget {
     this.isObscure,
     this.focusNode,
     required this.validator,
+    this.autovalidateMode,
+    this.keyboardType,
   });
   final String hint;
   final int maxline;
@@ -43,46 +45,64 @@ class CustomTextFormField extends StatelessWidget {
   final double borderRadius;
   final TextStyle? hintStyle, textStyle;
   final Function(String?) validator;
+  final AutovalidateMode? autovalidateMode;
+  final TextInputType? keyboardType;
+
+  @override
+  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
+}
+
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
+  FocusNode focusNode = FocusNode();
+  bool isFocused = false;
+  @override
+  void initState() {
+    focusNode.addListener(() {
+      setState(() {
+        isFocused = focusNode.hasFocus;
+      });
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      focusNode: focusNode,
-      controller: controller,
-      autofocus: autoFocus ?? false,
-      onChanged: onChanged,
-      onSaved: onSaved,
+      focusNode: widget.focusNode ?? focusNode,
+      controller: widget.controller,
+      autofocus: widget.autoFocus ?? false,
+      onChanged: widget.onChanged,
+      onSaved: widget.onSaved,
+      autovalidateMode: widget.autovalidateMode,
       validator: (value) {
-        return validator(value);
+        return widget.validator(value);
       },
-      // (value) {
-      //   if (value?.isEmpty ?? true) {
-      //     return 'Field Is Required';
-      //   } else {
-      //     return null;
-      //   }
-      // },
-      style: textStyle ?? Styles.font14PrimaryBlue300Weight,
-      obscureText: isObscure ?? false,
-      cursorColor: cursorColor ?? ColorManager.primaryBlue,
-      maxLines: maxline,
+      style: widget.textStyle ?? Styles.font14PrimaryBlue300Weight,
+      keyboardType: widget.keyboardType,
+      obscureText: widget.isObscure ?? false,
+      cursorColor: widget.cursorColor ?? ColorManager.primaryBlue,
+      maxLines: widget.maxline,
       decoration: InputDecoration(
         isDense: true,
-        suffixIcon: suffixIcon,
-        contentPadding: padding ??
+        suffixIcon: widget.suffixIcon,
+        contentPadding: widget.padding ??
             EdgeInsets.symmetric(
               horizontal: 20.w,
-              vertical: 17.h,
+              vertical: 15.h,
             ),
-        hintText: hint,
-        hintStyle: hintStyle ?? Styles.font14LightGray300Weight,
-        fillColor: backgroundColor ?? ColorManager.lighterGray,
+        hintText: widget.hint,
+        hintStyle: widget.hintStyle ??
+            (isFocused
+                ? Styles.font14PrimaryBlue300Weight
+                : Styles.font14LightGray300Weight),
+        fillColor: widget.backgroundColor ??
+            (isFocused ? Colors.white : ColorManager.lighterGray),
         filled: true,
         border: buildBorder(),
         enabledBorder:
-            buildBorder(enabledBordrColor ?? ColorManager.lighterGray),
+            buildBorder(widget.enabledBordrColor ?? ColorManager.lighterGray),
         focusedBorder:
-            buildBorder(focusedBorderColor ?? ColorManager.primaryBlue),
+            buildBorder(widget.focusedBorderColor ?? ColorManager.primaryBlue),
       ),
     );
   }
@@ -93,7 +113,7 @@ class CustomTextFormField extends StatelessWidget {
         width: 1.4,
         color: color ?? Colors.white,
       ),
-      borderRadius: BorderRadius.circular(borderRadius),
+      borderRadius: BorderRadius.circular(widget.borderRadius),
     );
   }
 }
