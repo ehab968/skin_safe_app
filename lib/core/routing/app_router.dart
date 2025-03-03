@@ -8,6 +8,7 @@ import 'package:skin_care_app/features/authentication/login/ui/login_view.dart';
 import 'package:skin_care_app/features/authentication/reset_password/ui/reset_password_view.dart';
 import 'package:skin_care_app/features/authentication/sign_up/logic/sign_up_cubit/sign_up_cubit.dart';
 import 'package:skin_care_app/features/authentication/sign_up/ui/sign_up_view.dart';
+import 'package:skin_care_app/features/authentication/sign_up/ui/sign_up_view_2.dart';
 import 'package:skin_care_app/features/splash/splash_view.dart';
 
 class AppRouter {
@@ -29,6 +30,13 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (context) => SignUpCubit(),
             child: const SignUpView(),
+          ),
+        );
+      case Routes.signUpView2:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => SignUpCubit(),
+            child: const SignUpView2(),
           ),
         );
       case Routes.forgotPasswordView:

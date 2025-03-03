@@ -49,6 +49,7 @@ class _SkinToneDropDownState extends State<SkinToneDropDown> {
           child: DropdownButtonFormField2(
             focusNode: focusNode,
             validator: AppValidators.validateEmpty,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             value: selectedValue,
             hint: Text(
               'Select option',

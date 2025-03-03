@@ -5,6 +5,7 @@ import 'package:skin_care_app/features/authentication/sign_up/logic/sign_up_cubi
 
 class SignUpCubit extends Cubit<SignUpState> {
   final formKey = GlobalKey<FormBuilderState>();
+  final formKey2 = GlobalKey<FormState>();
 
   SignUpCubit() : super(const SignUpState.initial());
 }

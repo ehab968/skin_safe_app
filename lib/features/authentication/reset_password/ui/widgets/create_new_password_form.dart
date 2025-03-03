@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/helper/app_validator.dart';
 import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
@@ -60,7 +61,7 @@ class _CreateNewPasswordFormState extends State<CreateNewPasswordForm> {
                 });
               },
               icon: Icon(
-                size: 24,
+                size: 24.r,
                 isobsecure1 ? Icons.visibility_off : Icons.visibility,
                 color: passwordFocusNode.hasFocus
                     ? ColorManager.primaryBlue
@@ -89,7 +90,7 @@ class _CreateNewPasswordFormState extends State<CreateNewPasswordForm> {
                 });
               },
               icon: Icon(
-                size: 24,
+                size: 24.r,
                 isobsecure2 ? Icons.visibility_off : Icons.visibility,
                 color: confirmPasswordFocusNode.hasFocus
                     ? ColorManager.primaryBlue

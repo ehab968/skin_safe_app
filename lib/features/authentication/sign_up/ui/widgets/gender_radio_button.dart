@@ -21,12 +21,12 @@ class GenderRadioButtons extends StatelessWidget {
           width: double.infinity,
           child: FormBuilderRadioGroup(
             validator: AppValidators.validateEmpty,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             activeColor: ColorManager.primaryBlue,
             decoration: const InputDecoration(
               border: InputBorder.none,
             ),
             wrapSpacing: 85.w,
-            
             name: 'Gender',
             options: [
               FormBuilderFieldOption(

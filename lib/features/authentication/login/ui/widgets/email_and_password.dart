@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/helper/app_validator.dart';
 import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
@@ -73,7 +74,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
                 });
               },
               icon: Icon(
-                size: 24,
+                size: 24.r,
                 isobsecure ? Icons.visibility_off : Icons.visibility,
                 color: passwordFocusNode.hasFocus
                     ? ColorManager.primaryBlue

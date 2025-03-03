@@ -33,7 +33,7 @@ class _RememberAndForgetPasswordState extends State<RememberAndForgetPassword> {
               isRemembered
                   ? Icons.check_box_outlined
                   : Icons.check_box_outline_blank,
-              size: 24.sp,
+              size: 24.r,
             ),
           ),
         ),
