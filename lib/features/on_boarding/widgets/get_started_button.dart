@@ -4,7 +4,6 @@ import 'package:skin_care_app/core/helper/extensions.dart';
 import 'package:skin_care_app/core/routing/routes.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
-import 'package:skin_care_app/features/Home/home_view.dart';
 
 class GetStartedButton extends StatelessWidget {
   const GetStartedButton({super.key});
@@ -63,7 +62,10 @@ class GetStartedButton extends StatelessWidget {
         width: double.infinity,
         child: ElevatedButton(
           onPressed: () {
-            context.pushNamed(Routes.homeView);
+            context.pushNamedAndRemoveUntil(
+              Routes.loginView,
+              predicate: (route) => false,
+            );
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: ColorManager.primaryBlue,

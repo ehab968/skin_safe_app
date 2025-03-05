@@ -10,7 +10,7 @@ class BottomOfOnboarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.symmetric(horizontal: 16.w , vertical: 16.h),
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -22,13 +22,13 @@ class BottomOfOnboarding extends StatelessWidget {
             ),
           ),
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: ColorManager.primaryBlue, // Background color
             ),
             child: IconButton(
               onPressed: () {
-                context.pushNamed(Routes.SecondOnBoardingView);
+                context.pushNamed(Routes.secondOnBoardingView);
               },
               icon: Icon(
                 Icons.navigate_next_sharp,
@@ -43,13 +43,14 @@ class BottomOfOnboarding extends StatelessWidget {
     );
   }
 }
+
 class secondbottomscreen extends StatelessWidget {
   const secondbottomscreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -61,13 +62,13 @@ class secondbottomscreen extends StatelessWidget {
             ),
           ),
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: ColorManager.primaryBlue, // Background color
             ),
             child: IconButton(
               onPressed: () {
-                context.pushNamed(Routes.ThirdOnBoardingView);
+                context.pushNamed(Routes.thirdOnBoardingView);
               },
               icon: Icon(
                 Icons.navigate_next_sharp,

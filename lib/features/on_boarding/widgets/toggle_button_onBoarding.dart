@@ -23,7 +23,7 @@ class ToggleButtonOnboarding extends StatelessWidget {
           Container(
              width: 8.w,
             height: 8.h,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: ColorManager.morelightergray,
               shape: BoxShape.circle, 
             ),
@@ -32,7 +32,7 @@ class ToggleButtonOnboarding extends StatelessWidget {
            Container(
              width: 8.w,
             height: 8.h,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: ColorManager.morelightergray,
               shape: BoxShape.circle, 
             ),
@@ -52,7 +52,7 @@ class secondtoggleButton extends StatelessWidget {
           Container(
              width: 8.w,
             height: 8.h,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: ColorManager.morelightergray,
               shape: BoxShape.circle, 
             ),
@@ -69,7 +69,7 @@ class secondtoggleButton extends StatelessWidget {
            Container(
              width: 8.w,
             height: 8.h,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: ColorManager.morelightergray,
               shape: BoxShape.circle, 
             ),
@@ -89,7 +89,7 @@ class thirdtogglebutton extends StatelessWidget {
           Container(
              width: 8.w,
             height: 8.h,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: ColorManager.morelightergray,
               shape: BoxShape.circle, 
             ),
@@ -98,7 +98,7 @@ class thirdtogglebutton extends StatelessWidget {
            Container(
              width: 8.w,
             height: 8.h,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: ColorManager.morelightergray,
               shape: BoxShape.circle, 
             ),
