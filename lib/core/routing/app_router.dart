@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skin_care_app/core/routing/routes.dart';
+import 'package:skin_care_app/features/Home/home_view.dart';
+import 'package:skin_care_app/features/authentication/login/ui/login_view.dart';
+import 'package:skin_care_app/features/on_boarding/ui/on_boarding_view.dart';
+import 'package:skin_care_app/features/on_boarding/ui/second_on_boarding_view.dart';
+import 'package:skin_care_app/features/on_boarding/ui/third_on_boarding_view.dart';
 import 'package:skin_care_app/features/authentication/confirmation_code/ui/confirmation_code_view.dart';
 import 'package:skin_care_app/features/authentication/forget_password/ui/forget_password_view.dart';
 import 'package:skin_care_app/features/authentication/login/logic/login_cubit/login_cubit.dart';
@@ -17,6 +22,10 @@ class AppRouter {
       case Routes.splashView:
         return MaterialPageRoute(
           builder: (_) => const SplashView(),
+        );
+         case Routes.onBoardingView:
+        return MaterialPageRoute(
+          builder: (_) => const OnBoardingView(),
         );
       case Routes.loginView:
         return MaterialPageRoute(
@@ -51,6 +60,19 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const ResetPasswordView(),
         );
+        case Routes.SecondOnBoardingView:
+        return MaterialPageRoute(
+          builder: (_) => const SecondOnBoardingView(),
+        );
+        case Routes.ThirdOnBoardingView:
+        return MaterialPageRoute(
+          builder: (_) => const ThirdOnBoardingView(),
+        );
+         case Routes.homeView:
+        return MaterialPageRoute(
+          builder: (_) => const HomeView(),
+        );
+      
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

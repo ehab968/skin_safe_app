@@ -8,4 +8,12 @@ class Routes {
   static const String signUpView = '/signUpView';
   static const String signUpView2 = '/signUpView2';
   static const String homeView = '/homeView';
+  static const String SecondOnBoardingView = '/SecondOnBoardingView';
+  static const String ThirdOnBoardingView = '/ThirdOnBoardingView';
+  
+
+
 }
+
+}
+

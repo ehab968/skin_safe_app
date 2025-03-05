@@ -17,7 +17,7 @@ class _SplashViewState extends State<SplashView> {
     Future.delayed(
       const Duration(seconds: 2),
       () {
-        context.pushReplacementNamed(Routes.loginView);
+        context.pushReplacementNamed(Routes.onBoardingView);
       },
     );
     super.initState();
