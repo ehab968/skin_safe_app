@@ -13,7 +13,7 @@ class LoginAndWelcomeText extends StatelessWidget {
         verticalSpace(height: 80),
         Text(
           'Login',
-          style: Styles.font24Black600Weight,
+          style: Styles.font24Black600Weight,     
         ),
         verticalSpace(height: 8),
         Text(
