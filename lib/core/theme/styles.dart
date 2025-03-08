@@ -89,4 +89,9 @@ class Styles {
     fontWeight: FontWeight.w400,
     color: ColorManager.red,
   );
+   static TextStyle font18Black600Weight = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w600,
+    color: ColorManager.black,
+  );
 }

@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
+import 'package:skin_care_app/features/Home/ui/widgets/doctors_list.dart';
+import 'package:skin_care_app/features/Home/ui/widgets/uv_index.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -11,9 +13,23 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManager.white,
-      body: SafeArea(
-        child: Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 16.h, vertical: 16.w),
+      body: HomeViewBody(),   
+
+    );
+  }
+}
+
+class HomeViewBody extends StatelessWidget {
+  const HomeViewBody({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Padding(
+        padding:  EdgeInsets.symmetric(horizontal: 16.h, vertical: 16.w),
+        child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -48,15 +64,22 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
               ),
+              verticalSpace(height: 24.h),
+              UVIndexWidget(uvValue: 15),
+              verticalSpace(height: 24.h),
+              Text("Top Doctors", style: Styles.font18Black600Weight ,),
+              verticalSpace(height: 16.h),
+              DoctorsList(),
+          
             ],
+            
           ),
-          
-          
         ),
         
         
-      ),   
-
+      ),
+      
+      
     );
   }
 }

@@ -52,6 +52,7 @@ dependencies:
   retrofit_generator: ^9.1.3
   shared_preferences: ^2.3.3
   # device_preview: ^1.2.0
+  syncfusion_flutter_gauges: ^28.2.9
   
 
 dev_dependencies:
