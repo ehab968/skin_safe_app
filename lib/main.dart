@@ -4,21 +4,5 @@ import 'package:skin_care_app/skin_safe_app.dart';
 
 void main() async {
   await ScreenUtil.ensureScreenSize();
-  runApp(
-    const SkinSafeApp(),
-    // DevicePreview(
-    // builder: (context) => SkinSafeApp(),
-    //  enabled: true,
-    //  devices: [
-    //   Devices.android.samsungGalaxyNote20Ultra,
-    //  ],
-    //  )
-    // DevicePreview(
-    // builder: (context) => SkinSafeApp(),
-    //  enabled: true,
-    //  devices: [
-    //   Devices.android.samsungGalaxyNote20Ultra,
-    //  ],
-    //  )
-  );
+  runApp(const SkinSafeApp());
 }
