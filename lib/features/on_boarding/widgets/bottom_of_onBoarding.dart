@@ -15,7 +15,9 @@ class BottomOfOnboarding extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              context.pushNamed(Routes.GetStartedView);
+            },
             child: Text(
               "Skip",
               style: TextStyle(color: ColorManager.black, fontSize: 16.sp),
@@ -55,7 +57,9 @@ class secondbottomscreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              context.pushNamed(Routes.GetStartedView);
+            },
             child: Text(
               "Skip",
               style: TextStyle(color: ColorManager.black, fontSize: 16.sp),

@@ -15,6 +15,7 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorManager.white,
      body: HomeViewBody(),
+     
     );
   }
 }

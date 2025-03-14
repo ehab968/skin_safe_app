@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
+import 'package:skin_care_app/core/theme/styles.dart';
 
 
 class DoctorsList extends StatelessWidget {
-  const DoctorsList({super.key});
+   DoctorsList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +32,20 @@ class DoctorsList extends StatelessWidget {
         "distance": "2km",
         "image": "assets/images/DrHossamAli.jpg"
       },
+      {
+        "name": "Dr. Hend Khaled",
+        "specialty": "Dermatologist",
+        "rating": 4.8,
+        "distance": "500 meters",
+        "image": "assets/images/drHendKhaled.jpg"
+      },
+      {
+        "name": "Dr. Hady Helmy",
+        "specialty": "Dermatologist",
+        "rating": 4.8,
+        "distance": "5.2km",
+        "image": "assets/images/DrHadyHelmy.jpg"
+      },
       
     ];
 
@@ -42,9 +57,12 @@ class DoctorsList extends StatelessWidget {
           children: [
             Container(
               child: SizedBox(
-                height: 186.h, 
+                height: 270.h, 
+                width: 400.w,
                 child: ListView.builder(
-                  scrollDirection: Axis.horizontal, // **هنا تم التحديد أن الاتجاه أفقي**
+                  shrinkWrap: true,
+                  // physics: NeverScrollableScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
                   itemCount: doctors.length,
                   itemBuilder: (context, index) {
                     final doctor = doctors[index];
@@ -66,7 +84,7 @@ class DoctorsList extends StatelessWidget {
   }
 }
 
-class DoctorCard extends StatelessWidget {
+ class DoctorCard extends StatelessWidget {
   final String name;
   final String specialty;
   final double rating;
@@ -84,42 +102,84 @@ class DoctorCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 119.w,
-      height: 186.h, // عرض الكارد
-      margin: const EdgeInsets.only(right: 8),
+    return SizedBox(
+      width: 120.w,
+      height: 265.h,  
       child: Card(
-        color: ColorManager.white ,
-        elevation: 2,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        margin: EdgeInsets.only(right: 14),
+        color: ColorManager.white,
+        shadowColor: Colors.black.withOpacity(0.3),
+        elevation: 6,
+      
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: Padding(
           padding: const EdgeInsets.all(8),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max, 
             children: [
-              verticalSpace(height: 16.h),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(50.h),
-                child: Image.asset(image , width: 80, height: 80, fit: BoxFit.cover),
+             
+              verticalSpace(height: 4.h), 
+              
+              Padding(
+                // padding: EdgeInsets.all(8),
+                padding:  EdgeInsets.only(top: 16 ,left: 16),
+                child: SizedBox(
+                  width: 80.w,
+                  height: 80.w,
+                  child: ClipOval(
+
+                    child: Image.asset(image, fit: BoxFit.cover),
+                  ),
+                ),
               ),
-              verticalSpace(height: 23.h),
-              Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
-              verticalSpace(height: 8.h),
-              Text(specialty, style: const TextStyle(color: Colors.grey)),
-              const SizedBox(height: 4),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(Icons.star, color: Colors.amber, size: 16),
-                  Text(rating.toString(), style: const TextStyle(fontWeight: FontWeight.bold)),
-                  const SizedBox(width: 4),
-                  Text(distance, style: const TextStyle(color: Colors.grey)),
-                ],
+
+              verticalSpace(height: 23.h), 
+
+              
+              Flexible( 
+                child: Text(
+                  name,
+                  style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500),
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis, 
+                ),
+              ),
+
+              verticalSpace(height: 4.h), 
+              
+              Flexible(
+                child: Text(
+                  specialty,
+                  style: Styles.font11MainGray400Weight,
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis, 
+                ),
+              ),
+
+              verticalSpace(height: 4.h), 
+
+              
+              Expanded( 
+                child: Row(
+                  
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(Icons.star, color: ColorManager.primaryBlue, size: 12.sp),
+                    Text(rating.toString(), style: Styles.font10PrimaryBlue500Weight , ),
+                    horizontalSpace(width: 4.w),
+                    Icon(Icons.location_on, color: ColorManager.MainGray, size: 12.sp),
+                    Text(distance, style: Styles.font10GrayLIGHT500Weight, overflow: TextOverflow.ellipsis),
+                  ],
+                ),
               ),
             ],
           ),
         ),
       ),
     );
+    
   }
 }

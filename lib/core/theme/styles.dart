@@ -94,4 +94,29 @@ class Styles {
     fontWeight: FontWeight.w600,
     color: ColorManager.black,
   );
+  static TextStyle font12Black500Weight = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w500,
+    color: ColorManager.black,
+  );
+  static TextStyle font11MainGray400Weight = TextStyle(
+    fontSize: 11.sp,
+    fontWeight: FontWeight.w400,
+    color: ColorManager.MainGray,
+  );
+  static TextStyle font10GrayLIGHT500Weight = TextStyle(
+    fontSize: 10.sp,
+    fontWeight: FontWeight.w500,
+    color: ColorManager.GrayLIGHT,
+  );
+  static TextStyle font10PrimaryBlue500Weight = TextStyle(
+    fontSize: 10.sp,
+    fontWeight: FontWeight.w500,
+    color: ColorManager.primaryBlue,
+  );
+  static TextStyle font11White500Weight = TextStyle(
+    fontSize: 11.sp,
+    fontWeight: FontWeight.w500,
+    color: ColorManager.white,
+  );
 }

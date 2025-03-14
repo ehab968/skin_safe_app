@@ -63,7 +63,7 @@ class GetStartedButton extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () {
             context.pushNamedAndRemoveUntil(
-              Routes.loginView,
+              Routes.GetStartedView,
               predicate: (route) => false,
             );
           },
