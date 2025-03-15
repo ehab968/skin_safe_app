@@ -13,6 +13,7 @@ import 'package:skin_care_app/features/authentication/reset_password/ui/reset_pa
 import 'package:skin_care_app/features/authentication/sign_up/logic/sign_up_cubit/sign_up_cubit.dart';
 import 'package:skin_care_app/features/authentication/sign_up/ui/sign_up_view.dart';
 import 'package:skin_care_app/features/authentication/sign_up/ui/sign_up_view_2.dart';
+import 'package:skin_care_app/features/scan/ui/widgets/scan_report_view.dart';
 import 'package:skin_care_app/features/splash/splash_view.dart';
 
 class AppRouter {
@@ -58,16 +59,14 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const ThirdOnBoardingView());
       case Routes.homeView:
         return MaterialPageRoute(builder: (_) => const HomeView());
+      case Routes.scanReportView:
+        final imagePath = settings.arguments as String?;
+        return MaterialPageRoute(
+          builder: (_) => ScanReportView(imagePath: imagePath ?? ''),
+        );
 
       default:
-        return MaterialPageRoute(
-          builder:
-              (_) => Scaffold(
-                body: Center(
-                  child: Text('No route defined for ${settings.name}'),
-                ),
-              ),
-        );
+        return null;
     }
   }
 }
