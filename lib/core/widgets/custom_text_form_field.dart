@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
@@ -27,6 +28,7 @@ class CustomTextFormField extends StatefulWidget {
     required this.validator,
     this.autovalidateMode,
     this.keyboardType,
+    this.inputFormatters,
   });
   final String hint;
   final int maxline;
@@ -47,6 +49,7 @@ class CustomTextFormField extends StatefulWidget {
   final Function(String?) validator;
   final AutovalidateMode? autovalidateMode;
   final TextInputType? keyboardType;
+  final List<TextInputFormatter>? inputFormatters;
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -70,6 +73,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     return TextFormField(
       focusNode: widget.focusNode ?? focusNode,
       controller: widget.controller,
+      inputFormatters: const [],
       autofocus: widget.autoFocus ?? false,
       onChanged: widget.onChanged,
       onSaved: widget.onSaved,
@@ -85,34 +89,33 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       decoration: InputDecoration(
         isDense: true,
         suffixIcon: widget.suffixIcon,
-        contentPadding: widget.padding ??
-            EdgeInsets.symmetric(
-              horizontal: 20.w,
-              vertical: 15.h,
-            ),
+        contentPadding:
+            widget.padding ??
+            EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
         hintText: widget.hint,
-        hintStyle: widget.hintStyle ??
+        hintStyle:
+            widget.hintStyle ??
             (isFocused
                 ? Styles.font14PrimaryBlue300Weight
                 : Styles.font14LightGray300Weight),
-        fillColor: widget.backgroundColor ??
+        fillColor:
+            widget.backgroundColor ??
             (isFocused ? Colors.white : ColorManager.lighterGray),
         filled: true,
         border: buildBorder(),
-        enabledBorder:
-            buildBorder(widget.enabledBordrColor ?? ColorManager.lighterGray),
-        focusedBorder:
-            buildBorder(widget.focusedBorderColor ?? ColorManager.primaryBlue),
+        enabledBorder: buildBorder(
+          widget.enabledBordrColor ?? ColorManager.lighterGray,
+        ),
+        focusedBorder: buildBorder(
+          widget.focusedBorderColor ?? ColorManager.primaryBlue,
+        ),
       ),
     );
   }
 
   OutlineInputBorder buildBorder([color]) {
     return OutlineInputBorder(
-      borderSide: BorderSide(
-        width: 1.4,
-        color: color ?? Colors.white,
-      ),
+      borderSide: BorderSide(width: 1.4, color: color ?? Colors.white),
       borderRadius: BorderRadius.circular(widget.borderRadius),
     );
   }

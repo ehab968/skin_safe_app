@@ -11,15 +11,12 @@ class ForgetYourPasswordSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         verticalSpace(height: 80),
-        Text(
-          'Forgot your password?',
-          style: Styles.font24Black600Weight,
-        ),
+        Text('Forgot your password?', style: Styles.font24Black600Weight),
         verticalSpace(height: 8),
         Text(
           'Enter your email address or phone number, we will send you a confirmation code',
           style: Styles.font16Gray300Weight,
-        )
+        ),
       ],
     );
   }

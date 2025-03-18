@@ -38,10 +38,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Email',
-            style: Styles.font16Black400Weight,
-          ),
+          Text('Email', style: Styles.font16Black400Weight),
           verticalSpace(height: 8),
           const CustomTextFormField(
             hint: 'Enter Your Email Or Phone Number',
@@ -50,10 +47,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             validator: AppValidators.validateEmailOrPhone,
           ),
           verticalSpace(height: 32),
-          Text(
-            'Password',
-            style: Styles.font16Black400Weight,
-          ),
+          Text('Password', style: Styles.font16Black400Weight),
           verticalSpace(height: 8),
           CustomTextFormField(
             hint: 'Enter Your Password',
@@ -64,9 +58,10 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             validator: AppValidators.validatePassword,
             backgroundColor:
                 isPasswordFocused ? Colors.white : ColorManager.lighterGray,
-            hintStyle: isPasswordFocused
-                ? Styles.font14PrimaryBlue300Weight
-                : Styles.font14LightGray300Weight,
+            hintStyle:
+                isPasswordFocused
+                    ? Styles.font14PrimaryBlue300Weight
+                    : Styles.font14LightGray300Weight,
             suffixIcon: IconButton(
               onPressed: () {
                 setState(() {
@@ -76,9 +71,10 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
               icon: Icon(
                 size: 24.r,
                 isobsecure ? Icons.visibility_off : Icons.visibility,
-                color: passwordFocusNode.hasFocus
-                    ? ColorManager.primaryBlue
-                    : ColorManager.lightGray,
+                color:
+                    passwordFocusNode.hasFocus
+                        ? ColorManager.primaryBlue
+                        : ColorManager.lightGray,
               ),
             ),
           ),

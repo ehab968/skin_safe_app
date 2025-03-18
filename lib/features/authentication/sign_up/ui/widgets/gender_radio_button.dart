@@ -13,19 +13,14 @@ class GenderRadioButtons extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Gender',
-          style: Styles.font16Black400Weight,
-        ),
+        Text('Gender', style: Styles.font16Black400Weight),
         SizedBox(
           width: double.infinity,
           child: FormBuilderRadioGroup(
             validator: AppValidators.validateEmpty,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             activeColor: ColorManager.primaryBlue,
-            decoration: const InputDecoration(
-              border: InputBorder.none,
-            ),
+            decoration: const InputDecoration(border: InputBorder.none),
             wrapSpacing: 85.w,
             name: 'Gender',
             options: [
@@ -33,18 +28,12 @@ class GenderRadioButtons extends StatelessWidget {
                 value: "male",
                 child: Padding(
                   padding: const EdgeInsets.all(0),
-                  child: Text(
-                    "Male",
-                    style: Styles.font14darkGray400Weight,
-                  ),
+                  child: Text("Male", style: Styles.font14darkGray400Weight),
                 ),
               ),
               FormBuilderFieldOption(
                 value: "female",
-                child: Text(
-                  "Female",
-                  style: Styles.font14darkGray400Weight,
-                ),
+                child: Text("Female", style: Styles.font14darkGray400Weight),
               ),
             ],
           ),

@@ -41,17 +41,15 @@ class _SignUp2TextFormFieldsState extends State<SignUp2TextFormFields> {
       children: [
         const UserNameAndEmailTextFormField(),
         verticalSpace(height: 16),
-        Text(
-          'Password',
-          style: Styles.font16Black400Weight,
-        ),
+        Text('Password', style: Styles.font16Black400Weight),
         verticalSpace(height: 8),
         CustomTextFormField(
           hint: 'Enter Your Password',
           hintStyle: TextStyle(
-            color: isPasswordFocused
-                ? ColorManager.primaryBlue
-                : ColorManager.lightGray,
+            color:
+                isPasswordFocused
+                    ? ColorManager.primaryBlue
+                    : ColorManager.lightGray,
           ),
           focusNode: passwordFocusNode,
           autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -62,9 +60,10 @@ class _SignUp2TextFormFieldsState extends State<SignUp2TextFormFields> {
           backgroundColor:
               isPasswordFocused ? Colors.white : ColorManager.lighterGray,
           suffixIcon: IconButton(
-            color: passwordFocusNode.hasFocus
-                ? ColorManager.primaryBlue
-                : ColorManager.lightGray,
+            color:
+                passwordFocusNode.hasFocus
+                    ? ColorManager.primaryBlue
+                    : ColorManager.lightGray,
             icon: Icon(
               size: 24.r,
               isobsecure1 ? Icons.visibility_off : Icons.visibility,
@@ -77,17 +76,15 @@ class _SignUp2TextFormFieldsState extends State<SignUp2TextFormFields> {
           ),
         ),
         verticalSpace(height: 16),
-        Text(
-          'Confirm Password',
-          style: Styles.font16Black400Weight,
-        ),
+        Text('Confirm Password', style: Styles.font16Black400Weight),
         verticalSpace(height: 8),
         CustomTextFormField(
           hint: 'Confirm Password',
           hintStyle: TextStyle(
-            color: isConfirmPasswordFocused
-                ? ColorManager.primaryBlue
-                : ColorManager.lightGray,
+            color:
+                isConfirmPasswordFocused
+                    ? ColorManager.primaryBlue
+                    : ColorManager.lightGray,
           ),
           focusNode: confirmPasswordFocusNode,
           autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -95,13 +92,15 @@ class _SignUp2TextFormFieldsState extends State<SignUp2TextFormFields> {
           validator: AppValidators.validatePassword,
           borderRadius: 10,
           isObscure: isobsecure2,
-          backgroundColor: isConfirmPasswordFocused
-              ? Colors.white
-              : ColorManager.lighterGray,
+          backgroundColor:
+              isConfirmPasswordFocused
+                  ? Colors.white
+                  : ColorManager.lighterGray,
           suffixIcon: IconButton(
-            color: confirmPasswordFocusNode.hasFocus
-                ? ColorManager.primaryBlue
-                : ColorManager.lightGray,
+            color:
+                confirmPasswordFocusNode.hasFocus
+                    ? ColorManager.primaryBlue
+                    : ColorManager.lightGray,
             icon: Icon(
               size: 24.r,
               isobsecure2 ? Icons.visibility_off : Icons.visibility,

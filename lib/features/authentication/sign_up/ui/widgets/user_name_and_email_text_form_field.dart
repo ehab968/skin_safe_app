@@ -12,10 +12,7 @@ class UserNameAndEmailTextFormField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-         Text(
-          'User name',
-          style: Styles.font16Black400Weight,
-        ),
+        Text('User name', style: Styles.font16Black400Weight),
         verticalSpace(height: 8),
         const CustomTextFormField(
           hint: 'Enter Your User name',
@@ -25,10 +22,7 @@ class UserNameAndEmailTextFormField extends StatelessWidget {
           borderRadius: 10,
         ),
         verticalSpace(height: 16),
-        Text(
-          'Email',
-          style: Styles.font16Black400Weight,
-        ),
+        Text('Email', style: Styles.font16Black400Weight),
         verticalSpace(height: 8),
         const CustomTextFormField(
           hint: 'Enter Your Email Or Phone Number',

@@ -27,18 +27,13 @@ class SignUpView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 verticalSpace(height: 80),
-                Text(
-                  'Sign up',
-                  style: Styles.font24Black600Weight,
-                ),
+                Text('Sign up', style: Styles.font24Black600Weight),
                 verticalSpace(height: 16),
                 const NamePhoneNumberBirthDateTextfield(),
                 verticalSpace(height: 16),
                 const GenderRadioButtons(),
                 const SkinToneDropDown(),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.14,
-                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.14),
                 CustomTextButton(
                   textStyle: Styles.font16White500Weight,
                   textName: 'Continue',

@@ -55,7 +55,7 @@ class ConfirmationCodePinAndButton extends StatelessWidget {
                 context.pushReplacementNamed(Routes.resetPasswordView);
               }
             },
-          )
+          ),
         ],
       ),
     );

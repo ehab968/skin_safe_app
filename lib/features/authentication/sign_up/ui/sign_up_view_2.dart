@@ -26,10 +26,7 @@ class SignUpView2 extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 verticalSpace(height: 80),
-                Text(
-                  'Sign up',
-                  style: Styles.font24Black600Weight,
-                ),
+                Text('Sign up', style: Styles.font24Black600Weight),
                 verticalSpace(height: 16),
                 const SignUp2TextFormFields(),
                 verticalSpace(height: 16),

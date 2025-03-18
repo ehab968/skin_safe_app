@@ -5,9 +5,7 @@ import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({
-    super.key,
-  });
+  const HomeViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {

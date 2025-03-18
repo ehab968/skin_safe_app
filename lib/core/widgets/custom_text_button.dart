@@ -51,9 +51,10 @@ class _CustomTextButtonState extends State<CustomTextButton> {
         duration: const Duration(milliseconds: 250),
         curve: Curves.easeIn,
         decoration: BoxDecoration(
-          color: isPressed
-              ? Colors.white
-              : (widget.backgroundColor ?? ColorManager.primaryBlue),
+          color:
+              isPressed
+                  ? Colors.white
+                  : (widget.backgroundColor ?? ColorManager.primaryBlue),
           borderRadius: widget.borderRadius ?? BorderRadius.circular(10),
         ),
         child: TextButton(
@@ -64,13 +65,15 @@ class _CustomTextButtonState extends State<CustomTextButton> {
               borderRadius: widget.borderRadius ?? BorderRadius.circular(10),
             ),
           ),
-          child: widget.child ??
+          child:
+              widget.child ??
               Text(
                 widget.textName!,
                 style: widget.textStyle.copyWith(
-                  color: isPressed
-                      ? ColorManager.primaryBlue
-                      : widget.textStyle.color,
+                  color:
+                      isPressed
+                          ? ColorManager.primaryBlue
+                          : widget.textStyle.color,
                 ),
               ),
         ),

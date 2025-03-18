@@ -51,9 +51,10 @@ class _CreateNewPasswordFormState extends State<CreateNewPasswordForm> {
             validator: AppValidators.validatePassword,
             backgroundColor:
                 isPasswordFocused ? Colors.white : ColorManager.lighterGray,
-            hintStyle: isPasswordFocused
-                ? Styles.font14PrimaryBlue300Weight
-                : Styles.font14LightGray300Weight,
+            hintStyle:
+                isPasswordFocused
+                    ? Styles.font14PrimaryBlue300Weight
+                    : Styles.font14LightGray300Weight,
             suffixIcon: IconButton(
               onPressed: () {
                 setState(() {
@@ -63,9 +64,10 @@ class _CreateNewPasswordFormState extends State<CreateNewPasswordForm> {
               icon: Icon(
                 size: 24.r,
                 isobsecure1 ? Icons.visibility_off : Icons.visibility,
-                color: passwordFocusNode.hasFocus
-                    ? ColorManager.primaryBlue
-                    : ColorManager.lightGray,
+                color:
+                    passwordFocusNode.hasFocus
+                        ? ColorManager.primaryBlue
+                        : ColorManager.lightGray,
               ),
             ),
           ),
@@ -77,12 +79,14 @@ class _CreateNewPasswordFormState extends State<CreateNewPasswordForm> {
             borderRadius: 10,
             isObscure: isobsecure2,
             validator: AppValidators.validatePassword,
-            backgroundColor: isConfirmPasswordFocused
-                ? Colors.white
-                : ColorManager.lighterGray,
-            hintStyle: isConfirmPasswordFocused
-                ? Styles.font14PrimaryBlue300Weight
-                : Styles.font14LightGray300Weight,
+            backgroundColor:
+                isConfirmPasswordFocused
+                    ? Colors.white
+                    : ColorManager.lighterGray,
+            hintStyle:
+                isConfirmPasswordFocused
+                    ? Styles.font14PrimaryBlue300Weight
+                    : Styles.font14LightGray300Weight,
             suffixIcon: IconButton(
               onPressed: () {
                 setState(() {
@@ -92,9 +96,10 @@ class _CreateNewPasswordFormState extends State<CreateNewPasswordForm> {
               icon: Icon(
                 size: 24.r,
                 isobsecure2 ? Icons.visibility_off : Icons.visibility,
-                color: confirmPasswordFocusNode.hasFocus
-                    ? ColorManager.primaryBlue
-                    : ColorManager.lightGray,
+                color:
+                    confirmPasswordFocusNode.hasFocus
+                        ? ColorManager.primaryBlue
+                        : ColorManager.lightGray,
               ),
             ),
           ),

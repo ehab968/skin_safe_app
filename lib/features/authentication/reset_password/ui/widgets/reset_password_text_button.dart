@@ -6,10 +6,7 @@ import 'package:skin_care_app/core/theme/styles.dart';
 import 'package:skin_care_app/core/widgets/custom_text_button.dart';
 
 class ResetPasswordTextButton extends StatelessWidget {
-  const ResetPasswordTextButton({
-    super.key,
-    required this.formKey,
-  });
+  const ResetPasswordTextButton({super.key, required this.formKey});
 
   final GlobalKey<FormState> formKey;
 

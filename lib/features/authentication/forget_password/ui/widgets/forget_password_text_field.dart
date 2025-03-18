@@ -47,12 +47,14 @@ class _ForgetPasswordTextFieldState extends State<ForgetPasswordTextField> {
             validator: AppValidators.validateEmailOrPhone,
             focusNode: forgetPasswordFocusNode,
             borderRadius: 10,
-            backgroundColor: isForgetPasswordFocused
-                ? Colors.white
-                : ColorManager.lighterGray,
-            hintStyle: isForgetPasswordFocused
-                ? Styles.font14PrimaryBlue300Weight
-                : Styles.font14LightGray300Weight,
+            backgroundColor:
+                isForgetPasswordFocused
+                    ? Colors.white
+                    : ColorManager.lighterGray,
+            hintStyle:
+                isForgetPasswordFocused
+                    ? Styles.font14PrimaryBlue300Weight
+                    : Styles.font14LightGray300Weight,
           ),
           verticalSpace(height: 42),
           CustomTextButton(

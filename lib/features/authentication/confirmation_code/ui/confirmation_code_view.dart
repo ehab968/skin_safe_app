@@ -17,7 +17,7 @@ class ConfirmationCodeView extends StatelessWidget {
           children: [
             const ConfirmationCodeText(),
             verticalSpace(height: 32),
-             ConfirmationCodePinAndButton(),
+            ConfirmationCodePinAndButton(),
           ],
         ),
       ),

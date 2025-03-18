@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:skin_care_app/core/helper/app_validator.dart';
 import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
@@ -12,10 +13,7 @@ class NamePhoneNumberBirthDateTextfield extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Name',
-          style: Styles.font16Black400Weight,
-        ),
+        Text('Name', style: Styles.font16Black400Weight),
         verticalSpace(height: 8),
         const CustomTextFormField(
           hint: 'Enter Your Full name',
@@ -24,10 +22,7 @@ class NamePhoneNumberBirthDateTextfield extends StatelessWidget {
           borderRadius: 10,
         ),
         verticalSpace(height: 16),
-        Text(
-          'Phone Number',
-          style: Styles.font16Black400Weight,
-        ),
+        Text('Phone Number', style: Styles.font16Black400Weight),
         verticalSpace(height: 8),
         const CustomTextFormField(
           hint: '(+20) 10 222 333 44',
@@ -37,10 +32,7 @@ class NamePhoneNumberBirthDateTextfield extends StatelessWidget {
           borderRadius: 10,
         ),
         verticalSpace(height: 16),
-        Text(
-          'Date of Birth',
-          style: Styles.font16Black400Weight,
-        ),
+        Text('Date of Birth', style: Styles.font16Black400Weight),
         verticalSpace(height: 8),
         const CustomTextFormField(
           hint: 'DD/MM/YY',

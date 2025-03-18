@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/helper/spacing.dart';
-import 'package:skin_care_app/core/routing/routes.dart';
 import 'package:skin_care_app/features/scan/logic/camera_cubit/camera_cubit.dart';
-import 'package:skin_care_app/features/scan/logic/camera_cubit/camera_state.dart';
+import 'package:skin_care_app/features/scan/ui/widgets/camera_button.dart';
+import 'package:skin_care_app/features/scan/ui/widgets/flash_button.dart';
+import 'package:skin_care_app/features/scan/ui/widgets/flip_camera_button.dart';
+import 'package:skin_care_app/features/scan/ui/widgets/gallery_button.dart';
+import 'package:skin_care_app/features/scan/ui/widgets/image_bloc_listner.dart';
 
 class CameraPreviewSection extends StatelessWidget {
   const CameraPreviewSection({super.key, required this.cameraController});
@@ -16,47 +19,41 @@ class CameraPreviewSection extends StatelessWidget {
     return Stack(
       children: [
         SizedBox(
-          height: double.infinity,
-          child: CameraPreview(cameraController),
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.center,
-
-          children: [
-            Center(
-              child: SizedBox(
-                height: 75.h,
-                width: 75.w,
-                child: BlocListener<CameraCubit, CameraState>(
-                  listener: (context, state) {
-                    state.maybeWhen(
-                      imageCaptured: (imagePath) {
-                        Navigator.pushNamed(
-                          context,
-                          Routes.scanReportView,
-                          arguments: imagePath,
-                        );
-                      },
-                      orElse: () {},
-                    );
-                  },
-                  child: FloatingActionButton(
-                    elevation: 0,
-                    highlightElevation: 0,
-                    onPressed: () {
-                      context.read<CameraCubit>().captureImage();
-                    },
-                    backgroundColor: Colors.transparent,
-                    child: Image.asset(
-                      'assets/images/capture photo button.png',
-                    ),
-                  ),
+          height: MediaQuery.of(context).size.height,
+          child: Transform(
+            alignment: Alignment.center,
+            transform:
+                Matrix4.identity()..scale(
+                  context.read<CameraCubit>().selectedCameraIndex == 1
+                      ? -1.0
+                      : 1.0,
+                  1.0,
+                  1.0,
                 ),
+            child: CameraPreview(cameraController),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 55.w),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              verticalSpace(height: 85),
+              const FlashButton(),
+              const Spacer(),
+              const Row(
+                children: [
+                  ImageBlocListener(),
+                  GalleryButton(),
+                  Spacer(),
+                  CameraButton(),
+                  Spacer(),
+                  FlipCameraButton(),
+                ],
               ),
-            ),
-            verticalSpace(height: 28),
-          ],
+              verticalSpace(height: 28),
+            ],
+          ),
         ),
       ],
     );

@@ -39,10 +39,7 @@ class _SkinToneDropDownState extends State<SkinToneDropDown> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Skin Tone',
-          style: Styles.font16Black400Weight,
-        ),
+        Text('Skin Tone', style: Styles.font16Black400Weight),
         verticalSpace(height: 8),
         SizedBox(
           width: 254.w,
@@ -51,10 +48,7 @@ class _SkinToneDropDownState extends State<SkinToneDropDown> {
             validator: AppValidators.validateEmpty,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             value: selectedValue,
-            hint: Text(
-              'Select option',
-              style: Styles.font14darkGray500Weight,
-            ),
+            hint: Text('Select option', style: Styles.font14darkGray500Weight),
             isExpanded: true,
             isDense: true,
             decoration: const InputDecoration(
@@ -69,9 +63,7 @@ class _SkinToneDropDownState extends State<SkinToneDropDown> {
               height: 30.h,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
-                border: Border.all(
-                  color: Colors.black,
-                ),
+                border: Border.all(color: Colors.black),
               ),
             ),
             dropdownStyleData: DropdownStyleData(
@@ -80,9 +72,7 @@ class _SkinToneDropDownState extends State<SkinToneDropDown> {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(5),
-                border: Border.all(
-                  color: Colors.black,
-                ),
+                border: Border.all(color: Colors.black),
               ),
             ),
             menuItemStyleData: MenuItemStyleData(
@@ -90,27 +80,27 @@ class _SkinToneDropDownState extends State<SkinToneDropDown> {
               height: 30.h,
             ),
             iconStyleData: IconStyleData(
-              icon: isFocused
-                  ? const Icon(Icons.arrow_drop_up)
-                  : const Icon(Icons.arrow_drop_down),
+              icon:
+                  isFocused
+                      ? const Icon(Icons.arrow_drop_up)
+                      : const Icon(Icons.arrow_drop_down),
             ),
-            items: items
-                .map(
-                  (String item) => DropdownMenuItem<String>(
-                    value: item,
-                    child: Text(
-                      item,
-                      style: Styles.font14darkGray500Weight,
-                    ),
-                  ),
-                )
-                .toList(),
+            items:
+                items
+                    .map(
+                      (String item) => DropdownMenuItem<String>(
+                        value: item,
+                        child: Text(
+                          item,
+                          style: Styles.font14darkGray500Weight,
+                        ),
+                      ),
+                    )
+                    .toList(),
             onChanged: (value) {
-              setState(
-                () {
-                  selectedValue = value;
-                },
-              );
+              setState(() {
+                selectedValue = value;
+              });
             },
           ),
         ),

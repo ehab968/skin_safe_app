@@ -11,15 +11,9 @@ class CreateNewPasswordText extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         verticalSpace(height: 80),
-        Text(
-          'Create a new password',
-          style: Styles.font24Black600Weight,
-        ),
+        Text('Create a new password', style: Styles.font24Black600Weight),
         verticalSpace(height: 8),
-        Text(
-          'Create a new login password',
-          style: Styles.font16Gray300Weight,
-        )
+        Text('Create a new login password', style: Styles.font16Gray300Weight),
       ],
     );
   }
