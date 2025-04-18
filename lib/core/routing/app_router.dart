@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skin_care_app/core/routing/routes.dart';
+
+import 'package:skin_care_app/features/Appointment_details/appointment_screen.dart';
+import 'package:skin_care_app/features/BookingAppointment/ui/widgets/appointment_confirmation.dart';
+import 'package:skin_care_app/features/My_Appointments/myAppointment_screen.dart';
+
 import 'package:skin_care_app/features/about_doctor/about_doctor_section/ui/about_doctor_view.dart';
+
 import 'package:skin_care_app/features/authentication/login/ui/login_view.dart';
 import 'package:skin_care_app/features/home/ui/home_view.dart';
+import 'package:skin_care_app/features/on_boarding/ui/get_started_view.dart';
 import 'package:skin_care_app/features/on_boarding/ui/on_boarding_view.dart';
 import 'package:skin_care_app/features/on_boarding/ui/second_on_boarding_view.dart';
 import 'package:skin_care_app/features/on_boarding/ui/third_on_boarding_view.dart';
@@ -62,7 +69,23 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const ThirdOnBoardingView());
       case Routes.homeView:
         return MaterialPageRoute(builder: (_) => const HomeView());
+
+ case Routes.GetStartedView:
+        return MaterialPageRoute(builder: (_) => const GetStartedView());
+
+        case Routes.showAppointmentConfirmation:
+        return MaterialPageRoute(builder: (_) =>  showAppointmentConfirmation());
+         case Routes.AppointmentScreen :
+        return MaterialPageRoute(builder: (_) => const AppointmentScreen());
+
+         case Routes.MyAppointmentsScreen :
+        return MaterialPageRoute(builder: (_) =>  MyAppointmentsScreen());
+
+
+      default:
+
       case Routes.scanView:
+
         return MaterialPageRoute(
           builder:
               (_) => BlocProvider(

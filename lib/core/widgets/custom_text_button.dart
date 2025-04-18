@@ -47,6 +47,7 @@ class _CustomTextButtonState extends State<CustomTextButton> {
               color:
                   isPressed ? ColorManager.primaryBlue : widget.textStyle.color,
             ),
+
           ),
         ),
       ),

@@ -13,4 +13,9 @@ class Routes {
   static const String aboutDoctorView = '/aboutDoctorView';
   static const String secondOnBoardingView = '/SecondOnBoardingView';
   static const String thirdOnBoardingView = '/ThirdOnBoardingView';
+  static const String GetStartedView = '/GetStartedView';
+  static const String showAppointmentConfirmation =
+      '/showAppointmentConfirmation';
+  static const String AppointmentScreen = '/AppointmentScreen';
+  static const String MyAppointmentsScreen = '/MyAppointmentsScreen';
 }

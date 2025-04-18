@@ -1,4 +1,4 @@
-// import 'package:device_preview/device_preview.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/routing/app_router.dart';
@@ -14,9 +14,7 @@ class SkinSafeApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       child: MaterialApp(
-        //   useInheritedMediaQuery: true,
-        //  locale: DevicePreview.locale(context),
-        //  builder: DevicePreview.appBuilder,
+
         debugShowCheckedModeBanner: false,
         initialRoute: Routes.homeView,
         onGenerateRoute: AppRouter().generateRoute,
