@@ -103,8 +103,8 @@ class DoctorsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 120.w,
-      height: 265.h,  
+      width: 139.w,
+      height: 165.h,  
       child: Card(
         margin: EdgeInsets.only(right: 14),
         color: ColorManager.white,

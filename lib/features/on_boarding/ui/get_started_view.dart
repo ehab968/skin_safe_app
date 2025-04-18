@@ -51,7 +51,9 @@ class GetStartedView extends StatelessWidget {
               verticalSpace(height: 16.h),
               
               CustomTextButton(
-                textStyle: Styles.font16White500Weight,
+                borderSide: BorderSide(color: ColorManager.primaryBlue),
+                backgroundColor: ColorManager.white,
+                textStyle: Styles.font16PrimaryBlue500Weight,
                 textName: 'Sign up',
                 onPressed: () {
                   context.pushNamed(Routes.signUpView);

@@ -13,6 +13,7 @@ class CustomTextButton extends StatefulWidget {
     this.width,
     required this.textStyle,
     this.child,
+    this.borderSide ,
   });
 
   final String? textName;
@@ -22,6 +23,7 @@ class CustomTextButton extends StatefulWidget {
   final double? height, width;
   final TextStyle textStyle;
   final Widget? child;
+  final BorderSide? borderSide;
 
   @override
   State<CustomTextButton> createState() => _CustomTextButtonState();
@@ -63,6 +65,8 @@ class _CustomTextButtonState extends State<CustomTextButton> {
             shape: RoundedRectangleBorder(
               borderRadius: widget.borderRadius ?? BorderRadius.circular(10),
             ),
+            side: widget.borderSide != null ? widget.borderSide : null,
+
           ),
           child: widget.child ??
               Text(

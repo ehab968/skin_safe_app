@@ -177,7 +177,7 @@ class _SkinSafeAppState extends State<UvIndex>
 Widget build(BuildContext context) {
   return Container(
     width: 343.w,
-    height: 199.h, // زيادة الارتفاع لتجنب overflow
+    height: 260.h, // زيادة الارتفاع لتجنب overflow
     decoration: BoxDecoration(
       color: ColorManager.primaryBlue,
       borderRadius: BorderRadius.circular(12),
@@ -191,11 +191,11 @@ Widget build(BuildContext context) {
           AnimatedBuilder(
             animation: _animation,
             builder: (_, __) => CustomPaint(
-              size: Size(300, 150),
+              size: Size(240, 90),
               painter: UVIndexArcPainter(_animation.value),
             ),
           ),
-          SizedBox(height: 10), // تقليل المسافة بين القوس والنص
+          SizedBox(height: 5.h), // تقليل المسافة بين القوس والنص
           AnimatedBuilder(
             animation: _animation,
             builder: (_, __) => Column(
@@ -203,7 +203,7 @@ Widget build(BuildContext context) {
                 Text(
                   _animation.value.toInt().toString(),
                   style: TextStyle(
-                    fontSize: 40, // تصغير الخط لتجنب overflow
+                    fontSize: 32, // تصغير الخط لتجنب overflow
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
