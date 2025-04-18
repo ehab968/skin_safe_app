@@ -10,16 +10,20 @@ class AppBottomNavigationBar extends StatelessWidget {
     required this.onTap,
   });
 
-  final int currentIndex;
+  final int? currentIndex;
   final Function(int) onTap;
 
   @override
   Widget build(BuildContext context) {
+    bool isValidIndex =
+        currentIndex != null && currentIndex! >= 0 && currentIndex! < 5;
+
     return BottomNavigationBar(
-      currentIndex: currentIndex,
+      currentIndex: isValidIndex ? currentIndex! : 0,
       onTap: onTap,
       type: BottomNavigationBarType.fixed,
-      selectedItemColor: ColorManager.primaryBlue,
+      selectedItemColor:
+          isValidIndex ? ColorManager.primaryBlue : ColorManager.black,
       unselectedItemColor: ColorManager.black,
       iconSize: 24.r,
 

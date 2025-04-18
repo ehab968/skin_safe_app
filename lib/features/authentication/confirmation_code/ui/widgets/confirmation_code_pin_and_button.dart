@@ -47,6 +47,7 @@ class ConfirmationCodePinAndButton extends StatelessWidget {
           verticalSpace(height: 32),
           CustomTextButton(
             textName: 'Verify Code',
+            backgroundColor: ColorManager.primaryBlue,
             height: 48.h,
             width: double.infinity,
             textStyle: Styles.font16White500Weight,

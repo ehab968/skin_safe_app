@@ -15,7 +15,9 @@ class CameraButton extends StatelessWidget {
         elevation: 0,
         highlightElevation: 0,
         onPressed: () {
-          context.read<CameraCubit>().captureImage();
+          context.read<CameraCubit>().isCapturing
+              ? null
+              : context.read<CameraCubit>().captureImage();
         },
         backgroundColor: Colors.transparent,
         child: Image.asset('assets/images/capture photo button.png'),

@@ -12,8 +12,7 @@ part of 'camera_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CameraState {
@@ -22,65 +21,70 @@ mixin _$CameraState {
     required TResult Function() initial,
     required TResult Function(List<CameraDescription> cameras) loaded,
     required TResult Function(CameraController cameraController) cameraReady,
-    required TResult Function() flashToggled,
     required TResult Function(String message) error,
+    required TResult Function(double zoomLevel) zoomChanged,
     required TResult Function(String imagePath) imageCaptured,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(List<CameraDescription> cameras)? loaded,
     TResult? Function(CameraController cameraController)? cameraReady,
-    TResult? Function()? flashToggled,
     TResult? Function(String message)? error,
+    TResult? Function(double zoomLevel)? zoomChanged,
     TResult? Function(String imagePath)? imageCaptured,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<CameraDescription> cameras)? loaded,
     TResult Function(CameraController cameraController)? cameraReady,
-    TResult Function()? flashToggled,
     TResult Function(String message)? error,
+    TResult Function(double zoomLevel)? zoomChanged,
     TResult Function(String imagePath)? imageCaptured,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(CameraLoaded value) loaded,
     required TResult Function(CameraReady value) cameraReady,
-    required TResult Function(FlashToggled value) flashToggled,
     required TResult Function(CameraError value) error,
+    required TResult Function(ZoomChanged value) zoomChanged,
     required TResult Function(ImageCaptured value) imageCaptured,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(CameraLoaded value)? loaded,
     TResult? Function(CameraReady value)? cameraReady,
-    TResult? Function(FlashToggled value)? flashToggled,
     TResult? Function(CameraError value)? error,
+    TResult? Function(ZoomChanged value)? zoomChanged,
     TResult? Function(ImageCaptured value)? imageCaptured,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(CameraLoaded value)? loaded,
     TResult Function(CameraReady value)? cameraReady,
-    TResult Function(FlashToggled value)? flashToggled,
     TResult Function(CameraError value)? error,
+    TResult Function(ZoomChanged value)? zoomChanged,
     TResult Function(ImageCaptured value)? imageCaptured,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $CameraStateCopyWith<$Res> {
   factory $CameraStateCopyWith(
-    CameraState value,
-    $Res Function(CameraState) then,
-  ) = _$CameraStateCopyWithImpl<$Res, CameraState>;
+          CameraState value, $Res Function(CameraState) then) =
+      _$CameraStateCopyWithImpl<$Res, CameraState>;
 }
 
 /// @nodoc
@@ -100,9 +104,8 @@ class _$CameraStateCopyWithImpl<$Res, $Val extends CameraState>
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
-    _$InitialImpl value,
-    $Res Function(_$InitialImpl) then,
-  ) = __$$InitialImplCopyWithImpl<$Res>;
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -110,9 +113,8 @@ class __$$InitialImplCopyWithImpl<$Res>
     extends _$CameraStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
-    _$InitialImpl _value,
-    $Res Function(_$InitialImpl) _then,
-  ) : super(_value, _then);
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of CameraState
   /// with the given fields replaced by the non-null parameter values.
@@ -143,8 +145,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function(List<CameraDescription> cameras) loaded,
     required TResult Function(CameraController cameraController) cameraReady,
-    required TResult Function() flashToggled,
     required TResult Function(String message) error,
+    required TResult Function(double zoomLevel) zoomChanged,
     required TResult Function(String imagePath) imageCaptured,
   }) {
     return initial();
@@ -156,8 +158,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function(List<CameraDescription> cameras)? loaded,
     TResult? Function(CameraController cameraController)? cameraReady,
-    TResult? Function()? flashToggled,
     TResult? Function(String message)? error,
+    TResult? Function(double zoomLevel)? zoomChanged,
     TResult? Function(String imagePath)? imageCaptured,
   }) {
     return initial?.call();
@@ -169,8 +171,8 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function(List<CameraDescription> cameras)? loaded,
     TResult Function(CameraController cameraController)? cameraReady,
-    TResult Function()? flashToggled,
     TResult Function(String message)? error,
+    TResult Function(double zoomLevel)? zoomChanged,
     TResult Function(String imagePath)? imageCaptured,
     required TResult orElse(),
   }) {
@@ -186,8 +188,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(CameraLoaded value) loaded,
     required TResult Function(CameraReady value) cameraReady,
-    required TResult Function(FlashToggled value) flashToggled,
     required TResult Function(CameraError value) error,
+    required TResult Function(ZoomChanged value) zoomChanged,
     required TResult Function(ImageCaptured value) imageCaptured,
   }) {
     return initial(this);
@@ -199,8 +201,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(CameraLoaded value)? loaded,
     TResult? Function(CameraReady value)? cameraReady,
-    TResult? Function(FlashToggled value)? flashToggled,
     TResult? Function(CameraError value)? error,
+    TResult? Function(ZoomChanged value)? zoomChanged,
     TResult? Function(ImageCaptured value)? imageCaptured,
   }) {
     return initial?.call(this);
@@ -212,8 +214,8 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(CameraLoaded value)? loaded,
     TResult Function(CameraReady value)? cameraReady,
-    TResult Function(FlashToggled value)? flashToggled,
     TResult Function(CameraError value)? error,
+    TResult Function(ZoomChanged value)? zoomChanged,
     TResult Function(ImageCaptured value)? imageCaptured,
     required TResult orElse(),
   }) {
@@ -231,9 +233,8 @@ abstract class _Initial implements CameraState {
 /// @nodoc
 abstract class _$$CameraLoadedImplCopyWith<$Res> {
   factory _$$CameraLoadedImplCopyWith(
-    _$CameraLoadedImpl value,
-    $Res Function(_$CameraLoadedImpl) then,
-  ) = __$$CameraLoadedImplCopyWithImpl<$Res>;
+          _$CameraLoadedImpl value, $Res Function(_$CameraLoadedImpl) then) =
+      __$$CameraLoadedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<CameraDescription> cameras});
 }
@@ -243,23 +244,22 @@ class __$$CameraLoadedImplCopyWithImpl<$Res>
     extends _$CameraStateCopyWithImpl<$Res, _$CameraLoadedImpl>
     implements _$$CameraLoadedImplCopyWith<$Res> {
   __$$CameraLoadedImplCopyWithImpl(
-    _$CameraLoadedImpl _value,
-    $Res Function(_$CameraLoadedImpl) _then,
-  ) : super(_value, _then);
+      _$CameraLoadedImpl _value, $Res Function(_$CameraLoadedImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of CameraState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? cameras = null}) {
-    return _then(
-      _$CameraLoadedImpl(
-        null == cameras
-            ? _value._cameras
-            : cameras // ignore: cast_nullable_to_non_nullable
-                as List<CameraDescription>,
-      ),
-    );
+  $Res call({
+    Object? cameras = null,
+  }) {
+    return _then(_$CameraLoadedImpl(
+      null == cameras
+          ? _value._cameras
+          : cameras // ignore: cast_nullable_to_non_nullable
+              as List<CameraDescription>,
+    ));
   }
 }
 
@@ -267,7 +267,7 @@ class __$$CameraLoadedImplCopyWithImpl<$Res>
 
 class _$CameraLoadedImpl implements CameraLoaded {
   const _$CameraLoadedImpl(final List<CameraDescription> cameras)
-    : _cameras = cameras;
+      : _cameras = cameras;
 
   final List<CameraDescription> _cameras;
   @override
@@ -308,8 +308,8 @@ class _$CameraLoadedImpl implements CameraLoaded {
     required TResult Function() initial,
     required TResult Function(List<CameraDescription> cameras) loaded,
     required TResult Function(CameraController cameraController) cameraReady,
-    required TResult Function() flashToggled,
     required TResult Function(String message) error,
+    required TResult Function(double zoomLevel) zoomChanged,
     required TResult Function(String imagePath) imageCaptured,
   }) {
     return loaded(cameras);
@@ -321,8 +321,8 @@ class _$CameraLoadedImpl implements CameraLoaded {
     TResult? Function()? initial,
     TResult? Function(List<CameraDescription> cameras)? loaded,
     TResult? Function(CameraController cameraController)? cameraReady,
-    TResult? Function()? flashToggled,
     TResult? Function(String message)? error,
+    TResult? Function(double zoomLevel)? zoomChanged,
     TResult? Function(String imagePath)? imageCaptured,
   }) {
     return loaded?.call(cameras);
@@ -334,8 +334,8 @@ class _$CameraLoadedImpl implements CameraLoaded {
     TResult Function()? initial,
     TResult Function(List<CameraDescription> cameras)? loaded,
     TResult Function(CameraController cameraController)? cameraReady,
-    TResult Function()? flashToggled,
     TResult Function(String message)? error,
+    TResult Function(double zoomLevel)? zoomChanged,
     TResult Function(String imagePath)? imageCaptured,
     required TResult orElse(),
   }) {
@@ -351,8 +351,8 @@ class _$CameraLoadedImpl implements CameraLoaded {
     required TResult Function(_Initial value) initial,
     required TResult Function(CameraLoaded value) loaded,
     required TResult Function(CameraReady value) cameraReady,
-    required TResult Function(FlashToggled value) flashToggled,
     required TResult Function(CameraError value) error,
+    required TResult Function(ZoomChanged value) zoomChanged,
     required TResult Function(ImageCaptured value) imageCaptured,
   }) {
     return loaded(this);
@@ -364,8 +364,8 @@ class _$CameraLoadedImpl implements CameraLoaded {
     TResult? Function(_Initial value)? initial,
     TResult? Function(CameraLoaded value)? loaded,
     TResult? Function(CameraReady value)? cameraReady,
-    TResult? Function(FlashToggled value)? flashToggled,
     TResult? Function(CameraError value)? error,
+    TResult? Function(ZoomChanged value)? zoomChanged,
     TResult? Function(ImageCaptured value)? imageCaptured,
   }) {
     return loaded?.call(this);
@@ -377,8 +377,8 @@ class _$CameraLoadedImpl implements CameraLoaded {
     TResult Function(_Initial value)? initial,
     TResult Function(CameraLoaded value)? loaded,
     TResult Function(CameraReady value)? cameraReady,
-    TResult Function(FlashToggled value)? flashToggled,
     TResult Function(CameraError value)? error,
+    TResult Function(ZoomChanged value)? zoomChanged,
     TResult Function(ImageCaptured value)? imageCaptured,
     required TResult orElse(),
   }) {
@@ -405,9 +405,8 @@ abstract class CameraLoaded implements CameraState {
 /// @nodoc
 abstract class _$$CameraReadyImplCopyWith<$Res> {
   factory _$$CameraReadyImplCopyWith(
-    _$CameraReadyImpl value,
-    $Res Function(_$CameraReadyImpl) then,
-  ) = __$$CameraReadyImplCopyWithImpl<$Res>;
+          _$CameraReadyImpl value, $Res Function(_$CameraReadyImpl) then) =
+      __$$CameraReadyImplCopyWithImpl<$Res>;
   @useResult
   $Res call({CameraController cameraController});
 }
@@ -417,23 +416,22 @@ class __$$CameraReadyImplCopyWithImpl<$Res>
     extends _$CameraStateCopyWithImpl<$Res, _$CameraReadyImpl>
     implements _$$CameraReadyImplCopyWith<$Res> {
   __$$CameraReadyImplCopyWithImpl(
-    _$CameraReadyImpl _value,
-    $Res Function(_$CameraReadyImpl) _then,
-  ) : super(_value, _then);
+      _$CameraReadyImpl _value, $Res Function(_$CameraReadyImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of CameraState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? cameraController = null}) {
-    return _then(
-      _$CameraReadyImpl(
-        null == cameraController
-            ? _value.cameraController
-            : cameraController // ignore: cast_nullable_to_non_nullable
-                as CameraController,
-      ),
-    );
+  $Res call({
+    Object? cameraController = null,
+  }) {
+    return _then(_$CameraReadyImpl(
+      null == cameraController
+          ? _value.cameraController
+          : cameraController // ignore: cast_nullable_to_non_nullable
+              as CameraController,
+    ));
   }
 }
 
@@ -476,8 +474,8 @@ class _$CameraReadyImpl implements CameraReady {
     required TResult Function() initial,
     required TResult Function(List<CameraDescription> cameras) loaded,
     required TResult Function(CameraController cameraController) cameraReady,
-    required TResult Function() flashToggled,
     required TResult Function(String message) error,
+    required TResult Function(double zoomLevel) zoomChanged,
     required TResult Function(String imagePath) imageCaptured,
   }) {
     return cameraReady(cameraController);
@@ -489,8 +487,8 @@ class _$CameraReadyImpl implements CameraReady {
     TResult? Function()? initial,
     TResult? Function(List<CameraDescription> cameras)? loaded,
     TResult? Function(CameraController cameraController)? cameraReady,
-    TResult? Function()? flashToggled,
     TResult? Function(String message)? error,
+    TResult? Function(double zoomLevel)? zoomChanged,
     TResult? Function(String imagePath)? imageCaptured,
   }) {
     return cameraReady?.call(cameraController);
@@ -502,8 +500,8 @@ class _$CameraReadyImpl implements CameraReady {
     TResult Function()? initial,
     TResult Function(List<CameraDescription> cameras)? loaded,
     TResult Function(CameraController cameraController)? cameraReady,
-    TResult Function()? flashToggled,
     TResult Function(String message)? error,
+    TResult Function(double zoomLevel)? zoomChanged,
     TResult Function(String imagePath)? imageCaptured,
     required TResult orElse(),
   }) {
@@ -519,8 +517,8 @@ class _$CameraReadyImpl implements CameraReady {
     required TResult Function(_Initial value) initial,
     required TResult Function(CameraLoaded value) loaded,
     required TResult Function(CameraReady value) cameraReady,
-    required TResult Function(FlashToggled value) flashToggled,
     required TResult Function(CameraError value) error,
+    required TResult Function(ZoomChanged value) zoomChanged,
     required TResult Function(ImageCaptured value) imageCaptured,
   }) {
     return cameraReady(this);
@@ -532,8 +530,8 @@ class _$CameraReadyImpl implements CameraReady {
     TResult? Function(_Initial value)? initial,
     TResult? Function(CameraLoaded value)? loaded,
     TResult? Function(CameraReady value)? cameraReady,
-    TResult? Function(FlashToggled value)? flashToggled,
     TResult? Function(CameraError value)? error,
+    TResult? Function(ZoomChanged value)? zoomChanged,
     TResult? Function(ImageCaptured value)? imageCaptured,
   }) {
     return cameraReady?.call(this);
@@ -545,8 +543,8 @@ class _$CameraReadyImpl implements CameraReady {
     TResult Function(_Initial value)? initial,
     TResult Function(CameraLoaded value)? loaded,
     TResult Function(CameraReady value)? cameraReady,
-    TResult Function(FlashToggled value)? flashToggled,
     TResult Function(CameraError value)? error,
+    TResult Function(ZoomChanged value)? zoomChanged,
     TResult Function(ImageCaptured value)? imageCaptured,
     required TResult orElse(),
   }) {
@@ -571,142 +569,10 @@ abstract class CameraReady implements CameraState {
 }
 
 /// @nodoc
-abstract class _$$FlashToggledImplCopyWith<$Res> {
-  factory _$$FlashToggledImplCopyWith(
-    _$FlashToggledImpl value,
-    $Res Function(_$FlashToggledImpl) then,
-  ) = __$$FlashToggledImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$FlashToggledImplCopyWithImpl<$Res>
-    extends _$CameraStateCopyWithImpl<$Res, _$FlashToggledImpl>
-    implements _$$FlashToggledImplCopyWith<$Res> {
-  __$$FlashToggledImplCopyWithImpl(
-    _$FlashToggledImpl _value,
-    $Res Function(_$FlashToggledImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of CameraState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$FlashToggledImpl implements FlashToggled {
-  const _$FlashToggledImpl();
-
-  @override
-  String toString() {
-    return 'CameraState.flashToggled()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FlashToggledImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(List<CameraDescription> cameras) loaded,
-    required TResult Function(CameraController cameraController) cameraReady,
-    required TResult Function() flashToggled,
-    required TResult Function(String message) error,
-    required TResult Function(String imagePath) imageCaptured,
-  }) {
-    return flashToggled();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(List<CameraDescription> cameras)? loaded,
-    TResult? Function(CameraController cameraController)? cameraReady,
-    TResult? Function()? flashToggled,
-    TResult? Function(String message)? error,
-    TResult? Function(String imagePath)? imageCaptured,
-  }) {
-    return flashToggled?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(List<CameraDescription> cameras)? loaded,
-    TResult Function(CameraController cameraController)? cameraReady,
-    TResult Function()? flashToggled,
-    TResult Function(String message)? error,
-    TResult Function(String imagePath)? imageCaptured,
-    required TResult orElse(),
-  }) {
-    if (flashToggled != null) {
-      return flashToggled();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(CameraLoaded value) loaded,
-    required TResult Function(CameraReady value) cameraReady,
-    required TResult Function(FlashToggled value) flashToggled,
-    required TResult Function(CameraError value) error,
-    required TResult Function(ImageCaptured value) imageCaptured,
-  }) {
-    return flashToggled(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(CameraLoaded value)? loaded,
-    TResult? Function(CameraReady value)? cameraReady,
-    TResult? Function(FlashToggled value)? flashToggled,
-    TResult? Function(CameraError value)? error,
-    TResult? Function(ImageCaptured value)? imageCaptured,
-  }) {
-    return flashToggled?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(CameraLoaded value)? loaded,
-    TResult Function(CameraReady value)? cameraReady,
-    TResult Function(FlashToggled value)? flashToggled,
-    TResult Function(CameraError value)? error,
-    TResult Function(ImageCaptured value)? imageCaptured,
-    required TResult orElse(),
-  }) {
-    if (flashToggled != null) {
-      return flashToggled(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FlashToggled implements CameraState {
-  const factory FlashToggled() = _$FlashToggledImpl;
-}
-
-/// @nodoc
 abstract class _$$CameraErrorImplCopyWith<$Res> {
   factory _$$CameraErrorImplCopyWith(
-    _$CameraErrorImpl value,
-    $Res Function(_$CameraErrorImpl) then,
-  ) = __$$CameraErrorImplCopyWithImpl<$Res>;
+          _$CameraErrorImpl value, $Res Function(_$CameraErrorImpl) then) =
+      __$$CameraErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
@@ -716,23 +582,22 @@ class __$$CameraErrorImplCopyWithImpl<$Res>
     extends _$CameraStateCopyWithImpl<$Res, _$CameraErrorImpl>
     implements _$$CameraErrorImplCopyWith<$Res> {
   __$$CameraErrorImplCopyWithImpl(
-    _$CameraErrorImpl _value,
-    $Res Function(_$CameraErrorImpl) _then,
-  ) : super(_value, _then);
+      _$CameraErrorImpl _value, $Res Function(_$CameraErrorImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of CameraState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? message = null}) {
-    return _then(
-      _$CameraErrorImpl(
-        null == message
-            ? _value.message
-            : message // ignore: cast_nullable_to_non_nullable
-                as String,
-      ),
-    );
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$CameraErrorImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
   }
 }
 
@@ -774,8 +639,8 @@ class _$CameraErrorImpl implements CameraError {
     required TResult Function() initial,
     required TResult Function(List<CameraDescription> cameras) loaded,
     required TResult Function(CameraController cameraController) cameraReady,
-    required TResult Function() flashToggled,
     required TResult Function(String message) error,
+    required TResult Function(double zoomLevel) zoomChanged,
     required TResult Function(String imagePath) imageCaptured,
   }) {
     return error(message);
@@ -787,8 +652,8 @@ class _$CameraErrorImpl implements CameraError {
     TResult? Function()? initial,
     TResult? Function(List<CameraDescription> cameras)? loaded,
     TResult? Function(CameraController cameraController)? cameraReady,
-    TResult? Function()? flashToggled,
     TResult? Function(String message)? error,
+    TResult? Function(double zoomLevel)? zoomChanged,
     TResult? Function(String imagePath)? imageCaptured,
   }) {
     return error?.call(message);
@@ -800,8 +665,8 @@ class _$CameraErrorImpl implements CameraError {
     TResult Function()? initial,
     TResult Function(List<CameraDescription> cameras)? loaded,
     TResult Function(CameraController cameraController)? cameraReady,
-    TResult Function()? flashToggled,
     TResult Function(String message)? error,
+    TResult Function(double zoomLevel)? zoomChanged,
     TResult Function(String imagePath)? imageCaptured,
     required TResult orElse(),
   }) {
@@ -817,8 +682,8 @@ class _$CameraErrorImpl implements CameraError {
     required TResult Function(_Initial value) initial,
     required TResult Function(CameraLoaded value) loaded,
     required TResult Function(CameraReady value) cameraReady,
-    required TResult Function(FlashToggled value) flashToggled,
     required TResult Function(CameraError value) error,
+    required TResult Function(ZoomChanged value) zoomChanged,
     required TResult Function(ImageCaptured value) imageCaptured,
   }) {
     return error(this);
@@ -830,8 +695,8 @@ class _$CameraErrorImpl implements CameraError {
     TResult? Function(_Initial value)? initial,
     TResult? Function(CameraLoaded value)? loaded,
     TResult? Function(CameraReady value)? cameraReady,
-    TResult? Function(FlashToggled value)? flashToggled,
     TResult? Function(CameraError value)? error,
+    TResult? Function(ZoomChanged value)? zoomChanged,
     TResult? Function(ImageCaptured value)? imageCaptured,
   }) {
     return error?.call(this);
@@ -843,8 +708,8 @@ class _$CameraErrorImpl implements CameraError {
     TResult Function(_Initial value)? initial,
     TResult Function(CameraLoaded value)? loaded,
     TResult Function(CameraReady value)? cameraReady,
-    TResult Function(FlashToggled value)? flashToggled,
     TResult Function(CameraError value)? error,
+    TResult Function(ZoomChanged value)? zoomChanged,
     TResult Function(ImageCaptured value)? imageCaptured,
     required TResult orElse(),
   }) {
@@ -868,11 +733,175 @@ abstract class CameraError implements CameraState {
 }
 
 /// @nodoc
+abstract class _$$ZoomChangedImplCopyWith<$Res> {
+  factory _$$ZoomChangedImplCopyWith(
+          _$ZoomChangedImpl value, $Res Function(_$ZoomChangedImpl) then) =
+      __$$ZoomChangedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({double zoomLevel});
+}
+
+/// @nodoc
+class __$$ZoomChangedImplCopyWithImpl<$Res>
+    extends _$CameraStateCopyWithImpl<$Res, _$ZoomChangedImpl>
+    implements _$$ZoomChangedImplCopyWith<$Res> {
+  __$$ZoomChangedImplCopyWithImpl(
+      _$ZoomChangedImpl _value, $Res Function(_$ZoomChangedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CameraState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? zoomLevel = null,
+  }) {
+    return _then(_$ZoomChangedImpl(
+      null == zoomLevel
+          ? _value.zoomLevel
+          : zoomLevel // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ZoomChangedImpl implements ZoomChanged {
+  const _$ZoomChangedImpl(this.zoomLevel);
+
+  @override
+  final double zoomLevel;
+
+  @override
+  String toString() {
+    return 'CameraState.zoomChanged(zoomLevel: $zoomLevel)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ZoomChangedImpl &&
+            (identical(other.zoomLevel, zoomLevel) ||
+                other.zoomLevel == zoomLevel));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, zoomLevel);
+
+  /// Create a copy of CameraState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ZoomChangedImplCopyWith<_$ZoomChangedImpl> get copyWith =>
+      __$$ZoomChangedImplCopyWithImpl<_$ZoomChangedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<CameraDescription> cameras) loaded,
+    required TResult Function(CameraController cameraController) cameraReady,
+    required TResult Function(String message) error,
+    required TResult Function(double zoomLevel) zoomChanged,
+    required TResult Function(String imagePath) imageCaptured,
+  }) {
+    return zoomChanged(zoomLevel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<CameraDescription> cameras)? loaded,
+    TResult? Function(CameraController cameraController)? cameraReady,
+    TResult? Function(String message)? error,
+    TResult? Function(double zoomLevel)? zoomChanged,
+    TResult? Function(String imagePath)? imageCaptured,
+  }) {
+    return zoomChanged?.call(zoomLevel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<CameraDescription> cameras)? loaded,
+    TResult Function(CameraController cameraController)? cameraReady,
+    TResult Function(String message)? error,
+    TResult Function(double zoomLevel)? zoomChanged,
+    TResult Function(String imagePath)? imageCaptured,
+    required TResult orElse(),
+  }) {
+    if (zoomChanged != null) {
+      return zoomChanged(zoomLevel);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(CameraLoaded value) loaded,
+    required TResult Function(CameraReady value) cameraReady,
+    required TResult Function(CameraError value) error,
+    required TResult Function(ZoomChanged value) zoomChanged,
+    required TResult Function(ImageCaptured value) imageCaptured,
+  }) {
+    return zoomChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(CameraLoaded value)? loaded,
+    TResult? Function(CameraReady value)? cameraReady,
+    TResult? Function(CameraError value)? error,
+    TResult? Function(ZoomChanged value)? zoomChanged,
+    TResult? Function(ImageCaptured value)? imageCaptured,
+  }) {
+    return zoomChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(CameraLoaded value)? loaded,
+    TResult Function(CameraReady value)? cameraReady,
+    TResult Function(CameraError value)? error,
+    TResult Function(ZoomChanged value)? zoomChanged,
+    TResult Function(ImageCaptured value)? imageCaptured,
+    required TResult orElse(),
+  }) {
+    if (zoomChanged != null) {
+      return zoomChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ZoomChanged implements CameraState {
+  const factory ZoomChanged(final double zoomLevel) = _$ZoomChangedImpl;
+
+  double get zoomLevel;
+
+  /// Create a copy of CameraState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ZoomChangedImplCopyWith<_$ZoomChangedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 abstract class _$$ImageCapturedImplCopyWith<$Res> {
   factory _$$ImageCapturedImplCopyWith(
-    _$ImageCapturedImpl value,
-    $Res Function(_$ImageCapturedImpl) then,
-  ) = __$$ImageCapturedImplCopyWithImpl<$Res>;
+          _$ImageCapturedImpl value, $Res Function(_$ImageCapturedImpl) then) =
+      __$$ImageCapturedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String imagePath});
 }
@@ -882,23 +911,22 @@ class __$$ImageCapturedImplCopyWithImpl<$Res>
     extends _$CameraStateCopyWithImpl<$Res, _$ImageCapturedImpl>
     implements _$$ImageCapturedImplCopyWith<$Res> {
   __$$ImageCapturedImplCopyWithImpl(
-    _$ImageCapturedImpl _value,
-    $Res Function(_$ImageCapturedImpl) _then,
-  ) : super(_value, _then);
+      _$ImageCapturedImpl _value, $Res Function(_$ImageCapturedImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of CameraState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? imagePath = null}) {
-    return _then(
-      _$ImageCapturedImpl(
-        null == imagePath
-            ? _value.imagePath
-            : imagePath // ignore: cast_nullable_to_non_nullable
-                as String,
-      ),
-    );
+  $Res call({
+    Object? imagePath = null,
+  }) {
+    return _then(_$ImageCapturedImpl(
+      null == imagePath
+          ? _value.imagePath
+          : imagePath // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
   }
 }
 
@@ -941,8 +969,8 @@ class _$ImageCapturedImpl implements ImageCaptured {
     required TResult Function() initial,
     required TResult Function(List<CameraDescription> cameras) loaded,
     required TResult Function(CameraController cameraController) cameraReady,
-    required TResult Function() flashToggled,
     required TResult Function(String message) error,
+    required TResult Function(double zoomLevel) zoomChanged,
     required TResult Function(String imagePath) imageCaptured,
   }) {
     return imageCaptured(imagePath);
@@ -954,8 +982,8 @@ class _$ImageCapturedImpl implements ImageCaptured {
     TResult? Function()? initial,
     TResult? Function(List<CameraDescription> cameras)? loaded,
     TResult? Function(CameraController cameraController)? cameraReady,
-    TResult? Function()? flashToggled,
     TResult? Function(String message)? error,
+    TResult? Function(double zoomLevel)? zoomChanged,
     TResult? Function(String imagePath)? imageCaptured,
   }) {
     return imageCaptured?.call(imagePath);
@@ -967,8 +995,8 @@ class _$ImageCapturedImpl implements ImageCaptured {
     TResult Function()? initial,
     TResult Function(List<CameraDescription> cameras)? loaded,
     TResult Function(CameraController cameraController)? cameraReady,
-    TResult Function()? flashToggled,
     TResult Function(String message)? error,
+    TResult Function(double zoomLevel)? zoomChanged,
     TResult Function(String imagePath)? imageCaptured,
     required TResult orElse(),
   }) {
@@ -984,8 +1012,8 @@ class _$ImageCapturedImpl implements ImageCaptured {
     required TResult Function(_Initial value) initial,
     required TResult Function(CameraLoaded value) loaded,
     required TResult Function(CameraReady value) cameraReady,
-    required TResult Function(FlashToggled value) flashToggled,
     required TResult Function(CameraError value) error,
+    required TResult Function(ZoomChanged value) zoomChanged,
     required TResult Function(ImageCaptured value) imageCaptured,
   }) {
     return imageCaptured(this);
@@ -997,8 +1025,8 @@ class _$ImageCapturedImpl implements ImageCaptured {
     TResult? Function(_Initial value)? initial,
     TResult? Function(CameraLoaded value)? loaded,
     TResult? Function(CameraReady value)? cameraReady,
-    TResult? Function(FlashToggled value)? flashToggled,
     TResult? Function(CameraError value)? error,
+    TResult? Function(ZoomChanged value)? zoomChanged,
     TResult? Function(ImageCaptured value)? imageCaptured,
   }) {
     return imageCaptured?.call(this);
@@ -1010,8 +1038,8 @@ class _$ImageCapturedImpl implements ImageCaptured {
     TResult Function(_Initial value)? initial,
     TResult Function(CameraLoaded value)? loaded,
     TResult Function(CameraReady value)? cameraReady,
-    TResult Function(FlashToggled value)? flashToggled,
     TResult Function(CameraError value)? error,
+    TResult Function(ZoomChanged value)? zoomChanged,
     TResult Function(ImageCaptured value)? imageCaptured,
     required TResult orElse(),
   }) {

@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/helper/extensions.dart';
 import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/routing/routes.dart';
+import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 import 'package:skin_care_app/core/widgets/custom_text_button.dart';
 import 'package:skin_care_app/features/authentication/sign_up/logic/sign_up_cubit/sign_up_cubit.dart';
@@ -33,8 +34,9 @@ class SignUpView2 extends StatelessWidget {
                 const AgreeTermsAndPrivacyPolice(),
                 verticalSpace(height: 32),
                 CustomTextButton(
-                  textStyle: Styles.font16White500Weight,
                   textName: 'Sign up',
+                  textStyle: Styles.font16White500Weight,
+                  backgroundColor: ColorManager.primaryBlue,
                   onPressed: () {
                     if (context
                         .read<SignUpCubit>()

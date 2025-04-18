@@ -18,7 +18,7 @@ class SkinSafeApp extends StatelessWidget {
         //  locale: DevicePreview.locale(context),
         //  builder: DevicePreview.appBuilder,
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.splashView,
+        initialRoute: Routes.homeView,
         onGenerateRoute: AppRouter().generateRoute,
         theme: ThemeData(
           textSelectionTheme: const TextSelectionThemeData(
