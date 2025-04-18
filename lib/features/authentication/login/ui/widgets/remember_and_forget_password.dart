@@ -37,17 +37,11 @@ class _RememberAndForgetPasswordState extends State<RememberAndForgetPassword> {
             ),
           ),
         ),
-        Text(
-          'Remember me',
-          style: Styles.font14Black400Weight,
-        ),
+        Text('Remember me', style: Styles.font14Black400Weight),
         const Spacer(),
         GestureDetector(
           onTap: () => context.pushNamed(Routes.forgotPasswordView),
-          child: Text(
-            'Forget Password?',
-            style: Styles.font14Red400Weight,
-          ),
+          child: Text('Forget Password?', style: Styles.font14Red400Weight),
         ),
       ],
     );

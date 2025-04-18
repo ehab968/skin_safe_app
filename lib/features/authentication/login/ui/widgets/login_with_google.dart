@@ -14,7 +14,7 @@ class LoginWithGoogle extends StatelessWidget {
         children: [
           SvgPicture.asset('assets/svgs/Google.svg'),
           horizontalSpace(width: 120),
-          SvgPicture.asset('assets/svgs/Facebook.svg')
+          SvgPicture.asset('assets/svgs/Facebook.svg'),
         ],
       ),
     );

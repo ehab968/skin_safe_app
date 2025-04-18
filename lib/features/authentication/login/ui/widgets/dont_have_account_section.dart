@@ -19,10 +19,11 @@ class DontHaveAccountSection extends StatelessWidget {
             TextSpan(
               text: 'Sign Up',
               style: Styles.font14PrimaryBlue500Weight,
-              recognizer: TapGestureRecognizer()
-                ..onTap = () {
-                  context.pushNamed(Routes.signUpView);
-                },
+              recognizer:
+                  TapGestureRecognizer()
+                    ..onTap = () {
+                      context.pushNamed(Routes.signUpView);
+                    },
             ),
           ],
         ),

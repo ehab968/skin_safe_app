@@ -5,9 +5,7 @@ import 'package:skin_care_app/core/routing/routes.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 
 class AlreadyHaveAccountSection extends StatelessWidget {
-  const AlreadyHaveAccountSection({
-    super.key,
-  });
+  const AlreadyHaveAccountSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +19,14 @@ class AlreadyHaveAccountSection extends StatelessWidget {
             TextSpan(
               text: 'Login',
               style: Styles.font14PrimaryBlue500Weight,
-              recognizer: TapGestureRecognizer()
-                ..onTap = () {
-                  context.pushNamedAndRemoveUntil(Routes.loginView,
-                      predicate: (route) => false);
-                },
+              recognizer:
+                  TapGestureRecognizer()
+                    ..onTap = () {
+                      context.pushNamedAndRemoveUntil(
+                        Routes.loginView,
+                        predicate: (route) => false,
+                      );
+                    },
             ),
           ],
         ),

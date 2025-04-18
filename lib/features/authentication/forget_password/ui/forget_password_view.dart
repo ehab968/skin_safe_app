@@ -17,7 +17,7 @@ class ForgetPasswordView extends StatelessWidget {
           children: [
             const ForgetYourPasswordSection(),
             verticalSpace(height: 24),
-            const ForgetPasswordTextField()
+            const ForgetPasswordTextField(),
           ],
         ),
       ),

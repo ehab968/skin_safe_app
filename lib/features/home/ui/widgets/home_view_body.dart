@@ -8,9 +8,7 @@ import 'package:skin_care_app/features/Home/ui/widgets/recent_search_doctors.dar
 import 'package:skin_care_app/features/Home/ui/widgets/uv_index.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({
-    super.key,
-  });
+  const HomeViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {

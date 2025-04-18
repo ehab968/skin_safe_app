@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/helper/extensions.dart';
 import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/routing/routes.dart';
+import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 import 'package:skin_care_app/core/widgets/custom_text_button.dart';
 import 'package:skin_care_app/features/authentication/sign_up/logic/sign_up_cubit/sign_up_cubit.dart';
@@ -27,19 +28,15 @@ class SignUpView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 verticalSpace(height: 80),
-                Text(
-                  'Sign up',
-                  style: Styles.font24Black600Weight,
-                ),
+                Text('Sign up', style: Styles.font24Black600Weight),
                 verticalSpace(height: 16),
                 const NamePhoneNumberBirthDateTextfield(),
                 verticalSpace(height: 16),
                 const GenderRadioButtons(),
                 const SkinToneDropDown(),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.14,
-                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.14),
                 CustomTextButton(
+                  backgroundColor: ColorManager.primaryBlue,
                   textStyle: Styles.font16White500Weight,
                   textName: 'Continue',
                   onPressed: () {

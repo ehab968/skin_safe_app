@@ -16,7 +16,7 @@ class SkinSafeApp extends StatelessWidget {
       child: MaterialApp(
 
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.splashView,
+        initialRoute: Routes.homeView,
         onGenerateRoute: AppRouter().generateRoute,
         theme: ThemeData(
           textSelectionTheme: const TextSelectionThemeData(

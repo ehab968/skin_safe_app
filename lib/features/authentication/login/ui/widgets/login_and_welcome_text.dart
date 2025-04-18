@@ -11,10 +11,7 @@ class LoginAndWelcomeText extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         verticalSpace(height: 80),
-        Text(
-          'Login',
-          style: Styles.font24Black600Weight,     
-        ),
+        Text('Login', style: Styles.font24Black600Weight),
         verticalSpace(height: 8),
         Text(
           'Welcome! enter your mail id and password to login',
