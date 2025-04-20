@@ -7,48 +7,32 @@ import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 import 'package:skin_care_app/core/widgets/custom_text_button.dart';
 
-class showAppointmentConfirmation extends StatelessWidget {
-  void showAppointmentConfirmationDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      barrierDismissible: true, 
-      builder: (BuildContext context) {
-        return AppointmentConfirmationDialog();
-      },
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: ColorManager.white);
-  }
-}
-
 class AppointmentConfirmationDialog extends StatelessWidget {
+  const AppointmentConfirmationDialog({super.key});
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      insetPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 40.0),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12.0),  
+      insetPadding: const EdgeInsets.symmetric(
+        horizontal: 20.0,
+        vertical: 40.0,
       ),
-      contentPadding: EdgeInsets.only(right: 16, left: 16, top: 16),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
+      contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
       backgroundColor: ColorManager.white,
-      content: SizedBox(
-        width: 343,
-        height: 380,
-        child: AppointmentConfirmationContent(),
-      ),
+      content: const AppointmentConfirmationContent(),
     );
   }
 }
 
 class AppointmentConfirmationContent extends StatelessWidget {
+  const AppointmentConfirmationContent({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
+      children: [
         verticalSpace(height: 16.h),
         Image.asset(
           'assets/images/confirmation.png',
@@ -68,38 +52,44 @@ class AppointmentConfirmationContent extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         verticalSpace(height: 20.h),
-        AppointmentConfirmationButtons(),
+        const AppointmentConfirmationButtons(),
       ],
     );
   }
 }
 
 class AppointmentConfirmationButtons extends StatelessWidget {
+  const AppointmentConfirmationButtons({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
+      children: [
         CustomTextButton(
+          backgroundColor: ColorManager.primaryBlue,
           textName: 'View Details',
           height: 40.h,
           width: double.infinity,
           textStyle: Styles.font16White500Weight,
           onPressed: () {
-            // context.pushNamed(Routes.AppointmentScreen);
+            context.pushReplacementNamed(Routes.appointmentScreen);
           },
         ),
 
         verticalSpace(height: 8.h),
         CustomTextButton(
-          borderSide: BorderSide(color: ColorManager.primaryBlue),
           backgroundColor: ColorManager.white,
+          borderSideColor: ColorManager.primaryBlue,
           textName: 'Back to home',
           height: 40.h,
           width: double.infinity,
           textStyle: Styles.font16PrimaryBlue500Weight,
           onPressed: () {
-            context.pushNamed(Routes.homeView);
+            context.pushNamedAndRemoveUntil(
+              Routes.homeView,
+              predicate: (route) => false,
+            );
           },
         ),
       ],

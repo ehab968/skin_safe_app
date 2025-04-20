@@ -12,9 +12,11 @@ class CustomTextButton extends StatefulWidget {
     this.height,
     this.width,
     required this.textStyle,
+    this.borderSideColor,
   });
   final String textName;
   final Color backgroundColor;
+  final Color? borderSideColor;
   final BorderRadiusGeometry? borderRadius;
   final void Function()? onPressed;
   final double? height, width;
@@ -22,6 +24,7 @@ class CustomTextButton extends StatefulWidget {
   @override
   State<CustomTextButton> createState() => _CustomTextButtonState();
 }
+
 class _CustomTextButtonState extends State<CustomTextButton> {
   bool isPressed = false;
   @override
@@ -39,6 +42,9 @@ class _CustomTextButtonState extends State<CustomTextButton> {
           //     ? Colors.white
           //     : (widget.backgroundColor ?? ColorManager.primaryBlue),
           borderRadius: widget.borderRadius ?? BorderRadius.circular(10),
+          border: Border.all(
+            color: widget.borderSideColor ?? Colors.transparent,
+          ),
         ),
         child: Center(
           child: Text(
@@ -47,7 +53,6 @@ class _CustomTextButtonState extends State<CustomTextButton> {
               color:
                   isPressed ? ColorManager.primaryBlue : widget.textStyle.color,
             ),
-
           ),
         ),
       ),
@@ -65,6 +70,7 @@ class _CustomTextButtonState extends State<CustomTextButton> {
     });
     widget.onPressed?.call();
   }
+
   Color getBackgroundColor() {
     if (isPressed && widget.backgroundColor == ColorManager.primaryBlue) {
       return ColorManager.white;

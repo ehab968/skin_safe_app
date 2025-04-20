@@ -35,7 +35,7 @@
 //     return SingleChildScrollView(
 //       child: SizedBox(
 //         height: 120.h,
-//         width: 370.w, 
+//         width: 370.w,
 //         child: ListView.builder(
 //           scrollDirection: Axis.horizontal,
 //           itemCount: doctors.length,
@@ -96,7 +96,7 @@
 //           //   ),
 //           // ),
 //           Image.asset(image),
-          
+
 //           verticalSpace(height: 8.h),
 //           Column(
 //             mainAxisSize: MainAxisSize.min,
@@ -104,14 +104,14 @@
 //             mainAxisAlignment: MainAxisAlignment.end,
 //             children: [
 //               Text(
-//                 maxLines: 1, 
+//                 maxLines: 1,
 //                 overflow: TextOverflow.ellipsis,
 //                 name,
 //                 style: Styles.font12Black500Weight,
 //               ),
 //               verticalSpace(height: 6.h),
 //               Text(
-//                 maxLines: 1, 
+//                 maxLines: 1,
 //                 overflow: TextOverflow.ellipsis,
 //                 specialty,
 //                 style: Styles.font11MainGray400Weight,
@@ -133,14 +133,14 @@
 //               verticalSpace(height: 3.h),
 //               Flexible(
 //                child:  SizedBox(
-//                   width: 75.w, 
-//                   height: 30.h,   
+//                   width: 75.w,
+//                   height: 30.h,
 //                   child: ElevatedButton(
 //                     onPressed: () {},
 //                     style: ElevatedButton.styleFrom(
 //                       backgroundColor: ColorManager.primaryBlue,
 //                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-//                       padding: EdgeInsets.zero, 
+//                       padding: EdgeInsets.zero,
 //                     ),
 //                     child: FittedBox(
 //                       child: Text(
@@ -151,7 +151,6 @@
 //                   ),
 //                 )
 
-                
 //               ),
 //             ],
 //           ),
@@ -163,10 +162,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:skin_care_app/core/helper/extensions.dart';
+import 'package:skin_care_app/core/routing/routes.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/helper/spacing.dart';
-import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 import 'package:skin_care_app/core/widgets/custom_text_button.dart';
 
@@ -243,7 +242,7 @@ class DoctorCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(color: Colors.black12, blurRadius: 6, offset: Offset(0, 4)),
         ],
       ),
@@ -251,7 +250,7 @@ class DoctorCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(image, width: 80.w, height: 80.h, ),
+          Image.asset(image, width: 80.w, height: 80.h),
 
           verticalSpace(height: 8.h),
           Expanded(
@@ -288,14 +287,16 @@ class DoctorCard extends StatelessWidget {
                   ],
                 ),
                 verticalSpace(height: 3.h),
-            
+
                 CustomTextButton(
+                  backgroundColor: ColorManager.primaryBlue,
                   width: 75.w,
                   height: 35.h,
                   textName: 'Schedule',
-                  onPressed: () {},
+                  onPressed: () {
+                    context.pushNamed(Routes.bookingView);
+                  },
                   textStyle: Styles.font11White500Weight,
-                  backgroundColor: ColorManager.primaryBlue,
                 ),
               ],
             ),

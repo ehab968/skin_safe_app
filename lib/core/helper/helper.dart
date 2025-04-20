@@ -38,7 +38,7 @@ void navigateToTab(BuildContext context, int index) {
       null;
       break;
     case 4:
-      Navigator.pushReplacementNamed(context, Routes.aboutDoctorView);
+      Navigator.pushReplacementNamed(context, Routes.profileView);
       break;
   }
 }

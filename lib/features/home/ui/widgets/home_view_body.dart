@@ -18,8 +18,9 @@ class HomeViewBody extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 24.h, vertical: 24.w),
         child: SingleChildScrollView(
           child: ConstrainedBox(
-             constraints: BoxConstraints(
-      minHeight: MediaQuery.of(context).size.height, ),  
+            constraints: BoxConstraints(
+              minHeight: MediaQuery.of(context).size.height,
+            ),
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,7 +44,10 @@ class HomeViewBody extends StatelessWidget {
                   ),
                   verticalSpace(height: 16.h),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 4.h, vertical: 4.w),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 4.h,
+                      vertical: 4.w,
+                    ),
                     decoration: BoxDecoration(
                       color: ColorManager.lighterGray,
                       borderRadius: BorderRadius.circular(16),
@@ -60,21 +64,19 @@ class HomeViewBody extends StatelessWidget {
                           color: ColorManager.lightGray,
                         ),
                       ),
-                    ),                  
+                    ),
                   ),
                   verticalSpace(height: 24.h),
                   UvIndex(),
                   verticalSpace(height: 24.h),
-                  Text('Top Doctors', style: Styles.font18Black600Weight ,),
+                  Text('Top Doctors', style: Styles.font18Black600Weight),
                   verticalSpace(height: 16.h),
                   DoctorsList(),
                   verticalSpace(height: 24.h),
-                  Text('Recent Search', style: Styles.font18Black600Weight,),
+                  Text('Recent Search', style: Styles.font18Black600Weight),
                   verticalSpace(height: 24.h),
-                  RecentSearchWidget(),
-                      
+                  const RecentSearchWidget(),
                 ],
-                     
               ),
             ),
           ),

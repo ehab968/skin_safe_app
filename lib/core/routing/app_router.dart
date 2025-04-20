@@ -4,7 +4,9 @@ import 'package:skin_care_app/core/routing/routes.dart';
 
 import 'package:skin_care_app/features/Appointment_details/appointment_screen.dart';
 import 'package:skin_care_app/features/BookingAppointment/ui/widgets/appointment_confirmation.dart';
+import 'package:skin_care_app/features/BookingAppointment/ui/table_calender.dart';
 import 'package:skin_care_app/features/My_Appointments/myAppointment_screen.dart';
+import 'package:skin_care_app/features/Profile/profile_screen.dart';
 
 import 'package:skin_care_app/features/about_doctor/about_doctor_section/ui/about_doctor_view.dart';
 
@@ -69,23 +71,7 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const ThirdOnBoardingView());
       case Routes.homeView:
         return MaterialPageRoute(builder: (_) => const HomeView());
-
- case Routes.GetStartedView:
-        return MaterialPageRoute(builder: (_) => const GetStartedView());
-
-        case Routes.showAppointmentConfirmation:
-        return MaterialPageRoute(builder: (_) =>  showAppointmentConfirmation());
-         case Routes.AppointmentScreen :
-        return MaterialPageRoute(builder: (_) => const AppointmentScreen());
-
-         case Routes.MyAppointmentsScreen :
-        return MaterialPageRoute(builder: (_) =>  MyAppointmentsScreen());
-
-
-      default:
-
       case Routes.scanView:
-
         return MaterialPageRoute(
           builder:
               (_) => BlocProvider(
@@ -100,6 +86,22 @@ class AppRouter {
         );
       case Routes.aboutDoctorView:
         return MaterialPageRoute(builder: (_) => const AboutDoctorView());
+      case Routes.getStartedView:
+        return MaterialPageRoute(builder: (_) => const GetStartedView());
+      case Routes.showAppointmentConfirmation:
+        return MaterialPageRoute(
+          builder: (_) => const AppointmentConfirmationDialog(),
+        );
+      case Routes.appointmentScreen:
+        return MaterialPageRoute(builder: (_) => const AppointmentScreen());
+      case Routes.myAppointmentsScreen:
+        return MaterialPageRoute(builder: (_) => MyAppointmentsScreen());
+      case Routes.profileView:
+        return MaterialPageRoute(builder: (_) => const ProfileScreen());
+      case Routes.bookingView:
+        return MaterialPageRoute(
+          builder: (_) => const BookingCalendarWidget(bookedDays: []),
+        );
       default:
         return null;
     }

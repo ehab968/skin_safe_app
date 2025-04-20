@@ -16,7 +16,7 @@ class BottomOfOnboarding extends StatelessWidget {
         children: [
           TextButton(
             onPressed: () {
-              context.pushNamed(Routes.GetStartedView);
+              context.pushNamed(Routes.getStartedView);
             },
             child: Text(
               "Skip",
@@ -58,7 +58,7 @@ class secondbottomscreen extends StatelessWidget {
         children: [
           TextButton(
             onPressed: () {
-              context.pushNamed(Routes.GetStartedView);
+              context.pushNamed(Routes.getStartedView);
             },
             child: Text(
               "Skip",

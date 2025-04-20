@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class PersonalInfo extends StatelessWidget {
   final String label;

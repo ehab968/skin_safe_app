@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:skin_care_app/core/helper/helper.dart';
+import 'package:skin_care_app/core/widgets/app_bottom_navigation_bar.dart';
 import 'package:skin_care_app/features/My_Appointments/ui/widgets/appointment_case_card.dart';
 import 'package:skin_care_app/features/My_Appointments/ui/widgets/appointment_model.dart';
+
 class MyAppointmentsScreen extends StatelessWidget {
   final List<Appointment> appointments = [
     Appointment(
@@ -27,7 +30,7 @@ class MyAppointmentsScreen extends StatelessWidget {
       status: "past",
       image: "assets/images/DrGamilaEmad.jpg",
     ),
-     Appointment(
+    Appointment(
       doctorName: "Dr.Hossam Ali",
       specialty: "Dermatologist",
       location: "Salah Salem Street,\n Ismailia, Egypt",
@@ -37,10 +40,16 @@ class MyAppointmentsScreen extends StatelessWidget {
     ),
   ];
 
+  MyAppointmentsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        bottomNavigationBar: AppBottomNavigationBar(
+          currentIndex: null,
+          onTap: (index) => navigateToTab(context, index),
+        ),
         body: ListView.builder(
           padding: const EdgeInsets.all(12),
           itemCount: appointments.length,
@@ -54,7 +63,6 @@ class MyAppointmentsScreen extends StatelessWidget {
               location: a.location,
               image: a.image,
               onViewDetails: () {
-                
                 // print('Tapped on ${a.doctorName}');
               },
             );
