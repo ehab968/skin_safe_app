@@ -11,6 +11,7 @@ import 'package:skin_care_app/features/Profile/profile_screen.dart';
 import 'package:skin_care_app/features/about_doctor/about_doctor_section/ui/about_doctor_view.dart';
 
 import 'package:skin_care_app/features/authentication/login/ui/login_view.dart';
+import 'package:skin_care_app/features/history/ui/history_view.dart';
 import 'package:skin_care_app/features/home/ui/home_view.dart';
 import 'package:skin_care_app/features/on_boarding/ui/get_started_view.dart';
 import 'package:skin_care_app/features/on_boarding/ui/on_boarding_view.dart';
@@ -26,6 +27,7 @@ import 'package:skin_care_app/features/authentication/sign_up/ui/sign_up_view_2.
 import 'package:skin_care_app/features/scan/logic/camera_cubit/camera_cubit.dart';
 import 'package:skin_care_app/features/scan/ui/scan_view.dart';
 import 'package:skin_care_app/features/scan_report/ui/scan_report_view.dart';
+import 'package:skin_care_app/features/scan_report/ui/view_report.dart';
 import 'package:skin_care_app/features/splash/splash_view.dart';
 
 class AppRouter {
@@ -84,8 +86,12 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => ScanReportView(imagePath: imagePath ?? ''),
         );
+      case Routes.viewReport:
+        return MaterialPageRoute(builder: (_) => const ViewReport());
       case Routes.aboutDoctorView:
         return MaterialPageRoute(builder: (_) => const AboutDoctorView());
+      case Routes.historyView:
+        return MaterialPageRoute(builder: (_) => const HistoryView());
       case Routes.getStartedView:
         return MaterialPageRoute(builder: (_) => const GetStartedView());
       case Routes.showAppointmentConfirmation:

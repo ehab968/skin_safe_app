@@ -3,8 +3,8 @@ import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 
 class CommentSection extends StatelessWidget {
-  const CommentSection({super.key});
-
+  const CommentSection({super.key, required this.comment});
+  final String comment;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -14,10 +14,7 @@ class CommentSection extends StatelessWidget {
         verticalSpace(height: 8),
         Padding(
           padding: const EdgeInsets.only(left: 4),
-          child: Text(
-            'You should visit a dermatologist specialized in skin cancer, you should do imaging (CT/MRI/PET) every 3-6 months based on disease stage',
-            style: Styles.font15Black400Weight,
-          ),
+          child: Text(comment, style: Styles.font15Black400Weight),
         ),
       ],
     );

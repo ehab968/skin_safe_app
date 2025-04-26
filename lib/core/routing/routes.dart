@@ -10,6 +10,7 @@ class Routes {
   static const String homeView = '/homeView';
   static const String scanView = '/scanView';
   static const String scanReportView = '/scanReportView';
+  static const String viewReport = '/viewReport';
   static const String aboutDoctorView = '/aboutDoctorView';
   static const String secondOnBoardingView = '/SecondOnBoardingView';
   static const String thirdOnBoardingView = '/ThirdOnBoardingView';
@@ -20,4 +21,5 @@ class Routes {
   static const String myAppointmentsScreen = '/MyAppointmentsScreen';
   static const String bookingView = '/BookingView';
   static const String profileView = '/ProfileView';
+  static const String historyView = '/HistoryView';
 }

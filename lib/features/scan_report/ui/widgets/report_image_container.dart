@@ -1,12 +1,10 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ReportImageContainer extends StatelessWidget {
-  const ReportImageContainer({super.key, required this.imagePath});
+  const ReportImageContainer({super.key, required this.image});
 
-  final String imagePath;
-
+  final ImageProvider<Object> image;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,7 +16,7 @@ class ReportImageContainer extends StatelessWidget {
           topRight: Radius.circular(16.r),
         ),
         image: DecorationImage(
-          image: Image.file(File(imagePath), fit: BoxFit.cover).image,
+          image: image,
           fit: BoxFit.fill,
         ),
       ),
