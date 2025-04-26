@@ -20,4 +20,9 @@ class Routes {
   static const String myAppointmentsScreen = '/MyAppointmentsScreen';
   static const String bookingView = '/BookingView';
   static const String profileView = '/ProfileView';
+   static const String ArticlesPage = '/ArticlesPage';
+  static const String ArticleBodyScreen = '/ArticleBodyScreen';
+   static const String NotificationsScreen = '/NotificationsScreen';
+      
+  
 }

@@ -44,7 +44,7 @@ class ProfileSettings extends StatelessWidget {
             trailing: item.hasArrow ? const Icon(Icons.chevron_right) : null,
             onTap: () {
               switch (index) {
-                case 0:
+                case 0: 
                 case 1:
                   context.pushNamed(Routes.myAppointmentsScreen);
                   break;
@@ -105,11 +105,7 @@ class ProfileSettings extends StatelessWidget {
                                 ),
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.pop(context);
-                                    Navigator.pushReplacementNamed(
-                                      context,
-                                      '/login',
-                                    );
+                                    context.pushNamed(Routes.splashView);
                                   },
                                   child: Text(
                                     "Ok",

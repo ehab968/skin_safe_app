@@ -184,4 +184,14 @@ class Styles {
     fontWeight: FontWeight.w400,
     color: ColorManager.primaryBlue,
   );
+  static TextStyle font14DarkGray400Weight = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
+    color: ColorManager.darkGray,
+  );
+  static TextStyle font14DarkGray300Weight = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w300,
+    color: ColorManager.darkGray,
+  );
 }

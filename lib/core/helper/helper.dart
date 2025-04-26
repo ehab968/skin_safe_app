@@ -35,6 +35,7 @@ void navigateToTab(BuildContext context, int index) {
       Navigator.pushReplacementNamed(context, Routes.scanView);
       break;
     case 3:
+      Navigator.pushReplacementNamed(context, Routes.ArticlesPage);
       null;
       break;
     case 4:
