@@ -3,12 +3,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skin_care_app/core/routing/routes.dart';
 
 import 'package:skin_care_app/features/Appointment_details/appointment_screen.dart';
+import 'package:skin_care_app/features/Articles/article_view.dart';
 import 'package:skin_care_app/features/BookingAppointment/ui/widgets/appointment_confirmation.dart';
 import 'package:skin_care_app/features/BookingAppointment/ui/table_calender.dart';
 import 'package:skin_care_app/features/My_Appointments/myAppointment_screen.dart';
+import 'package:skin_care_app/features/Notifications/notification_screen.dart';
 import 'package:skin_care_app/features/Profile/profile_screen.dart';
 
 import 'package:skin_care_app/features/about_doctor/about_doctor_section/ui/about_doctor_view.dart';
+import 'package:skin_care_app/features/article_body/article_body_screen.dart';
+
 
 import 'package:skin_care_app/features/authentication/login/ui/login_view.dart';
 import 'package:skin_care_app/features/history/ui/history_view.dart';
@@ -104,10 +108,18 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => MyAppointmentsScreen());
       case Routes.profileView:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
+         case Routes.ArticlesPage:
+        return MaterialPageRoute(builder: (_) =>  ArticlesPage());
+        case Routes.ArticleBodyScreen:
+        return MaterialPageRoute(builder: (_) =>const  ArticleBodyScreen());
+         case Routes.NotificationsScreen:
+        return MaterialPageRoute(builder: (_) =>  NotificationsScreen());
       case Routes.bookingView:
         return MaterialPageRoute(
           builder: (_) => const BookingCalendarWidget(bookedDays: []),
         );
+     
+   
       default:
         return null;
     }

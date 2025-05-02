@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:skin_care_app/core/helper/extensions.dart';
 import 'package:skin_care_app/core/helper/spacing.dart';
+import 'package:skin_care_app/core/routing/routes.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 import 'package:skin_care_app/features/Home/ui/widgets/doctors_list.dart';
@@ -33,7 +35,9 @@ class HomeViewBody extends StatelessWidget {
                         style: Styles.font16Black500Weight,
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.pushNamed(Routes.NotificationsScreen);
+                        },
                         icon: Icon(
                           Icons.notifications_none_rounded,
                           size: 24.sp,

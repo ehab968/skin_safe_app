@@ -120,7 +120,9 @@ class AppointmentCard extends StatelessWidget {
                     ),
                     verticalSpace(height: 16.h),
 
-                    Center(child: ViewDetailsButton()),
+                    Center(child: 
+                    ViewDetailsButton(text: 'View Details', onPressed: (){})
+                    ),
                   ],
                 ),
               ],
