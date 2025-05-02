@@ -1,18 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/helper/spacing.dart';
-import 'package:skin_care_app/features/scan_report/ui/widgets/custom_head_container.dart';
 import 'package:skin_care_app/features/scan_report/ui/widgets/custom_rich_text.dart';
 
 class ReportDetails extends StatelessWidget {
-  const ReportDetails({super.key});
-
+  const ReportDetails({
+    super.key,
+    required this.name,
+    required this.date,
+    required this.phone,
+    required this.skinTone,
+    required this.gender,
+    required this.typeDetected,
+  });
+  final String name;
+  final String date;
+  final String phone;
+  final String skinTone;
+  final String gender;
+  final String typeDetected;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const CustomHeadContainer(title: 'Current report'),
-        verticalSpace(height: 16),
         Padding(
           padding: EdgeInsets.only(left: 4.w),
           child: Column(
@@ -20,40 +30,25 @@ class ReportDetails extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const CustomRichText(
-                    textName1: 'Name: ',
-                    textName2: 'Muhammed Ali',
-                  ),
+                  CustomRichText(textName1: 'Name: ', textName2: name),
                   horizontalSpace(width: 37),
-                  const CustomRichText(
-                    textName1: 'Date: ',
-                    textName2: '14-Mar-2025',
-                  ),
+                  CustomRichText(textName1: 'Date: ', textName2: date),
                 ],
               ),
               verticalSpace(height: 8),
-              const CustomRichText(
-                textName1: 'Phone: ',
-                textName2: '(20) 10 222 333 44',
-              ),
+              CustomRichText(textName1: 'Phone: ', textName2: phone),
               verticalSpace(height: 8),
               Row(
                 children: [
-                  const CustomRichText(
-                    textName1: 'Skin tone: ',
-                    textName2: 'Light to medium',
-                  ),
+                  CustomRichText(textName1: 'Skin tone: ', textName2: skinTone),
                   horizontalSpace(width: 45),
-                  const CustomRichText(
-                    textName1: 'Gender: ',
-                    textName2: 'male',
-                  ),
+                  CustomRichText(textName1: 'Gender: ', textName2: gender),
                 ],
               ),
               verticalSpace(height: 8),
-              const CustomRichText(
+              CustomRichText(
                 textName1: 'Type detected: ',
-                textName2: 'Melanoma',
+                textName2: typeDetected,
               ),
             ],
           ),

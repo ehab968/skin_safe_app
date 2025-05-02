@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:skin_care_app/core/helper/extensions.dart';
+import 'package:skin_care_app/core/routing/routes.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 import 'package:skin_care_app/core/widgets/custom_text_button.dart';
@@ -21,6 +23,9 @@ class ReportHistoryItem extends StatelessWidget {
           Text('Tue, 04-Mar-2025', style: Styles.font14Black400Weight),
           CustomTextButton(
             textName: 'View',
+            onPressed: () {
+              context.pushNamed(Routes.viewReport);
+            },
             backgroundColor: ColorManager.primaryBlue,
             textStyle: Styles.font14White500Weight,
             width: 64.w,
