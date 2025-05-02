@@ -44,27 +44,31 @@ class ProfileSettings extends StatelessWidget {
             trailing: item.hasArrow ? const Icon(Icons.chevron_right) : null,
             onTap: () {
               switch (index) {
-                case 0: 
+                case 0:
+                  context.pushNamed(Routes.historyView);
+                  break;
                 case 1:
                   context.pushNamed(Routes.myAppointmentsScreen);
                   break;
                 case 2:
+                  null;
+                  break;
                 case 3:
                   showDialog(
                     context: context,
                     builder:
                         (context) => AlertDialog(
                           insetPadding: EdgeInsets.symmetric(
-                            horizontal: 24.h,
-                            vertical: 8,
+                            horizontal: 24.w,
+                            vertical: 8.h,
                           ),
-                          contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 16,
-                            vertical: 8,
+                          contentPadding: EdgeInsets.symmetric(
+                            horizontal: 16.w,
+                            vertical: 8.h,
                           ),
-                          titlePadding: const EdgeInsets.symmetric(
-                            horizontal: 16,
-                            vertical: 8,
+                          titlePadding: EdgeInsets.symmetric(
+                            horizontal: 16.w,
+                            vertical: 8.h,
                           ),
 
                           shape: RoundedRectangleBorder(
@@ -88,9 +92,9 @@ class ProfileSettings extends StatelessWidget {
                             "LOG OUT",
                             style: Styles.font16Black600Weight,
                           ),
-                          actionsPadding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 4,
+                          actionsPadding: EdgeInsets.symmetric(
+                            horizontal: 12.w,
+                            vertical: 4.h,
                           ),
                           actions: [
                             Row(
@@ -105,7 +109,10 @@ class ProfileSettings extends StatelessWidget {
                                 ),
                                 TextButton(
                                   onPressed: () {
-                                    context.pushNamed(Routes.splashView);
+                                    context.pushNamedAndRemoveUntil(
+                                      predicate: (route) => false,
+                                      Routes.loginView,
+                                    );
                                   },
                                   child: Text(
                                     "Ok",

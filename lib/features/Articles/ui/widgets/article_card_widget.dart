@@ -4,7 +4,6 @@ import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 import 'package:skin_care_app/features/Articles/ui/widgets/read_more_button.dart';
-import 'package:skin_care_app/features/My_Appointments/ui/widgets/view_details.dart';
 
 class ArticleCard extends StatelessWidget {
   final String image;

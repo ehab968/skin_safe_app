@@ -38,7 +38,7 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 const PersonalInfo(
                   label: 'Date of birth:',
-                  value: '  15-Mars-1995',
+                  value: '15-Mars-1995',
                 ),
                 const PersonalInfo(label: 'Gender:', value: 'Male'),
                 const PersonalInfo(
