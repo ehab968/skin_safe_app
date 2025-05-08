@@ -1,9 +1,11 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/helper/app_validator.dart';
 import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
+import 'package:skin_care_app/features/authentication/sign_up/logic/sign_up_cubit/sign_up_cubit.dart';
 
 class SkinToneDropDown extends StatefulWidget {
   const SkinToneDropDown({super.key});
@@ -101,6 +103,7 @@ class _SkinToneDropDownState extends State<SkinToneDropDown> {
               setState(() {
                 selectedValue = value;
               });
+              context.read<SignUpCubit>().skinToneController.text = value!;
             },
           ),
         ),

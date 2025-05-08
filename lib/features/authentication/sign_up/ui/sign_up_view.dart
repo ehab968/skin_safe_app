@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/helper/extensions.dart';
+import 'package:skin_care_app/core/helper/snackbar.dart';
 import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/routing/routes.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
@@ -40,13 +41,7 @@ class SignUpView extends StatelessWidget {
                   textStyle: Styles.font16White500Weight,
                   textName: 'Continue',
                   onPressed: () {
-                    if (context
-                        .read<SignUpCubit>()
-                        .formKey
-                        .currentState!
-                        .validate()) {
-                      context.pushNamed(Routes.signUpView2);
-                    }
+                    validateThenCompleteSignup(context);
                   },
                 ),
                 verticalSpace(height: 50),
@@ -56,5 +51,12 @@ class SignUpView extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void validateThenCompleteSignup(BuildContext context) {
+    if (context.read<SignUpCubit>().formKey.currentState!.validate()) {
+      snackBarShow(context, 'complete the second step of sign up');
+      context.pushNamed(Routes.signUpView2);
+    }
   }
 }

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/helper/app_validator.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
+import 'package:skin_care_app/features/authentication/sign_up/logic/sign_up_cubit/sign_up_cubit.dart';
 
 class GenderRadioButtons extends StatelessWidget {
   const GenderRadioButtons({super.key});
@@ -18,6 +20,9 @@ class GenderRadioButtons extends StatelessWidget {
           width: double.infinity,
           child: FormBuilderRadioGroup(
             validator: AppValidators.validateEmpty,
+            onChanged: (value) {
+              context.read<SignUpCubit>().genderController.text = value!;
+            },
             autovalidateMode: AutovalidateMode.onUserInteraction,
             activeColor: ColorManager.primaryBlue,
             decoration: const InputDecoration(border: InputBorder.none),

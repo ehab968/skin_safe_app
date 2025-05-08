@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skin_care_app/core/di/dependancy_injection.dart';
 import 'package:skin_care_app/core/routing/routes.dart';
 
 import 'package:skin_care_app/features/Appointment_details/appointment_screen.dart';
@@ -12,7 +13,6 @@ import 'package:skin_care_app/features/Profile/profile_screen.dart';
 
 import 'package:skin_care_app/features/about_doctor/about_doctor_section/ui/about_doctor_view.dart';
 import 'package:skin_care_app/features/article_body/article_body_screen.dart';
-
 
 import 'package:skin_care_app/features/authentication/login/ui/login_view.dart';
 import 'package:skin_care_app/features/history/ui/history_view.dart';
@@ -53,18 +53,12 @@ class AppRouter {
         return MaterialPageRoute(
           builder:
               (_) => BlocProvider(
-                create: (context) => SignUpCubit(),
+                create: (context) => getIt<SignUpCubit>(),
                 child: const SignUpView(),
               ),
         );
       case Routes.signUpView2:
-        return MaterialPageRoute(
-          builder:
-              (_) => BlocProvider(
-                create: (context) => SignUpCubit(),
-                child: const SignUpView2(),
-              ),
-        );
+        return MaterialPageRoute(builder: (_) => const SignUpView2());
       case Routes.forgotPasswordView:
         return MaterialPageRoute(builder: (_) => const ForgetPasswordView());
       case Routes.confirmationCodeView:
@@ -108,18 +102,17 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => MyAppointmentsScreen());
       case Routes.profileView:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
-         case Routes.ArticlesPage:
-        return MaterialPageRoute(builder: (_) =>  ArticlesPage());
-        case Routes.ArticleBodyScreen:
-        return MaterialPageRoute(builder: (_) =>const  ArticleBodyScreen());
-         case Routes.NotificationsScreen:
-        return MaterialPageRoute(builder: (_) =>  NotificationsScreen());
+      case Routes.ArticlesPage:
+        return MaterialPageRoute(builder: (_) => ArticlesPage());
+      case Routes.ArticleBodyScreen:
+        return MaterialPageRoute(builder: (_) => const ArticleBodyScreen());
+      case Routes.NotificationsScreen:
+        return MaterialPageRoute(builder: (_) => NotificationsScreen());
       case Routes.bookingView:
         return MaterialPageRoute(
           builder: (_) => const BookingCalendarWidget(bookedDays: []),
         );
-     
-   
+
       default:
         return null;
     }

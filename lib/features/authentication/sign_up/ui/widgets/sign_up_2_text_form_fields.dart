@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/helper/app_validator.dart';
 import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 import 'package:skin_care_app/core/widgets/custom_text_form_field.dart';
+import 'package:skin_care_app/features/authentication/sign_up/logic/sign_up_cubit/sign_up_cubit.dart';
 import 'package:skin_care_app/features/authentication/sign_up/ui/widgets/user_name_and_email_text_form_field.dart';
 
 class SignUp2TextFormFields extends StatefulWidget {
@@ -55,6 +57,7 @@ class _SignUp2TextFormFieldsState extends State<SignUp2TextFormFields> {
           autovalidateMode: AutovalidateMode.onUserInteraction,
           keyboardType: TextInputType.visiblePassword,
           validator: AppValidators.validatePassword,
+          controller: context.read<SignUpCubit>().passwordController,
           borderRadius: 10,
           isObscure: isobsecure1,
           backgroundColor:
@@ -89,7 +92,17 @@ class _SignUp2TextFormFieldsState extends State<SignUp2TextFormFields> {
           focusNode: confirmPasswordFocusNode,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           keyboardType: TextInputType.visiblePassword,
-          validator: AppValidators.validatePassword,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'field is required';
+            } else if (value !=
+                context.read<SignUpCubit>().passwordController.text) {
+              return 'Password does not match';
+            }
+            return null;
+          },
+          controller: context.read<SignUpCubit>().passwordConfirmController,
+
           borderRadius: 10,
           isObscure: isobsecure2,
           backgroundColor:

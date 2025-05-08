@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:skin_care_app/core/helper/extensions.dart';
 import 'package:skin_care_app/core/helper/spacing.dart';
-import 'package:skin_care_app/core/routing/routes.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 import 'package:skin_care_app/core/widgets/custom_text_button.dart';
@@ -11,6 +9,7 @@ import 'package:skin_care_app/features/authentication/sign_up/logic/sign_up_cubi
 import 'package:skin_care_app/features/authentication/sign_up/ui/widgets/agree_terms_and_privacy_police.dart';
 import 'package:skin_care_app/features/authentication/sign_up/ui/widgets/already_have_account_section.dart';
 import 'package:skin_care_app/features/authentication/sign_up/ui/widgets/sign_up_2_text_form_fields.dart';
+import 'package:skin_care_app/features/authentication/sign_up/ui/widgets/sign_up_bloc_listner.dart';
 
 class SignUpView2 extends StatelessWidget {
   const SignUpView2({super.key});
@@ -33,21 +32,13 @@ class SignUpView2 extends StatelessWidget {
                 verticalSpace(height: 16),
                 const AgreeTermsAndPrivacyPolice(),
                 verticalSpace(height: 32),
+                const SignUpBlocListner(),
                 CustomTextButton(
                   textName: 'Sign up',
                   textStyle: Styles.font16White500Weight,
                   backgroundColor: ColorManager.primaryBlue,
                   onPressed: () {
-                    if (context
-                        .read<SignUpCubit>()
-                        .formKey2
-                        .currentState!
-                        .validate()) {
-                      context.pushNamedAndRemoveUntil(
-                        Routes.homeView,
-                        predicate: (route) => false,
-                      );
-                    }
+                    validateThenDoSignup(context);
                   },
                 ),
                 verticalSpace(height: 8),
@@ -58,5 +49,11 @@ class SignUpView2 extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void validateThenDoSignup(BuildContext context) {
+    if (context.read<SignUpCubit>().formKey2.currentState!.validate()) {
+      context.read<SignUpCubit>().doSignUp();
+    }
   }
 }
