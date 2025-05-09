@@ -12,12 +12,14 @@ SignupResponse _$SignupResponseFromJson(Map<String, dynamic> json) =>
           ? null
           : Data.fromJson(json['data'] as Map<String, dynamic>),
       message: json['message'] as String?,
+      token: json['token'] as String?,
     );
 
 Map<String, dynamic> _$SignupResponseToJson(SignupResponse instance) =>
     <String, dynamic>{
       'data': instance.data,
       'message': instance.message,
+      'token': instance.token,
     };
 
 Data _$DataFromJson(Map<String, dynamic> json) => Data(

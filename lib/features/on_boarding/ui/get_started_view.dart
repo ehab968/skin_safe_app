@@ -48,6 +48,7 @@ class GetStartedView extends StatelessWidget {
 
               CustomTextButton(
                 backgroundColor: ColorManager.white,
+                borderSideColor: ColorManager.primaryBlue,
                 textStyle: Styles.font16PrimaryBlue500Weight,
                 textName: 'Sign up',
                 onPressed: () {

@@ -4,8 +4,10 @@ import 'package:skin_care_app/core/helper/extensions.dart';
 import 'package:skin_care_app/core/helper/snackbar.dart';
 import 'package:skin_care_app/core/networking/api_error_model.dart';
 import 'package:skin_care_app/core/routing/routes.dart';
+import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/features/authentication/sign_up/logic/sign_up_cubit/sign_up_cubit.dart';
 import 'package:skin_care_app/features/authentication/sign_up/logic/sign_up_cubit/sign_up_state.dart';
+import 'package:skin_care_app/features/authentication/widgets/error_alert_dialog.dart';
 
 class SignUpBlocListner extends StatelessWidget {
   const SignUpBlocListner({super.key});
@@ -17,24 +19,27 @@ class SignUpBlocListner extends StatelessWidget {
           (previous, current) =>
               current is signUpLoading ||
               current is SignUpError ||
-              current is signUpLoading,
+              current is SignUpSuccess,
       listener: (context, state) {
         state.whenOrNull(
           signUPLoading:
               () => showDialog(
                 context: context,
                 builder:
-                    (context) =>
-                        const Center(child: CircularProgressIndicator()),
+                    (context) => const Center(
+                      child: CircularProgressIndicator(
+                        color: ColorManager.primaryBlue,
+                      ),
+                    ),
               ),
           signUPSuccess: (data) {
             context.pop();
             snackBarShow(context, 'Sign up successfully, Welcome');
-            context.pushNamed(Routes.signUpView2, arguments: data);
+            context.pushNamed(Routes.homeView, arguments: data);
           },
           signUPError: (apiErrorModel) {
             context.pop();
-            setUpErrorState(context, apiErrorModel);
+            setUpSignUpErrorState(context, apiErrorModel);
           },
         );
       },
@@ -42,21 +47,10 @@ class SignUpBlocListner extends StatelessWidget {
     );
   }
 
-  void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
+  void setUpSignUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
     showDialog(
       context: context,
-      builder:
-          (_) => AlertDialog(
-            content: Text(apiErrorModel.message!),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  context.pop();
-                },
-                child: const Text('OK'),
-              ),
-            ],
-          ),
+      builder: (_) => ErrorAlertDialog(errorMessage: apiErrorModel.message!),
     );
   }
 }

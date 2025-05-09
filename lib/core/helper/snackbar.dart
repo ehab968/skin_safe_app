@@ -6,7 +6,6 @@ void snackBarShow(BuildContext context, String message) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       backgroundColor: ColorManager.primaryBlue,
-      behavior: SnackBarBehavior.floating,
       content: Text(
         message,
         style: TextStyle(

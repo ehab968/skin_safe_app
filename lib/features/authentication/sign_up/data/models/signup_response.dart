@@ -1,15 +1,16 @@
 import 'package:json_annotation/json_annotation.dart';
 part 'signup_response.g.dart';
+
 @JsonSerializable()
 class SignupResponse {
   Data? data;
   String? message;
-
-  SignupResponse({ this.data,  this.message});
+  String? token;
+  SignupResponse({this.data, this.message, this.token});
   factory SignupResponse.fromJson(Map<String, dynamic> json) =>
       _$SignupResponseFromJson(json);
-
 }
+
 @JsonSerializable()
 class Data {
   @JsonKey(name: '_id')

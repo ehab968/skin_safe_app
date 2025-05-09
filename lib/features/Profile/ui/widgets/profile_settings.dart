@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:skin_care_app/core/helper/extensions.dart';
 import 'package:skin_care_app/core/routing/routes.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
@@ -108,10 +110,12 @@ class ProfileSettings extends StatelessWidget {
                                   ),
                                 ),
                                 TextButton(
-                                  onPressed: () {
+                                  onPressed: () async {
+                                    await GoogleSignIn().signOut();
+                                    await FirebaseAuth.instance.signOut();
                                     context.pushNamedAndRemoveUntil(
-                                      predicate: (route) => false,
                                       Routes.loginView,
+                                      predicate: (route) => false,
                                     );
                                   },
                                   child: Text(

@@ -40,7 +40,7 @@ class NamePhoneNumberBirthDateTextfield extends StatelessWidget {
         CustomTextFormField(
           hint: 'DD/MM/YYYY',
           autovalidateMode: AutovalidateMode.onUserInteraction,
-          keyboardType: TextInputType.datetime,
+          keyboardType: TextInputType.number,
           validator: AppValidators.validateDate,
           borderRadius: 10,
           controller: context.read<SignUpCubit>().dateOfBirthController,

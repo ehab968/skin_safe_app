@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "392470887082",
+    "project_id": "skin-safe-app",
+    "storage_bucket": "skin-safe-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:392470887082:android:7b1ce2bb0a94d4631f2ed3",
+        "android_client_info": {
+          "package_name": "com.example.skin_care_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "392470887082-dtc8pt0u2v9gg4a5nfdrn03umbcvem4r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.skin_care_app",
+            "certificate_hash": "c851787cdc171aa6f6c1b9030aeb58aae0ced67c"
+          }
+        },
+        {
+          "client_id": "392470887082-99fimu6aoqhfqsbbcrr7bu53dj2bs9sq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnhN5K7Jzg2cd8mxjR1nyUh0XfaAiQomc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "392470887082-99fimu6aoqhfqsbbcrr7bu53dj2bs9sq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
