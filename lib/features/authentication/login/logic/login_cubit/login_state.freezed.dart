@@ -22,9 +22,6 @@ mixin _$LoginState<T> {
     required TResult Function() loginLoading,
     required TResult Function(T data) loginSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) loginError,
-    required TResult Function(UserCredential userCredential)
-        loginWithGoogleSuccess,
-    required TResult Function(String error) loginWithGoogleError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -33,8 +30,6 @@ mixin _$LoginState<T> {
     TResult? Function()? loginLoading,
     TResult? Function(T data)? loginSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? loginError,
-    TResult? Function(UserCredential userCredential)? loginWithGoogleSuccess,
-    TResult? Function(String error)? loginWithGoogleError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,8 +38,6 @@ mixin _$LoginState<T> {
     TResult Function()? loginLoading,
     TResult Function(T data)? loginSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? loginError,
-    TResult Function(UserCredential userCredential)? loginWithGoogleSuccess,
-    TResult Function(String error)? loginWithGoogleError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -54,10 +47,6 @@ mixin _$LoginState<T> {
     required TResult Function(LoginLoading<T> value) loginLoading,
     required TResult Function(LoginSuccess<T> value) loginSuccess,
     required TResult Function(LoginError<T> value) loginError,
-    required TResult Function(LoginWithGoogleSuccess<T> value)
-        loginWithGoogleSuccess,
-    required TResult Function(LoginWithGoogleError<T> value)
-        loginWithGoogleError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,8 +55,6 @@ mixin _$LoginState<T> {
     TResult? Function(LoginLoading<T> value)? loginLoading,
     TResult? Function(LoginSuccess<T> value)? loginSuccess,
     TResult? Function(LoginError<T> value)? loginError,
-    TResult? Function(LoginWithGoogleSuccess<T> value)? loginWithGoogleSuccess,
-    TResult? Function(LoginWithGoogleError<T> value)? loginWithGoogleError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,8 +63,6 @@ mixin _$LoginState<T> {
     TResult Function(LoginLoading<T> value)? loginLoading,
     TResult Function(LoginSuccess<T> value)? loginSuccess,
     TResult Function(LoginError<T> value)? loginError,
-    TResult Function(LoginWithGoogleSuccess<T> value)? loginWithGoogleSuccess,
-    TResult Function(LoginWithGoogleError<T> value)? loginWithGoogleError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -149,9 +134,6 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() loginLoading,
     required TResult Function(T data) loginSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) loginError,
-    required TResult Function(UserCredential userCredential)
-        loginWithGoogleSuccess,
-    required TResult Function(String error) loginWithGoogleError,
   }) {
     return initial();
   }
@@ -163,8 +145,6 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? loginLoading,
     TResult? Function(T data)? loginSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? loginError,
-    TResult? Function(UserCredential userCredential)? loginWithGoogleSuccess,
-    TResult? Function(String error)? loginWithGoogleError,
   }) {
     return initial?.call();
   }
@@ -176,8 +156,6 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? loginLoading,
     TResult Function(T data)? loginSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? loginError,
-    TResult Function(UserCredential userCredential)? loginWithGoogleSuccess,
-    TResult Function(String error)? loginWithGoogleError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -193,10 +171,6 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(LoginLoading<T> value) loginLoading,
     required TResult Function(LoginSuccess<T> value) loginSuccess,
     required TResult Function(LoginError<T> value) loginError,
-    required TResult Function(LoginWithGoogleSuccess<T> value)
-        loginWithGoogleSuccess,
-    required TResult Function(LoginWithGoogleError<T> value)
-        loginWithGoogleError,
   }) {
     return initial(this);
   }
@@ -208,8 +182,6 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(LoginLoading<T> value)? loginLoading,
     TResult? Function(LoginSuccess<T> value)? loginSuccess,
     TResult? Function(LoginError<T> value)? loginError,
-    TResult? Function(LoginWithGoogleSuccess<T> value)? loginWithGoogleSuccess,
-    TResult? Function(LoginWithGoogleError<T> value)? loginWithGoogleError,
   }) {
     return initial?.call(this);
   }
@@ -221,8 +193,6 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(LoginLoading<T> value)? loginLoading,
     TResult Function(LoginSuccess<T> value)? loginSuccess,
     TResult Function(LoginError<T> value)? loginError,
-    TResult Function(LoginWithGoogleSuccess<T> value)? loginWithGoogleSuccess,
-    TResult Function(LoginWithGoogleError<T> value)? loginWithGoogleError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -281,9 +251,6 @@ class _$LoginLoadingImpl<T> implements LoginLoading<T> {
     required TResult Function() loginLoading,
     required TResult Function(T data) loginSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) loginError,
-    required TResult Function(UserCredential userCredential)
-        loginWithGoogleSuccess,
-    required TResult Function(String error) loginWithGoogleError,
   }) {
     return loginLoading();
   }
@@ -295,8 +262,6 @@ class _$LoginLoadingImpl<T> implements LoginLoading<T> {
     TResult? Function()? loginLoading,
     TResult? Function(T data)? loginSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? loginError,
-    TResult? Function(UserCredential userCredential)? loginWithGoogleSuccess,
-    TResult? Function(String error)? loginWithGoogleError,
   }) {
     return loginLoading?.call();
   }
@@ -308,8 +273,6 @@ class _$LoginLoadingImpl<T> implements LoginLoading<T> {
     TResult Function()? loginLoading,
     TResult Function(T data)? loginSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? loginError,
-    TResult Function(UserCredential userCredential)? loginWithGoogleSuccess,
-    TResult Function(String error)? loginWithGoogleError,
     required TResult orElse(),
   }) {
     if (loginLoading != null) {
@@ -325,10 +288,6 @@ class _$LoginLoadingImpl<T> implements LoginLoading<T> {
     required TResult Function(LoginLoading<T> value) loginLoading,
     required TResult Function(LoginSuccess<T> value) loginSuccess,
     required TResult Function(LoginError<T> value) loginError,
-    required TResult Function(LoginWithGoogleSuccess<T> value)
-        loginWithGoogleSuccess,
-    required TResult Function(LoginWithGoogleError<T> value)
-        loginWithGoogleError,
   }) {
     return loginLoading(this);
   }
@@ -340,8 +299,6 @@ class _$LoginLoadingImpl<T> implements LoginLoading<T> {
     TResult? Function(LoginLoading<T> value)? loginLoading,
     TResult? Function(LoginSuccess<T> value)? loginSuccess,
     TResult? Function(LoginError<T> value)? loginError,
-    TResult? Function(LoginWithGoogleSuccess<T> value)? loginWithGoogleSuccess,
-    TResult? Function(LoginWithGoogleError<T> value)? loginWithGoogleError,
   }) {
     return loginLoading?.call(this);
   }
@@ -353,8 +310,6 @@ class _$LoginLoadingImpl<T> implements LoginLoading<T> {
     TResult Function(LoginLoading<T> value)? loginLoading,
     TResult Function(LoginSuccess<T> value)? loginSuccess,
     TResult Function(LoginError<T> value)? loginError,
-    TResult Function(LoginWithGoogleSuccess<T> value)? loginWithGoogleSuccess,
-    TResult Function(LoginWithGoogleError<T> value)? loginWithGoogleError,
     required TResult orElse(),
   }) {
     if (loginLoading != null) {
@@ -442,9 +397,6 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
     required TResult Function() loginLoading,
     required TResult Function(T data) loginSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) loginError,
-    required TResult Function(UserCredential userCredential)
-        loginWithGoogleSuccess,
-    required TResult Function(String error) loginWithGoogleError,
   }) {
     return loginSuccess(data);
   }
@@ -456,8 +408,6 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
     TResult? Function()? loginLoading,
     TResult? Function(T data)? loginSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? loginError,
-    TResult? Function(UserCredential userCredential)? loginWithGoogleSuccess,
-    TResult? Function(String error)? loginWithGoogleError,
   }) {
     return loginSuccess?.call(data);
   }
@@ -469,8 +419,6 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
     TResult Function()? loginLoading,
     TResult Function(T data)? loginSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? loginError,
-    TResult Function(UserCredential userCredential)? loginWithGoogleSuccess,
-    TResult Function(String error)? loginWithGoogleError,
     required TResult orElse(),
   }) {
     if (loginSuccess != null) {
@@ -486,10 +434,6 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
     required TResult Function(LoginLoading<T> value) loginLoading,
     required TResult Function(LoginSuccess<T> value) loginSuccess,
     required TResult Function(LoginError<T> value) loginError,
-    required TResult Function(LoginWithGoogleSuccess<T> value)
-        loginWithGoogleSuccess,
-    required TResult Function(LoginWithGoogleError<T> value)
-        loginWithGoogleError,
   }) {
     return loginSuccess(this);
   }
@@ -501,8 +445,6 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
     TResult? Function(LoginLoading<T> value)? loginLoading,
     TResult? Function(LoginSuccess<T> value)? loginSuccess,
     TResult? Function(LoginError<T> value)? loginError,
-    TResult? Function(LoginWithGoogleSuccess<T> value)? loginWithGoogleSuccess,
-    TResult? Function(LoginWithGoogleError<T> value)? loginWithGoogleError,
   }) {
     return loginSuccess?.call(this);
   }
@@ -514,8 +456,6 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
     TResult Function(LoginLoading<T> value)? loginLoading,
     TResult Function(LoginSuccess<T> value)? loginSuccess,
     TResult Function(LoginError<T> value)? loginError,
-    TResult Function(LoginWithGoogleSuccess<T> value)? loginWithGoogleSuccess,
-    TResult Function(LoginWithGoogleError<T> value)? loginWithGoogleError,
     required TResult orElse(),
   }) {
     if (loginSuccess != null) {
@@ -610,9 +550,6 @@ class _$LoginErrorImpl<T> implements LoginError<T> {
     required TResult Function() loginLoading,
     required TResult Function(T data) loginSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) loginError,
-    required TResult Function(UserCredential userCredential)
-        loginWithGoogleSuccess,
-    required TResult Function(String error) loginWithGoogleError,
   }) {
     return loginError(apiErrorModel);
   }
@@ -624,8 +561,6 @@ class _$LoginErrorImpl<T> implements LoginError<T> {
     TResult? Function()? loginLoading,
     TResult? Function(T data)? loginSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? loginError,
-    TResult? Function(UserCredential userCredential)? loginWithGoogleSuccess,
-    TResult? Function(String error)? loginWithGoogleError,
   }) {
     return loginError?.call(apiErrorModel);
   }
@@ -637,8 +572,6 @@ class _$LoginErrorImpl<T> implements LoginError<T> {
     TResult Function()? loginLoading,
     TResult Function(T data)? loginSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? loginError,
-    TResult Function(UserCredential userCredential)? loginWithGoogleSuccess,
-    TResult Function(String error)? loginWithGoogleError,
     required TResult orElse(),
   }) {
     if (loginError != null) {
@@ -654,10 +587,6 @@ class _$LoginErrorImpl<T> implements LoginError<T> {
     required TResult Function(LoginLoading<T> value) loginLoading,
     required TResult Function(LoginSuccess<T> value) loginSuccess,
     required TResult Function(LoginError<T> value) loginError,
-    required TResult Function(LoginWithGoogleSuccess<T> value)
-        loginWithGoogleSuccess,
-    required TResult Function(LoginWithGoogleError<T> value)
-        loginWithGoogleError,
   }) {
     return loginError(this);
   }
@@ -669,8 +598,6 @@ class _$LoginErrorImpl<T> implements LoginError<T> {
     TResult? Function(LoginLoading<T> value)? loginLoading,
     TResult? Function(LoginSuccess<T> value)? loginSuccess,
     TResult? Function(LoginError<T> value)? loginError,
-    TResult? Function(LoginWithGoogleSuccess<T> value)? loginWithGoogleSuccess,
-    TResult? Function(LoginWithGoogleError<T> value)? loginWithGoogleError,
   }) {
     return loginError?.call(this);
   }
@@ -682,8 +609,6 @@ class _$LoginErrorImpl<T> implements LoginError<T> {
     TResult Function(LoginLoading<T> value)? loginLoading,
     TResult Function(LoginSuccess<T> value)? loginSuccess,
     TResult Function(LoginError<T> value)? loginError,
-    TResult Function(LoginWithGoogleSuccess<T> value)? loginWithGoogleSuccess,
-    TResult Function(LoginWithGoogleError<T> value)? loginWithGoogleError,
     required TResult orElse(),
   }) {
     if (loginError != null) {
@@ -704,346 +629,4 @@ abstract class LoginError<T> implements LoginState<T> {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoginErrorImplCopyWith<T, _$LoginErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$LoginWithGoogleSuccessImplCopyWith<T, $Res> {
-  factory _$$LoginWithGoogleSuccessImplCopyWith(
-          _$LoginWithGoogleSuccessImpl<T> value,
-          $Res Function(_$LoginWithGoogleSuccessImpl<T>) then) =
-      __$$LoginWithGoogleSuccessImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({UserCredential userCredential});
-}
-
-/// @nodoc
-class __$$LoginWithGoogleSuccessImplCopyWithImpl<T, $Res>
-    extends _$LoginStateCopyWithImpl<T, $Res, _$LoginWithGoogleSuccessImpl<T>>
-    implements _$$LoginWithGoogleSuccessImplCopyWith<T, $Res> {
-  __$$LoginWithGoogleSuccessImplCopyWithImpl(
-      _$LoginWithGoogleSuccessImpl<T> _value,
-      $Res Function(_$LoginWithGoogleSuccessImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of LoginState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? userCredential = null,
-  }) {
-    return _then(_$LoginWithGoogleSuccessImpl<T>(
-      null == userCredential
-          ? _value.userCredential
-          : userCredential // ignore: cast_nullable_to_non_nullable
-              as UserCredential,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$LoginWithGoogleSuccessImpl<T> implements LoginWithGoogleSuccess<T> {
-  const _$LoginWithGoogleSuccessImpl(this.userCredential);
-
-  @override
-  final UserCredential userCredential;
-
-  @override
-  String toString() {
-    return 'LoginState<$T>.loginWithGoogleSuccess(userCredential: $userCredential)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LoginWithGoogleSuccessImpl<T> &&
-            (identical(other.userCredential, userCredential) ||
-                other.userCredential == userCredential));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, userCredential);
-
-  /// Create a copy of LoginState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LoginWithGoogleSuccessImplCopyWith<T, _$LoginWithGoogleSuccessImpl<T>>
-      get copyWith => __$$LoginWithGoogleSuccessImplCopyWithImpl<T,
-          _$LoginWithGoogleSuccessImpl<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loginLoading,
-    required TResult Function(T data) loginSuccess,
-    required TResult Function(ApiErrorModel apiErrorModel) loginError,
-    required TResult Function(UserCredential userCredential)
-        loginWithGoogleSuccess,
-    required TResult Function(String error) loginWithGoogleError,
-  }) {
-    return loginWithGoogleSuccess(userCredential);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loginLoading,
-    TResult? Function(T data)? loginSuccess,
-    TResult? Function(ApiErrorModel apiErrorModel)? loginError,
-    TResult? Function(UserCredential userCredential)? loginWithGoogleSuccess,
-    TResult? Function(String error)? loginWithGoogleError,
-  }) {
-    return loginWithGoogleSuccess?.call(userCredential);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loginLoading,
-    TResult Function(T data)? loginSuccess,
-    TResult Function(ApiErrorModel apiErrorModel)? loginError,
-    TResult Function(UserCredential userCredential)? loginWithGoogleSuccess,
-    TResult Function(String error)? loginWithGoogleError,
-    required TResult orElse(),
-  }) {
-    if (loginWithGoogleSuccess != null) {
-      return loginWithGoogleSuccess(userCredential);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(LoginLoading<T> value) loginLoading,
-    required TResult Function(LoginSuccess<T> value) loginSuccess,
-    required TResult Function(LoginError<T> value) loginError,
-    required TResult Function(LoginWithGoogleSuccess<T> value)
-        loginWithGoogleSuccess,
-    required TResult Function(LoginWithGoogleError<T> value)
-        loginWithGoogleError,
-  }) {
-    return loginWithGoogleSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(LoginLoading<T> value)? loginLoading,
-    TResult? Function(LoginSuccess<T> value)? loginSuccess,
-    TResult? Function(LoginError<T> value)? loginError,
-    TResult? Function(LoginWithGoogleSuccess<T> value)? loginWithGoogleSuccess,
-    TResult? Function(LoginWithGoogleError<T> value)? loginWithGoogleError,
-  }) {
-    return loginWithGoogleSuccess?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(LoginLoading<T> value)? loginLoading,
-    TResult Function(LoginSuccess<T> value)? loginSuccess,
-    TResult Function(LoginError<T> value)? loginError,
-    TResult Function(LoginWithGoogleSuccess<T> value)? loginWithGoogleSuccess,
-    TResult Function(LoginWithGoogleError<T> value)? loginWithGoogleError,
-    required TResult orElse(),
-  }) {
-    if (loginWithGoogleSuccess != null) {
-      return loginWithGoogleSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LoginWithGoogleSuccess<T> implements LoginState<T> {
-  const factory LoginWithGoogleSuccess(final UserCredential userCredential) =
-      _$LoginWithGoogleSuccessImpl<T>;
-
-  UserCredential get userCredential;
-
-  /// Create a copy of LoginState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LoginWithGoogleSuccessImplCopyWith<T, _$LoginWithGoogleSuccessImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$LoginWithGoogleErrorImplCopyWith<T, $Res> {
-  factory _$$LoginWithGoogleErrorImplCopyWith(
-          _$LoginWithGoogleErrorImpl<T> value,
-          $Res Function(_$LoginWithGoogleErrorImpl<T>) then) =
-      __$$LoginWithGoogleErrorImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({String error});
-}
-
-/// @nodoc
-class __$$LoginWithGoogleErrorImplCopyWithImpl<T, $Res>
-    extends _$LoginStateCopyWithImpl<T, $Res, _$LoginWithGoogleErrorImpl<T>>
-    implements _$$LoginWithGoogleErrorImplCopyWith<T, $Res> {
-  __$$LoginWithGoogleErrorImplCopyWithImpl(_$LoginWithGoogleErrorImpl<T> _value,
-      $Res Function(_$LoginWithGoogleErrorImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of LoginState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? error = null,
-  }) {
-    return _then(_$LoginWithGoogleErrorImpl<T>(
-      null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$LoginWithGoogleErrorImpl<T> implements LoginWithGoogleError<T> {
-  const _$LoginWithGoogleErrorImpl(this.error);
-
-  @override
-  final String error;
-
-  @override
-  String toString() {
-    return 'LoginState<$T>.loginWithGoogleError(error: $error)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LoginWithGoogleErrorImpl<T> &&
-            (identical(other.error, error) || other.error == error));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, error);
-
-  /// Create a copy of LoginState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LoginWithGoogleErrorImplCopyWith<T, _$LoginWithGoogleErrorImpl<T>>
-      get copyWith => __$$LoginWithGoogleErrorImplCopyWithImpl<T,
-          _$LoginWithGoogleErrorImpl<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loginLoading,
-    required TResult Function(T data) loginSuccess,
-    required TResult Function(ApiErrorModel apiErrorModel) loginError,
-    required TResult Function(UserCredential userCredential)
-        loginWithGoogleSuccess,
-    required TResult Function(String error) loginWithGoogleError,
-  }) {
-    return loginWithGoogleError(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loginLoading,
-    TResult? Function(T data)? loginSuccess,
-    TResult? Function(ApiErrorModel apiErrorModel)? loginError,
-    TResult? Function(UserCredential userCredential)? loginWithGoogleSuccess,
-    TResult? Function(String error)? loginWithGoogleError,
-  }) {
-    return loginWithGoogleError?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loginLoading,
-    TResult Function(T data)? loginSuccess,
-    TResult Function(ApiErrorModel apiErrorModel)? loginError,
-    TResult Function(UserCredential userCredential)? loginWithGoogleSuccess,
-    TResult Function(String error)? loginWithGoogleError,
-    required TResult orElse(),
-  }) {
-    if (loginWithGoogleError != null) {
-      return loginWithGoogleError(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(LoginLoading<T> value) loginLoading,
-    required TResult Function(LoginSuccess<T> value) loginSuccess,
-    required TResult Function(LoginError<T> value) loginError,
-    required TResult Function(LoginWithGoogleSuccess<T> value)
-        loginWithGoogleSuccess,
-    required TResult Function(LoginWithGoogleError<T> value)
-        loginWithGoogleError,
-  }) {
-    return loginWithGoogleError(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(LoginLoading<T> value)? loginLoading,
-    TResult? Function(LoginSuccess<T> value)? loginSuccess,
-    TResult? Function(LoginError<T> value)? loginError,
-    TResult? Function(LoginWithGoogleSuccess<T> value)? loginWithGoogleSuccess,
-    TResult? Function(LoginWithGoogleError<T> value)? loginWithGoogleError,
-  }) {
-    return loginWithGoogleError?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(LoginLoading<T> value)? loginLoading,
-    TResult Function(LoginSuccess<T> value)? loginSuccess,
-    TResult Function(LoginError<T> value)? loginError,
-    TResult Function(LoginWithGoogleSuccess<T> value)? loginWithGoogleSuccess,
-    TResult Function(LoginWithGoogleError<T> value)? loginWithGoogleError,
-    required TResult orElse(),
-  }) {
-    if (loginWithGoogleError != null) {
-      return loginWithGoogleError(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LoginWithGoogleError<T> implements LoginState<T> {
-  const factory LoginWithGoogleError(final String error) =
-      _$LoginWithGoogleErrorImpl<T>;
-
-  String get error;
-
-  /// Create a copy of LoginState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LoginWithGoogleErrorImplCopyWith<T, _$LoginWithGoogleErrorImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
 }

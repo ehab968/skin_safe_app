@@ -5,24 +5,25 @@ import 'package:skin_care_app/core/helper/snackbar.dart';
 import 'package:skin_care_app/core/networking/api_error_model.dart';
 import 'package:skin_care_app/core/routing/routes.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
-import 'package:skin_care_app/features/authentication/sign_up/logic/sign_up_cubit/sign_up_cubit.dart';
-import 'package:skin_care_app/features/authentication/sign_up/logic/sign_up_cubit/sign_up_state.dart';
+import 'package:skin_care_app/features/authentication/login/data/models/login_response.dart';
+import 'package:skin_care_app/features/authentication/login/logic/login_cubit/login_cubit.dart';
+import 'package:skin_care_app/features/authentication/login/logic/login_cubit/login_state.dart';
 import 'package:skin_care_app/features/authentication/widgets/error_alert_dialog.dart';
 
-class SignUpBlocListner extends StatelessWidget {
-  const SignUpBlocListner({super.key});
+class LoginBlocListner extends StatelessWidget {
+  const LoginBlocListner({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<SignUpCubit, SignUpState>(
+    return BlocListener<LoginCubit, LoginState<LoginResponse>>(
       listenWhen:
           (previous, current) =>
-              current is signUpLoading ||
-              current is SignUpError ||
-              current is SignUpSuccess,
+              current is LoginLoading ||
+              current is LoginError ||
+              current is LoginSuccess,
       listener: (context, state) {
         state.whenOrNull(
-          signUPLoading:
+          loginLoading:
               () => showDialog(
                 context: context,
                 builder:
@@ -32,14 +33,21 @@ class SignUpBlocListner extends StatelessWidget {
                       ),
                     ),
               ),
-          signUPSuccess: (data) {
+          loginSuccess: (data) {
             context.pop();
-            snackBarShow(context, 'Sign up successfully, Welcome');
-            context.pushNamed(Routes.verficationCodeView, arguments: data);
+            snackBarShow(
+              context,
+              'Login successful, Welcome ${data.data!.name ?? ''} ',
+            );
+            context.pushNamedAndRemoveUntil(
+              Routes.homeView,
+              predicate: (route) => false,
+              arguments: data,
+            );
           },
-          signUPError: (apiErrorModel) {
+          loginError: (apiErrorModel) {
             context.pop();
-            setUpSignUpErrorState(context, apiErrorModel);
+            setUpLoginErrorState(context, apiErrorModel);
           },
         );
       },
@@ -47,10 +55,7 @@ class SignUpBlocListner extends StatelessWidget {
     );
   }
 
-  void setUpSignUpErrorState(
-    BuildContext context,
-    ApiErrorModel apiErrorModel,
-  ) {
+  void setUpLoginErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
     showDialog(
       context: context,
       builder: (_) => ErrorAlertDialog(errorMessage: apiErrorModel.message!),

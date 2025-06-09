@@ -6,7 +6,7 @@ import 'package:skin_care_app/core/routing/routes.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 import 'package:skin_care_app/core/widgets/custom_text_button.dart';
-import 'package:skin_care_app/features/authentication/confirmation_code/ui/widgets/pin_text_field.dart';
+import 'package:skin_care_app/features/authentication/widgets/custom_pin_text_field.dart';
 
 class ConfirmationCodePinAndButton extends StatelessWidget {
   ConfirmationCodePinAndButton({super.key});
@@ -17,7 +17,7 @@ class ConfirmationCodePinAndButton extends StatelessWidget {
       key: formKey,
       child: Column(
         children: [
-          const PinTextField(),
+          const CustomPinTextField(),
           verticalSpace(height: 32),
           CustomTextButton(
             textName: 'Verify Code',

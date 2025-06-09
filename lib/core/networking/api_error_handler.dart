@@ -20,10 +20,10 @@ class ApiErrorHandler {
         case DioExceptionType.connectionError:
           return ApiErrorModel(message: 'Connection Error');
         default:
-          return ApiErrorModel(message: 'Unknown Error');
+          return ApiErrorModel(message: 'Unknown Dio Excption Error');
       }
     } else {
-      return ApiErrorModel(message: 'Unknown Error');
+      return ApiErrorModel(message: 'Unknown11 Error');
     }
   }
 }

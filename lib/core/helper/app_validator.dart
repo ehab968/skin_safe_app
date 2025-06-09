@@ -10,8 +10,8 @@ class AppValidators {
     if (value == null || value.isEmpty) {
       return 'field is required';
     }
-    if (value.length < 4) {
-      return 'Pin must be at least 4 characters long';
+    if (value.length < 6) {
+      return 'Pin must be at least 6 characters long';
     }
     return null;
   }

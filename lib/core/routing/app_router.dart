@@ -15,6 +15,8 @@ import 'package:skin_care_app/features/about_doctor/about_doctor_section/ui/abou
 import 'package:skin_care_app/features/article_body/article_body_screen.dart';
 
 import 'package:skin_care_app/features/authentication/login/ui/login_view.dart';
+import 'package:skin_care_app/features/authentication/verfication_code/logic/cubit/verfication_cubit.dart';
+import 'package:skin_care_app/features/authentication/verfication_code/ui/verfication_code_view.dart';
 import 'package:skin_care_app/features/history/ui/history_view.dart';
 import 'package:skin_care_app/features/home/ui/home_view.dart';
 import 'package:skin_care_app/features/on_boarding/ui/get_started_view.dart';
@@ -45,7 +47,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder:
               (_) => BlocProvider(
-                create: (context) => LoginCubit(),
+                create: (context) => getIt<LoginCubit>(),
                 child: const LoginView(),
               ),
         );
@@ -59,6 +61,14 @@ class AppRouter {
         );
       case Routes.signUpView2:
         return MaterialPageRoute(builder: (_) => const SignUpView2());
+      case Routes.verficationCodeView:
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => getIt<VerficationCubit>(),
+                child: const VerficationCodeView(),
+              ),
+        );
       case Routes.forgotPasswordView:
         return MaterialPageRoute(builder: (_) => const ForgetPasswordView());
       case Routes.confirmationCodeView:
