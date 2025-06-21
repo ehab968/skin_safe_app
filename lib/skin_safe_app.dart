@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/di/dependancy_injection.dart';
-import 'package:skin_care_app/core/helper/constants.dart';
 import 'package:skin_care_app/core/routing/app_router.dart';
 import 'package:skin_care_app/core/routing/routes.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
@@ -20,7 +19,7 @@ class SkinSafeApp extends StatelessWidget {
         create: (context) => getIt<SignUpCubit>(),
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: isUserLoggedIn ? Routes.homeView : Routes.splashView,
+          initialRoute: Routes.splashView,
           onGenerateRoute: AppRouter().generateRoute,
           theme: ThemeData(
             textSelectionTheme: const TextSelectionThemeData(

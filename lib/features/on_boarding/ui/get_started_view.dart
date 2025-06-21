@@ -41,7 +41,10 @@ class GetStartedView extends StatelessWidget {
                 textStyle: Styles.font16White500Weight,
                 borderRadius: BorderRadius.circular(10),
                 onPressed: () {
-                  context.pushNamed(Routes.loginView);
+                  context.pushNamedAndRemoveUntil(
+                    Routes.loginView,
+                    predicate: (route) => false,
+                  );
                 },
               ),
               verticalSpace(height: 16.h),
@@ -52,7 +55,10 @@ class GetStartedView extends StatelessWidget {
                 textStyle: Styles.font16PrimaryBlue500Weight,
                 textName: 'Sign up',
                 onPressed: () {
-                  context.pushNamed(Routes.signUpView);
+                  context.pushNamedAndRemoveUntil(
+                    Routes.signUpView,
+                    predicate: (route) => false,
+                  );
                 },
               ),
               verticalSpace(height: 60.h),

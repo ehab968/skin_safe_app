@@ -13,8 +13,11 @@ import 'package:skin_care_app/features/Profile/profile_screen.dart';
 
 import 'package:skin_care_app/features/about_doctor/about_doctor_section/ui/about_doctor_view.dart';
 import 'package:skin_care_app/features/article_body/article_body_screen.dart';
+import 'package:skin_care_app/features/authentication/confirmation_code/logic/cubit/confirmation_code_cubit.dart';
+import 'package:skin_care_app/features/authentication/forget_password/logic/cubit/forget_password_cubit.dart';
 
 import 'package:skin_care_app/features/authentication/login/ui/login_view.dart';
+import 'package:skin_care_app/features/authentication/reset_password/logic/cubit/reset_password_cubit.dart';
 import 'package:skin_care_app/features/authentication/verfication_code/logic/cubit/verfication_cubit.dart';
 import 'package:skin_care_app/features/authentication/verfication_code/ui/verfication_code_view.dart';
 import 'package:skin_care_app/features/history/ui/history_view.dart';
@@ -70,11 +73,29 @@ class AppRouter {
               ),
         );
       case Routes.forgotPasswordView:
-        return MaterialPageRoute(builder: (_) => const ForgetPasswordView());
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => getIt<ForgetPasswordCubit>(),
+                child: const ForgetPasswordView(),
+              ),
+        );
       case Routes.confirmationCodeView:
-        return MaterialPageRoute(builder: (_) => const ConfirmationCodeView());
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => getIt<ConfirmationCodeCubit>(),
+                child: const ConfirmationCodeView(),
+              ),
+        );
       case Routes.resetPasswordView:
-        return MaterialPageRoute(builder: (_) => const ResetPasswordView());
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => getIt<ResetPasswordCubit>(),
+                child: const ResetPasswordView(),
+              ),
+        );
       case Routes.secondOnBoardingView:
         return MaterialPageRoute(builder: (_) => const SecondOnBoardingView());
       case Routes.thirdOnBoardingView:

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/helper/app_validator.dart';
-import 'package:skin_care_app/core/helper/extensions.dart';
 import 'package:skin_care_app/core/helper/spacing.dart';
-import 'package:skin_care_app/core/routing/routes.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 import 'package:skin_care_app/core/widgets/custom_text_button.dart';
 import 'package:skin_care_app/core/widgets/custom_text_form_field.dart';
+import 'package:skin_care_app/features/authentication/forget_password/logic/cubit/forget_password_cubit.dart';
+import 'package:skin_care_app/features/authentication/forget_password/ui/widgets/forget_password_bloclistner.dart';
 
 class ForgetPasswordTextField extends StatefulWidget {
   const ForgetPasswordTextField({super.key});
@@ -43,6 +44,7 @@ class _ForgetPasswordTextFieldState extends State<ForgetPasswordTextField> {
           CustomTextFormField(
             hint: 'Enter Your Email Or Phone Numbers',
             autovalidateMode: AutovalidateMode.onUserInteraction,
+            controller: context.read<ForgetPasswordCubit>().emailController,
             // String? Function(String?)? validator
             validator: AppValidators.validateEmailOrPhone,
             focusNode: forgetPasswordFocusNode,
@@ -57,6 +59,7 @@ class _ForgetPasswordTextFieldState extends State<ForgetPasswordTextField> {
                     : Styles.font14LightGray300Weight,
           ),
           verticalSpace(height: 42),
+          const ForgetPasswordBloclistner(),
           CustomTextButton(
             textName: 'Send the code',
             backgroundColor: ColorManager.primaryBlue,
@@ -64,9 +67,7 @@ class _ForgetPasswordTextFieldState extends State<ForgetPasswordTextField> {
             width: double.infinity,
             textStyle: Styles.font16White500Weight,
             onPressed: () {
-              if (formKey.currentState!.validate()) {
-                context.pushNamed(Routes.confirmationCodeView);
-              }
+              validateAndPushNextView(context);
             },
           ),
         ],
@@ -74,6 +75,12 @@ class _ForgetPasswordTextFieldState extends State<ForgetPasswordTextField> {
     );
   }
 
+  void validateAndPushNextView(BuildContext context) {
+     if (formKey.currentState!.validate()) {
+      context.read<ForgetPasswordCubit>().sendPasswordRecoveryEmail();
+    }
+  }
+  
   void setupForgetPasswordFocusNode() {
     forgetPasswordFocusNode.addListener(() {
       setState(() {

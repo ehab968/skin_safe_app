@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:skin_care_app/core/helper/extensions.dart';
 import 'package:skin_care_app/core/helper/spacing.dart';
-import 'package:skin_care_app/core/routing/routes.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 import 'package:skin_care_app/core/widgets/custom_text_button.dart';
+import 'package:skin_care_app/features/authentication/confirmation_code/logic/cubit/confirmation_code_cubit.dart';
+import 'package:skin_care_app/features/authentication/confirmation_code/ui/widgets/confirmation_code_bloc_listner.dart';
 import 'package:skin_care_app/features/authentication/widgets/custom_pin_text_field.dart';
 
 class ConfirmationCodePinAndButton extends StatelessWidget {
@@ -17,8 +18,14 @@ class ConfirmationCodePinAndButton extends StatelessWidget {
       key: formKey,
       child: Column(
         children: [
-          const CustomPinTextField(),
+          CustomPinTextField(
+            controller:
+                context
+                    .read<ConfirmationCodeCubit>()
+                    .confirmationCodeController,
+          ),
           verticalSpace(height: 32),
+          const ConfirmationCodeBlocListner(),
           CustomTextButton(
             textName: 'Verify Code',
             backgroundColor: ColorManager.primaryBlue,
@@ -27,7 +34,7 @@ class ConfirmationCodePinAndButton extends StatelessWidget {
             textStyle: Styles.font16White500Weight,
             onPressed: () {
               if (formKey.currentState!.validate()) {
-                context.pushReplacementNamed(Routes.resetPasswordView);
+                context.read<ConfirmationCodeCubit>().verifyResetPassword();
               }
             },
           ),

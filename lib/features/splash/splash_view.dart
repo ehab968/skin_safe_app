@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skin_care_app/core/helper/constants.dart';
 import 'package:skin_care_app/core/helper/extensions.dart';
 
 import 'package:skin_care_app/core/routing/routes.dart';
@@ -15,7 +16,9 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 2), () {
-      context.pushReplacementNamed(Routes.onBoardingView);
+      isUserLoggedIn
+          ? context.pushReplacementNamed(Routes.homeView)
+          : context.pushReplacementNamed(Routes.onBoardingView);
     });
     super.initState();
   }
