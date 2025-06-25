@@ -4,7 +4,6 @@ import 'package:skin_care_app/core/helper/extensions.dart';
 import 'package:skin_care_app/core/helper/helper.dart';
 import 'package:skin_care_app/core/helper/snackbar.dart';
 import 'package:skin_care_app/core/routing/routes.dart';
-import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/features/authentication/forget_password/data/models/forget_password_model.dart';
 import 'package:skin_care_app/features/authentication/forget_password/logic/cubit/forget_password_cubit.dart';
 import 'package:skin_care_app/features/authentication/forget_password/logic/cubit/forget_password_state.dart';
@@ -25,16 +24,7 @@ class ForgetPasswordBloclistner extends StatelessWidget {
               current is ForgetPasswordSuccess,
       listener: (context, state) {
         state.whenOrNull(
-          forgetPasswordLoading:
-              () => showDialog(
-                context: context,
-                builder:
-                    (context) => const Center(
-                      child: CircularProgressIndicator(
-                        color: ColorManager.primaryBlue,
-                      ),
-                    ),
-              ),
+          forgetPasswordLoading: () => dataLoading(context),
           forgetPasswordSuccess: (data) {
             context.pop();
             snackBarShow(

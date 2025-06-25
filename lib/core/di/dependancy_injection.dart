@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:skin_care_app/core/networking/api_service.dart';
 import 'package:skin_care_app/core/networking/dio_factory.dart';
+import 'package:skin_care_app/features/Articles/data/repo/article_repo.dart';
+import 'package:skin_care_app/features/Articles/logic/cubit/article_cubit.dart';
 import 'package:skin_care_app/features/authentication/confirmation_code/data/repo/confirmation_code_repo.dart';
 import 'package:skin_care_app/features/authentication/confirmation_code/logic/cubit/confirmation_code_cubit.dart';
 import 'package:skin_care_app/features/authentication/forget_password/data/repo/forget_password_repo.dart';
@@ -52,4 +54,8 @@ void setUpGetIt() {
     () => ResetPasswordRepo(getIt()),
   );
   getIt.registerFactory<ResetPasswordCubit>(() => ResetPasswordCubit(getIt()));
+
+  // articles repo && articles cubit
+  getIt.registerLazySingleton<ArticleRepo>(() => ArticleRepo(getIt()));
+  getIt.registerFactory<ArticleCubit>(() => ArticleCubit(getIt()));
 }

@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:skin_care_app/core/networking/api_constants.dart';
+import 'package:skin_care_app/features/Articles/data/models/article_model.dart';
 import 'package:skin_care_app/features/authentication/confirmation_code/data/models/confirmation_code_model.dart';
 import 'package:skin_care_app/features/authentication/forget_password/data/models/forget_password_model.dart';
 import 'package:skin_care_app/features/authentication/login/data/models/login_request.dart';
@@ -43,4 +44,8 @@ abstract class ApiService {
     @Body() ResetPasswordRequest resetPasswordRequest,
     @Header('Authorization') String token,
   );
+
+  // articles
+  @GET(ApiConstants.articles) 
+  Future<List<ArticleModel>> getAllArticles();
 }

@@ -4,7 +4,6 @@ import 'package:skin_care_app/core/helper/extensions.dart';
 import 'package:skin_care_app/core/helper/helper.dart';
 import 'package:skin_care_app/core/helper/snackbar.dart';
 import 'package:skin_care_app/core/routing/routes.dart';
-import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/features/authentication/reset_password/logic/cubit/reset_password_cubit.dart';
 import 'package:skin_care_app/features/authentication/reset_password/logic/cubit/reset_password_state.dart';
 
@@ -21,17 +20,7 @@ class ResetPasswordBlocListner extends StatelessWidget {
               current is ResetPasswordError,
       listener: (context, state) {
         state.whenOrNull(
-          resetPasswordLoading: () {
-            showDialog(
-              context: context,
-              builder:
-                  (context) => const Center(
-                    child: CircularProgressIndicator(
-                      color: ColorManager.primaryBlue,
-                    ),
-                  ),
-            );
-          },
+          resetPasswordLoading: () => dataLoading(context),
           resetPasswordSuccess: (data) {
             context.pop();
             context.pushNamedAndRemoveUntil(
