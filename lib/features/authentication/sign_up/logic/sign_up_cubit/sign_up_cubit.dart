@@ -46,7 +46,7 @@ class SignUpCubit extends Cubit<SignUpState> {
     );
     response.when(
       success: (data) async {
-        await saveSignUpToken(data.token ?? '');
+        await saveSignUpToken(data.token ?? '', data.data?.id ?? '');
         emit(SignUpState.signUPSuccess(data));
       },
       failure: (apiErrorModel) {
@@ -55,7 +55,8 @@ class SignUpCubit extends Cubit<SignUpState> {
     );
   }
 
-  Future<void> saveSignUpToken(String token) async {
+  Future<void> saveSignUpToken(String token, String userId) async {
     await SharedPrefHelper.setData(SharedPrefKeys.signUpToken, token);
+    await SharedPrefHelper.setData(SharedPrefKeys.userId, userId);
   }
 }

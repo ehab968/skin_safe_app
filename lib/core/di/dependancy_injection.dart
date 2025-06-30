@@ -16,6 +16,10 @@ import 'package:skin_care_app/features/authentication/sign_up/data/repo/sign_up_
 import 'package:skin_care_app/features/authentication/sign_up/logic/sign_up_cubit/sign_up_cubit.dart';
 import 'package:skin_care_app/features/authentication/verfication_code/data/repo/verficatiion_repo.dart';
 import 'package:skin_care_app/features/authentication/verfication_code/logic/cubit/verfication_cubit.dart';
+import 'package:skin_care_app/features/home/data/repo/top_doctors_repo.dart';
+import 'package:skin_care_app/features/home/logic/cubit/top_doctors_cubit.dart';
+import 'package:skin_care_app/features/Profile/data/repo/user_profile_repo.dart';
+import 'package:skin_care_app/features/Profile/logic/cubit/user_profile_cubit.dart';
 
 final GetIt getIt = GetIt.instance;
 void setUpGetIt() {
@@ -58,4 +62,12 @@ void setUpGetIt() {
   // articles repo && articles cubit
   getIt.registerLazySingleton<ArticleRepo>(() => ArticleRepo(getIt()));
   getIt.registerFactory<ArticleCubit>(() => ArticleCubit(getIt()));
+
+  // top doctors repo && top doctors cubit
+  getIt.registerLazySingleton<TopDoctorsRepo>(() => TopDoctorsRepo(getIt()));
+  getIt.registerFactory<TopDoctorsCubit>(() => TopDoctorsCubit(getIt()));
+
+  // user profile repo && user profile cubit
+  getIt.registerLazySingleton<UserProfileRepo>(() => UserProfileRepo(getIt()));
+  getIt.registerFactory<UserProfileCubit>(() => UserProfileCubit(getIt()));
 }

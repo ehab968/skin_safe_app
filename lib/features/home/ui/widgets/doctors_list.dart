@@ -1,50 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:skin_care_app/features/home/data/models/top_doctors_model.dart';
 import 'package:skin_care_app/features/home/ui/widgets/DoctorCard_TopDoctor.dart';
 
 class DoctorsList extends StatelessWidget {
-  const DoctorsList({super.key});
+  final List<TopDoctorsModel> doctors;
+
+  const DoctorsList({super.key, required this.doctors});
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> doctors = [
-      {
-        "name": "Dr. Adam Younes",
-        "specialty": "Dermatologist",
-        "rating": 4.7,
-        "distance": "800 meters",
-        "image": "assets/images/DrAdamYounes.jpg",
-      },
-      {
-        "name": "Dr. Gamila Emad",
-        "specialty": "Dermatologist",
-        "rating": 4.9,
-        "distance": "1.5km",
-        "image": "assets/images/DrGamilaEmad.jpg",
-      },
-      {
-        "name": "Dr. Hossam Ali",
-        "specialty": "Dermatologist",
-        "rating": 4.8,
-        "distance": "2km",
-        "image": "assets/images/DrHossamAli.jpg",
-      },
-      {
-        "name": "Dr. Hend Khaled",
-        "specialty": "Dermatologist",
-        "rating": 4.8,
-        "distance": "500 meters",
-        "image": "assets/images/drHendKhaled.jpg",
-      },
-      {
-        "name": "Dr. Hady Helmy",
-        "specialty": "Dermatologist",
-        "rating": 4.8,
-        "distance": "5.2km",
-        "image": "assets/images/DrHadyHelmy.jpg",
-      },
-    ];
-
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SingleChildScrollView(
@@ -57,17 +22,16 @@ class DoctorsList extends StatelessWidget {
                 width: 400.w,
                 child: ListView.builder(
                   shrinkWrap: true,
-                  // physics: NeverScrollableScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   itemCount: doctors.length,
                   itemBuilder: (context, index) {
                     final doctor = doctors[index];
                     return DoctorCard(
-                      name: doctor["name"],
-                      specialty: doctor["specialty"],
-                      rating: doctor["rating"],
-                      distance: doctor["distance"],
-                      image: doctor["image"],
+                      name: doctor.fullName,
+                      specialty: doctor.specialty ?? 'Dermatologist',
+                      rating: doctor.ratingsAverage ?? 0.0,
+                      distance: '${doctor.experience ?? 0} years exp',
+                      image: doctor.image ?? 'assets/images/doctorMale.jpg',
                     );
                   },
                 ),
@@ -78,5 +42,4 @@ class DoctorsList extends StatelessWidget {
       ),
     );
   }
-
 }

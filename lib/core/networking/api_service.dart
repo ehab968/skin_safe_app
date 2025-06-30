@@ -10,6 +10,8 @@ import 'package:skin_care_app/features/authentication/reset_password/data/models
 import 'package:skin_care_app/features/authentication/sign_up/data/models/signup_request.dart';
 import 'package:skin_care_app/features/authentication/sign_up/data/models/signup_response.dart';
 import 'package:skin_care_app/features/authentication/verfication_code/data/models/verfication_response.dart';
+import 'package:skin_care_app/features/home/data/models/top_doctors_model.dart';
+import 'package:skin_care_app/features/Profile/data/models/user_profile_model.dart';
 part 'api_service.g.dart';
 
 @RestApi(baseUrl: ApiConstants.baseUrl)
@@ -21,7 +23,7 @@ abstract class ApiService {
   // sign up verification
   @POST(ApiConstants.signUpVerfication)
   Future<VerficationResponse> verficationCode(
-    @Body() verficationCodeRequest,
+    @Body() dynamic verficationCodeRequest,
     @Header('Authorization') String token,
   );
   // login
@@ -40,12 +42,23 @@ abstract class ApiService {
   );
   // reset password
   @POST(ApiConstants.resetPassword)
-  Future<ResetPasswordResponse>resetPassword(
+  Future<ResetPasswordResponse> resetPassword(
     @Body() ResetPasswordRequest resetPasswordRequest,
     @Header('Authorization') String token,
   );
 
   // articles
-  @GET(ApiConstants.articles) 
+  @GET(ApiConstants.articles)
   Future<List<ArticleModel>> getAllArticles();
+
+  // doctors
+  @GET(ApiConstants.doctors)
+  Future<DoctorsResponse> getAllDoctors();
+
+  // user profile
+  @GET('${ApiConstants.userProfile}/{userId}')
+  Future<UserProfileResponse> getUserProfile(
+    @Path('userId') String userId,
+    @Header('Authorization') String token,
+  );
 }

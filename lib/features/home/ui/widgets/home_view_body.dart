@@ -5,8 +5,8 @@ import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/routing/routes.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
-import 'package:skin_care_app/features/Home/ui/widgets/doctors_list.dart';
 import 'package:skin_care_app/features/Home/ui/widgets/recent_search_doctors.dart';
+import 'package:skin_care_app/features/Home/ui/widgets/top_doctors_bloc_builder.dart';
 import 'package:skin_care_app/features/Home/ui/widgets/uv_index.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -75,7 +75,7 @@ class HomeViewBody extends StatelessWidget {
                   verticalSpace(height: 24.h),
                   Text('Top Doctors', style: Styles.font18Black600Weight),
                   verticalSpace(height: 16.h),
-                  DoctorsList(),
+                  const TopDoctorsBlocBuilder(),
                   verticalSpace(height: 24.h),
                   Text('Recent Search', style: Styles.font18Black600Weight),
                   verticalSpace(height: 24.h),

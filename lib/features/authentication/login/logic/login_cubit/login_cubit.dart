@@ -23,7 +23,7 @@ class LoginCubit extends Cubit<LoginState<LoginResponse>> {
     );
     response.when(
       success: (data) async {
-        await saveLoginToken(data.token ?? '');
+        await saveLoginToken(data.token ?? '', data.data?.id ?? '');
         emit(LoginState.loginSuccess(data));
       },
       failure: (apiErrorModel) {
@@ -32,8 +32,9 @@ class LoginCubit extends Cubit<LoginState<LoginResponse>> {
     );
   }
 
-  Future<void> saveLoginToken(String token) async {
+  Future<void> saveLoginToken(String token, String userId) async {
     await SharedPrefHelper.setData(SharedPrefKeys.userToken, token);
+    await SharedPrefHelper.setData(SharedPrefKeys.userId, userId);
   }
 }
   // final _firebaseAuth = FirebaseAuth.instance;
