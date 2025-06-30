@@ -6,14 +6,16 @@ import 'package:skin_care_app/features/home/ui/widgets/home_view_body.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManager.white,
       bottomNavigationBar: AppBottomNavigationBar(
         currentIndex: 0,
-        onTap: (index) => navigateToTab(context, index),
+        onTap: (index) {
+          index == 0 ? null : navigateToTab(context, index);
+        },
       ),
       body: const HomeViewBody(),
     );

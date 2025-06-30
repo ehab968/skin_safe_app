@@ -2,5 +2,9 @@ class ApiConstants {
   static const String baseUrl = 'https://skin-safe-two.vercel.app/api/v1/';
   static const String login = 'auth/login';
   static const String signUp = 'auth/signup';
-  
+  static const String signUpVerfication = 'auth/verify-email';
+  static const String forgetPassword = 'auth/forgotPassword';
+  static const String verifyResetPassword = 'auth/verifyResetCode';
+  static const String resetPassword = 'auth/resetPassword';
+  static const String articles = 'articles';
 }

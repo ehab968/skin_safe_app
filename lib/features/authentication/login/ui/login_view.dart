@@ -4,8 +4,8 @@ import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/features/authentication/login/ui/widgets/dont_have_account_section.dart';
 import 'package:skin_care_app/features/authentication/login/ui/widgets/email_and_password.dart';
 import 'package:skin_care_app/features/authentication/login/ui/widgets/login_and_welcome_text.dart';
+import 'package:skin_care_app/features/authentication/login/ui/widgets/login_bloc_listner.dart';
 import 'package:skin_care_app/features/authentication/login/ui/widgets/login_button_and_or.dart';
-import 'package:skin_care_app/features/authentication/login/ui/widgets/login_with_google.dart';
 import 'package:skin_care_app/features/authentication/login/ui/widgets/remember_and_forget_password.dart';
 
 class LoginView extends StatelessWidget {
@@ -26,9 +26,8 @@ class LoginView extends StatelessWidget {
               verticalSpace(height: 16),
               const RememberAndForgetPassword(),
               verticalSpace(height: 42),
+              const LoginBlocListner(),
               const LoginButtonAndOr(),
-              verticalSpace(height: 42),
-              const LoginWithGoogle(),
               verticalSpace(height: 42),
               const DontHaveAccountSection(),
             ],

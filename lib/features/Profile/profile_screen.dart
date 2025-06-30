@@ -16,7 +16,9 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: AppBottomNavigationBar(
         currentIndex: 4,
-        onTap: (index) => navigateToTab(context, index),
+        onTap: (index) {
+          index == 4 ? null : navigateToTab(context, index);
+        },
       ),
       body: SafeArea(
         child: Padding(

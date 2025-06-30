@@ -12,7 +12,9 @@ class ScanView extends StatelessWidget {
       body: const ScanViewBody(),
       bottomNavigationBar: AppBottomNavigationBar(
         currentIndex: 2,
-        onTap: (index) => navigateToTab(context, index),
+        onTap: (index) {
+          index == 2 ? null : navigateToTab(context, index);
+        },
       ),
     );
   }

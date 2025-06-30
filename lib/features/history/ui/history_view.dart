@@ -11,7 +11,9 @@ class HistoryView extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: AppBottomNavigationBar(
         currentIndex: 1,
-        onTap: (index) => navigateToTab(context, index),
+        onTap: (index) {
+          index == 1 ? null : navigateToTab(context, index);
+        },
       ),
       body: const HistoryViewBody(),
     );

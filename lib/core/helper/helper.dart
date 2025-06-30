@@ -1,28 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:skin_care_app/core/helper/extensions.dart';
+import 'package:skin_care_app/core/networking/api_error_model.dart';
 import 'package:skin_care_app/core/routing/routes.dart';
-
-void pagePushAnimation(BuildContext context, Widget page) {
-  Navigator.push(
-    context,
-    PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => page,
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        var begin = const Offset(1.0, 0.0); // Start from the right side
-        var end = Offset.zero;
-        var curve = Curves.ease;
-
-        var tween = Tween(
-          begin: begin,
-          end: end,
-        ).chain(CurveTween(curve: curve));
-        var offsetAnimation = animation.drive(tween);
-
-        return SlideTransition(position: offsetAnimation, child: child);
-      },
-    ),
-  );
-}
+import 'package:skin_care_app/core/theme/colors.dart';
+import 'package:skin_care_app/features/authentication/widgets/error_alert_dialog.dart';
 
 void navigateToTab(BuildContext context, int index) {
   switch (index) {
@@ -36,11 +17,31 @@ void navigateToTab(BuildContext context, int index) {
       context.pushReplacementNamed(Routes.scanView);
       break;
     case 3:
-      Navigator.pushReplacementNamed(context, Routes.ArticlesPage);
-      null;
+      Navigator.pushReplacementNamed(context, Routes.articlesView);
       break;
     case 4:
       context.pushReplacementNamed(Routes.profileView);
       break;
+    default:
+      break;
   }
+}
+
+void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
+  showDialog(
+    context: context,
+    builder:
+        (context) => ErrorAlertDialog(errorMessage: apiErrorModel.message!),
+  );
+}
+
+Future<dynamic> dataLoading(BuildContext context) {
+  return showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder:
+        (context) => const Center(
+          child: CircularProgressIndicator(color: ColorManager.primaryBlue),
+        ),
+  );
 }

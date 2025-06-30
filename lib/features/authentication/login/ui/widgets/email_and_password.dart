@@ -40,8 +40,9 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
         children: [
           Text('Email', style: Styles.font16Black400Weight),
           verticalSpace(height: 8),
-          const CustomTextFormField(
+           CustomTextFormField(
             hint: 'Enter Your Email Or Phone Number',
+            controller: context.read<LoginCubit>().emailController,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             borderRadius: 10,
             validator: AppValidators.validateEmailOrPhone,
@@ -51,6 +52,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           verticalSpace(height: 8),
           CustomTextFormField(
             hint: 'Enter Your Password',
+            controller: context.read<LoginCubit>().passwordController,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             focusNode: passwordFocusNode,
             borderRadius: 10,

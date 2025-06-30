@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:skin_care_app/core/helper/extensions.dart';
-import 'package:skin_care_app/core/routing/routes.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 
 class ReadMoreButton extends StatelessWidget {
@@ -11,12 +9,12 @@ class ReadMoreButton extends StatelessWidget {
   final double? height;
 
   const ReadMoreButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.onPressed,
     this.width,
     this.height,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,15 +22,13 @@ class ReadMoreButton extends StatelessWidget {
       width: width ?? 106.w,
       height: height ?? 40.h,
       child: OutlinedButton(
-        onPressed: () {
-          context.pushNamed(Routes.ArticleBodyScreen);
-        },
+        onPressed: onPressed,
         style: OutlinedButton.styleFrom(
-          side: BorderSide(color: ColorManager.primaryBlue),
+          side: const BorderSide(color: ColorManager.primaryBlue),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(18.r),
           ),
-          padding: EdgeInsets.only(top: 6, bottom: 7, left: 6, right: 6),
+          padding: const EdgeInsets.only(top: 6, bottom: 7, left: 6, right: 6),
         ),
         child: Text(
           text,

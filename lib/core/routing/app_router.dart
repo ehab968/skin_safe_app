@@ -4,7 +4,8 @@ import 'package:skin_care_app/core/di/dependancy_injection.dart';
 import 'package:skin_care_app/core/routing/routes.dart';
 
 import 'package:skin_care_app/features/Appointment_details/appointment_screen.dart';
-import 'package:skin_care_app/features/Articles/article_view.dart';
+import 'package:skin_care_app/features/Articles/logic/cubit/article_cubit.dart';
+import 'package:skin_care_app/features/Articles/ui/article_view.dart';
 import 'package:skin_care_app/features/BookingAppointment/ui/widgets/appointment_confirmation.dart';
 import 'package:skin_care_app/features/BookingAppointment/ui/table_calender.dart';
 import 'package:skin_care_app/features/My_Appointments/myAppointment_screen.dart';
@@ -12,9 +13,14 @@ import 'package:skin_care_app/features/Notifications/notification_screen.dart';
 import 'package:skin_care_app/features/Profile/profile_screen.dart';
 
 import 'package:skin_care_app/features/about_doctor/about_doctor_section/ui/about_doctor_view.dart';
-import 'package:skin_care_app/features/article_body/article_body_screen.dart';
+import 'package:skin_care_app/features/article_body/ui/article_body_screen.dart';
+import 'package:skin_care_app/features/authentication/confirmation_code/logic/cubit/confirmation_code_cubit.dart';
+import 'package:skin_care_app/features/authentication/forget_password/logic/cubit/forget_password_cubit.dart';
 
 import 'package:skin_care_app/features/authentication/login/ui/login_view.dart';
+import 'package:skin_care_app/features/authentication/reset_password/logic/cubit/reset_password_cubit.dart';
+import 'package:skin_care_app/features/authentication/verfication_code/logic/cubit/verfication_cubit.dart';
+import 'package:skin_care_app/features/authentication/verfication_code/ui/verfication_code_view.dart';
 import 'package:skin_care_app/features/history/ui/history_view.dart';
 import 'package:skin_care_app/features/home/ui/home_view.dart';
 import 'package:skin_care_app/features/on_boarding/ui/get_started_view.dart';
@@ -45,7 +51,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder:
               (_) => BlocProvider(
-                create: (context) => LoginCubit(),
+                create: (context) => getIt<LoginCubit>(),
                 child: const LoginView(),
               ),
         );
@@ -59,12 +65,38 @@ class AppRouter {
         );
       case Routes.signUpView2:
         return MaterialPageRoute(builder: (_) => const SignUpView2());
+      case Routes.verficationCodeView:
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => getIt<VerficationCubit>(),
+                child: const VerficationCodeView(),
+              ),
+        );
       case Routes.forgotPasswordView:
-        return MaterialPageRoute(builder: (_) => const ForgetPasswordView());
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => getIt<ForgetPasswordCubit>(),
+                child: const ForgetPasswordView(),
+              ),
+        );
       case Routes.confirmationCodeView:
-        return MaterialPageRoute(builder: (_) => const ConfirmationCodeView());
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => getIt<ConfirmationCodeCubit>(),
+                child: const ConfirmationCodeView(),
+              ),
+        );
       case Routes.resetPasswordView:
-        return MaterialPageRoute(builder: (_) => const ResetPasswordView());
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => getIt<ResetPasswordCubit>(),
+                child: const ResetPasswordView(),
+              ),
+        );
       case Routes.secondOnBoardingView:
         return MaterialPageRoute(builder: (_) => const SecondOnBoardingView());
       case Routes.thirdOnBoardingView:
@@ -102,10 +134,19 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => MyAppointmentsScreen());
       case Routes.profileView:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
-      case Routes.ArticlesPage:
-        return MaterialPageRoute(builder: (_) => ArticlesPage());
+      case Routes.articlesView:
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => getIt<ArticleCubit>()..getAllArticles(),
+                child: const ArticlesView(),
+              ),
+        );
       case Routes.ArticleBodyScreen:
-        return MaterialPageRoute(builder: (_) => const ArticleBodyScreen());
+        return MaterialPageRoute(
+          builder: (_) => const ArticleBodyScreen(),
+          settings: settings,
+        );
       case Routes.NotificationsScreen:
         return MaterialPageRoute(builder: (_) => NotificationsScreen());
       case Routes.bookingView:

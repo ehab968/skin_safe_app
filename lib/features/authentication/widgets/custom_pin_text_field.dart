@@ -4,15 +4,16 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:skin_care_app/core/helper/app_validator.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 
-class PinTextField extends StatelessWidget {
-  const PinTextField({super.key});
-
+class CustomPinTextField extends StatelessWidget {
+  final TextEditingController? controller;
+  const CustomPinTextField({super.key, this.controller});
   @override
   Widget build(BuildContext context) {
     return PinCodeTextField(
       validator: AppValidators.validatePin,
+      controller: controller,
       appContext: context,
-      length: 4,
+      length: 6,
       enableActiveFill: true,
       keyboardType: TextInputType.number,
       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -20,8 +21,8 @@ class PinTextField extends StatelessWidget {
       pinTheme: PinTheme(
         shape: PinCodeFieldShape.box,
         borderRadius: BorderRadius.circular(10),
-        fieldHeight: 74.h,
-        fieldWidth: 74.w,
+        fieldHeight: 50.h,
+        fieldWidth: 50.w,
         inactiveBorderWidth: 1,
         activeBorderWidth: 1,
         selectedBorderWidth: 1,

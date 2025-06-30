@@ -25,7 +25,7 @@ class SignUpCubit extends Cubit<SignUpState> {
   SignUpCubit(this.signUpRepo) : super(const SignUpState.initial());
   String convertDate() {
     DateTime date = DateFormat('dd/MM/yyyy').parse(dateOfBirthController.text);
-    String formattedDate = DateFormat('yyyy-MM-dd').format(date);
+    String formattedDate = DateFormat('dd-MM-yyyy').format(date);
     return formattedDate;
   }
 
