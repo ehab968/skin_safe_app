@@ -78,4 +78,5 @@ class DoctorsList extends StatelessWidget {
       ),
     );
   }
+
 }
