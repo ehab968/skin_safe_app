@@ -93,9 +93,10 @@ class SearchDoctorCard extends StatelessWidget {
             ),
           ],
           border: Border.all(
-            color: isRecentSearch 
-                ? ColorManager.primaryBlue.withOpacity(0.3)
-                : Colors.transparent,
+            color:
+                isRecentSearch
+                    ? ColorManager.primaryBlue.withOpacity(0.3)
+                    : Colors.transparent,
             width: 1,
           ),
         ),
@@ -181,7 +182,7 @@ class SearchDoctorCard extends StatelessWidget {
               height: 35.h,
               textName: 'Schedule',
               onPressed: () {
-                context.pushNamed(Routes.bookingView);
+                context.pushNamed(Routes.bookingView, arguments: doctor.id);
               },
               textStyle: Styles.font11White500Weight,
             ),

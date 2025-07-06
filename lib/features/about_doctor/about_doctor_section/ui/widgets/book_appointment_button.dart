@@ -7,7 +7,9 @@ import 'package:skin_care_app/core/theme/styles.dart';
 import 'package:skin_care_app/core/widgets/custom_text_button.dart';
 
 class BookAppointmentButton extends StatelessWidget {
-  const BookAppointmentButton({super.key});
+  final String? doctorId;
+
+  const BookAppointmentButton({super.key, this.doctorId});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class BookAppointmentButton extends StatelessWidget {
           textName: 'Book an Appointment',
           textStyle: Styles.font16White500Weight,
           onPressed: () {
-            context.pushNamed(Routes.bookingView);
+            context.pushNamed(Routes.bookingView, arguments: doctorId);
           },
         ),
         verticalSpace(height: 32),

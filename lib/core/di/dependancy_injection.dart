@@ -4,6 +4,8 @@ import 'package:skin_care_app/core/networking/api_service.dart';
 import 'package:skin_care_app/core/networking/dio_factory.dart';
 import 'package:skin_care_app/features/Articles/data/repo/article_repo.dart';
 import 'package:skin_care_app/features/Articles/logic/cubit/article_cubit.dart';
+import 'package:skin_care_app/features/BookingAppointment/data/repo/appointment_repo.dart';
+import 'package:skin_care_app/features/BookingAppointment/logic/cubit/appointment_cubit.dart';
 import 'package:skin_care_app/features/authentication/confirmation_code/data/repo/confirmation_code_repo.dart';
 import 'package:skin_care_app/features/authentication/confirmation_code/logic/cubit/confirmation_code_cubit.dart';
 import 'package:skin_care_app/features/authentication/forget_password/data/repo/forget_password_repo.dart';
@@ -86,4 +88,8 @@ void setUpGetIt() {
 
   // recent search cubit (singleton for global state)
   getIt.registerSingleton<RecentSearchCubit>(RecentSearchCubit(getIt()));
+
+  // appointment repo && appointment cubit
+  getIt.registerLazySingleton<AppointmentRepo>(() => AppointmentRepo(getIt()));
+  getIt.registerFactory<AppointmentCubit>(() => AppointmentCubit(getIt()));
 }

@@ -13,6 +13,8 @@ import 'package:skin_care_app/features/authentication/verfication_code/data/mode
 import 'package:skin_care_app/features/home/data/models/top_doctors_model.dart';
 import 'package:skin_care_app/features/home/data/models/uv_index_model.dart';
 import 'package:skin_care_app/features/Profile/data/models/user_profile_model.dart';
+import 'package:skin_care_app/features/BookingAppointment/data/models/appointment_request.dart';
+import 'package:skin_care_app/features/BookingAppointment/data/models/appointment_response.dart';
 part 'api_service.g.dart';
 
 @RestApi(baseUrl: ApiConstants.baseUrl)
@@ -62,5 +64,11 @@ abstract class ApiService {
   Future<UVIndexResponse> getUVIndex(
     @Query('lat') double latitude,
     @Query('lon') double longitude,
+  );
+
+  // book appointment
+  @POST(ApiConstants.appointments)
+  Future<AppointmentResponse> bookAppointment(
+    @Body() AppointmentRequest appointmentRequest,
   );
 }

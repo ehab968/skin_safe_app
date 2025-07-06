@@ -7,6 +7,7 @@ import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 
 class DoctorCard extends StatelessWidget {
+  final String? doctorId;
   final String name;
   final String specialty;
   final double rating;
@@ -15,6 +16,7 @@ class DoctorCard extends StatelessWidget {
 
   const DoctorCard({
     super.key,
+    this.doctorId,
     required this.name,
     required this.specialty,
     required this.rating,

@@ -14,18 +14,21 @@ class RecentSearchWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> doctors = [
       {
+        "id": 1,
         "name": "Dr. Hadia Amr",
         "specialty": "Dermatologist",
         "rating": 4.8,
         "image": "assets/images/DrHadiaAmr.png",
       },
       {
+        "id": 2,
         "name": "Dr. Khalil Atef",
         "specialty": "Dermatologist",
         "rating": 4.6,
         "image": "assets/images/DrKhalilAtef.png",
       },
       {
+        "id": 3,
         "name": "Dr. Mera Alaa",
         "specialty": "Dermatologist",
         "rating": 4.7,
@@ -44,6 +47,7 @@ class RecentSearchWidget extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: DoctorCard(
+                id: doctors[index]["id"],
                 name: doctors[index]["name"],
                 specialty: doctors[index]["specialty"],
                 rating: doctors[index]["rating"],
@@ -58,6 +62,7 @@ class RecentSearchWidget extends StatelessWidget {
 }
 
 class DoctorCard extends StatelessWidget {
+  final int id;
   final String name;
   final String specialty;
   final double rating;
@@ -65,6 +70,7 @@ class DoctorCard extends StatelessWidget {
 
   const DoctorCard({
     super.key,
+    required this.id,
     required this.name,
     required this.specialty,
     required this.rating,
@@ -132,7 +138,7 @@ class DoctorCard extends StatelessWidget {
                   height: 35.h,
                   textName: 'Schedule',
                   onPressed: () {
-                    context.pushNamed(Routes.bookingView);
+                    context.pushNamed(Routes.bookingView, arguments: id);
                   },
                   textStyle: Styles.font11White500Weight,
                 ),
