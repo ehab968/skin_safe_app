@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skin_care_app/core/helper/constants.dart';
 import 'package:skin_care_app/core/helper/shared_pref_helper.dart';
+import 'package:skin_care_app/core/networking/dio_factory.dart';
 import 'package:skin_care_app/features/authentication/login/data/models/login_request.dart';
 import 'package:skin_care_app/features/authentication/login/data/models/login_response.dart';
 import 'package:skin_care_app/features/authentication/login/data/repo/login_repo.dart';
@@ -35,6 +36,8 @@ class LoginCubit extends Cubit<LoginState<LoginResponse>> {
   Future<void> saveLoginToken(String token, String userId) async {
     await SharedPrefHelper.setData(SharedPrefKeys.userToken, token);
     await SharedPrefHelper.setData(SharedPrefKeys.userId, userId);
+    // Set token in DioFactory for automatic injection
+    DioFactory.setToken(token);
   }
 }
   // final _firebaseAuth = FirebaseAuth.instance;

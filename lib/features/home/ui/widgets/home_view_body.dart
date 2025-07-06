@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:skin_care_app/core/di/dependancy_injection.dart';
 import 'package:skin_care_app/core/helper/extensions.dart';
 import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/routing/routes.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
-import 'package:skin_care_app/features/Home/ui/widgets/recent_search_doctors.dart';
 import 'package:skin_care_app/features/Home/ui/widgets/top_doctors_bloc_builder.dart';
-import 'package:skin_care_app/features/Home/ui/widgets/uv_index.dart';
+import 'package:skin_care_app/features/Home/ui/widgets/recent_search_bloc_builder.dart';
+import 'package:skin_care_app/features/home/logic/cubit/uv_index_cubit.dart';
+import 'package:skin_care_app/features/home/ui/widgets/uv_index_bloc_builder.dart';
+import 'package:skin_care_app/features/home/ui/search_screen.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var uvIndexArcPainter = UVIndexArcPainter(5);
     return SafeArea(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.h, vertical: 24.w),
@@ -56,30 +59,50 @@ class HomeViewBody extends StatelessWidget {
                       color: ColorManager.lighterGray,
                       borderRadius: BorderRadius.circular(16),
                     ),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: "Search for doctor, articles...",
-                        hintStyle: Styles.font14LightGray300Weight,
-                        border: InputBorder.none,
-                        prefixIcon: Icon(
-                          Icons.search_sharp,
-                          size: 24.sp,
-                          weight: 1.sp,
-                          color: ColorManager.lightGray,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SearchScreen(),
+                          ),
+                        );
+                      },
+                      child: AbsorbPointer(
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: "Search for doctor, articles...",
+                            hintStyle: Styles.font14LightGray300Weight,
+                            border: InputBorder.none,
+                            prefixIcon: Icon(
+                              Icons.search_sharp,
+                              size: 24.sp,
+                              weight: 1.sp,
+                              color: ColorManager.lightGray,
+                            ),
+                          ),
                         ),
                       ),
                     ),
                   ),
                   verticalSpace(height: 24.h),
-                  UvIndex(),
+                  BlocProvider(
+                    create:
+                        (context) =>
+                            getIt<UVIndexCubit>()..getUVIndex(
+                              latitude: 30.033333,
+                              longitude: 31.233334,
+                            ),
+                    child: const UVIndexBlocBuilder(),
+                  ),
                   verticalSpace(height: 24.h),
                   Text('Top Doctors', style: Styles.font18Black600Weight),
                   verticalSpace(height: 16.h),
                   const TopDoctorsBlocBuilder(),
                   verticalSpace(height: 24.h),
                   Text('Recent Search', style: Styles.font18Black600Weight),
-                  verticalSpace(height: 24.h),
-                  const RecentSearchWidget(),
+                  verticalSpace(height: 16.h),
+                  const RecentSearchBlocBuilder(),
                 ],
               ),
             ),

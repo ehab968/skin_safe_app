@@ -13,9 +13,7 @@ class VerficationCubit extends Cubit<VerficationState> {
   VerficationCubit(this.verficatiionRepo)
     : super(const VerficationState.initial());
   Future<void> doVerfication() async {
-    final signUpToken = await SharedPrefHelper.getString(
-      SharedPrefKeys.signUpToken,
-    );
+
     emit(const VerficationState.verficationLoading());
     final request = VerficationRequest(
       code: verficationCodeController.text.trim(),
@@ -24,7 +22,6 @@ class VerficationCubit extends Cubit<VerficationState> {
     debugPrint("🔍 Verification Request: ${request.toJson()}");
     final response = await verficatiionRepo.verficationCode(
       VerficationRequest(code: verficationCodeController.text),
-      'Bearer $signUpToken',
     );
     response.when(
       success: (data) async {

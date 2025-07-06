@@ -5,20 +5,21 @@ import 'dart:math';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/features/home/data/models/uv_index_model.dart';
 
-class UvIndex extends StatefulWidget {
+class UVIndexWidget extends StatefulWidget {
   final UVIndexData? uvIndexData;
   final String? error;
 
-  const UvIndex({super.key, this.uvIndexData, this.error});
+  const UVIndexWidget({super.key, this.uvIndexData, this.error});
 
-  const UvIndex.withError({super.key, required this.error})
+  const UVIndexWidget.withError({super.key, required this.error})
     : uvIndexData = null;
 
   @override
-  _UvIndexState createState() => _UvIndexState();
+  _UVIndexWidgetState createState() => _UVIndexWidgetState();
 }
 
-class _UvIndexState extends State<UvIndex> with SingleTickerProviderStateMixin {
+class _UVIndexWidgetState extends State<UVIndexWidget>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
 
@@ -36,14 +37,6 @@ class _UvIndexState extends State<UvIndex> with SingleTickerProviderStateMixin {
       end: targetValue,
     ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
     _controller.forward();
-  }
-
-  String getUVRiskLevel(double uvIndex) {
-    if (uvIndex <= 2) return 'Low';
-    if (uvIndex <= 5) return 'Moderate';
-    if (uvIndex <= 7) return 'High';
-    if (uvIndex <= 10) return 'Very High';
-    return 'Extreme';
   }
 
   Color getUVColor(double uvIndex) {
@@ -85,7 +78,7 @@ class _UvIndexState extends State<UvIndex> with SingleTickerProviderStateMixin {
     // Show data state
     return Container(
       width: 343.w,
-      height: 260.h, // زيادة الارتفاع لتجنب overflow
+      height: 260.h,
       decoration: BoxDecoration(
         color: ColorManager.primaryBlue,
         borderRadius: BorderRadius.circular(12),
@@ -95,7 +88,7 @@ class _UvIndexState extends State<UvIndex> with SingleTickerProviderStateMixin {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBox(height: 20), // تقليل المساحة الفارغة
+            SizedBox(height: 20),
             AnimatedBuilder(
               animation: _animation,
               builder:
@@ -104,7 +97,7 @@ class _UvIndexState extends State<UvIndex> with SingleTickerProviderStateMixin {
                     painter: UVIndexArcPainter(_animation.value),
                   ),
             ),
-            SizedBox(height: 5.h), // تقليل المسافة بين القوس والنص
+            SizedBox(height: 5.h),
             AnimatedBuilder(
               animation: _animation,
               builder:
@@ -113,16 +106,15 @@ class _UvIndexState extends State<UvIndex> with SingleTickerProviderStateMixin {
                       Text(
                         _animation.value.toStringAsFixed(1),
                         style: TextStyle(
-                          fontSize: 32, // تصغير الخط لتجنب overflow
+                          fontSize: 32,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
                       ),
                       Text(
-                        widget.uvIndexData?.riskLevel ??
-                            getUVRiskLevel(_animation.value),
+                        widget.uvIndexData?.riskLevel ?? 'Unknown',
                         style: TextStyle(
-                          fontSize: 24, // تقليل الحجم قليلاً
+                          fontSize: 24,
                           color: getUVColor(_animation.value),
                         ),
                       ),
@@ -138,7 +130,7 @@ class _UvIndexState extends State<UvIndex> with SingleTickerProviderStateMixin {
   @override
   void dispose() {
     _controller.dispose();
-    super.dispose(); // ✅ تصحيح الخطأ
+    super.dispose();
   }
 }
 

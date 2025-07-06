@@ -17,7 +17,12 @@ import 'package:skin_care_app/features/authentication/sign_up/logic/sign_up_cubi
 import 'package:skin_care_app/features/authentication/verfication_code/data/repo/verficatiion_repo.dart';
 import 'package:skin_care_app/features/authentication/verfication_code/logic/cubit/verfication_cubit.dart';
 import 'package:skin_care_app/features/home/data/repo/top_doctors_repo.dart';
+import 'package:skin_care_app/features/home/data/repo/uv_index_repo.dart';
+import 'package:skin_care_app/features/home/data/repo/search_repo.dart';
 import 'package:skin_care_app/features/home/logic/cubit/top_doctors_cubit.dart';
+import 'package:skin_care_app/features/home/logic/cubit/uv_index_cubit.dart';
+import 'package:skin_care_app/features/home/logic/cubit/search_cubit.dart';
+import 'package:skin_care_app/features/home/logic/cubit/recent_search_cubit.dart';
 import 'package:skin_care_app/features/Profile/data/repo/user_profile_repo.dart';
 import 'package:skin_care_app/features/Profile/logic/cubit/user_profile_cubit.dart';
 
@@ -70,4 +75,15 @@ void setUpGetIt() {
   // user profile repo && user profile cubit
   getIt.registerLazySingleton<UserProfileRepo>(() => UserProfileRepo(getIt()));
   getIt.registerFactory<UserProfileCubit>(() => UserProfileCubit(getIt()));
+
+  // uv index repo && uv index cubit
+  getIt.registerLazySingleton<UVIndexRepo>(() => UVIndexRepo(getIt()));
+  getIt.registerFactory<UVIndexCubit>(() => UVIndexCubit(getIt()));
+
+  // search repo && search cubit
+  getIt.registerLazySingleton<SearchRepo>(() => SearchRepo());
+  getIt.registerFactory<SearchCubit>(() => SearchCubit(getIt()));
+
+  // recent search cubit (singleton for global state)
+  getIt.registerSingleton<RecentSearchCubit>(RecentSearchCubit(getIt()));
 }

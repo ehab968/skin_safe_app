@@ -8,12 +8,10 @@ class ResetPasswordRepo {
   ResetPasswordRepo(this.apiService);
   Future<ApiResult<ResetPasswordResponse>> resetPassword(
     ResetPasswordRequest resetPasswordRequest,
-    String token,
   ) async {
     try {
       final response = await apiService.resetPassword(
         resetPasswordRequest,
-        token,
       );
       return ApiResult.success(response);
     } catch (e) {

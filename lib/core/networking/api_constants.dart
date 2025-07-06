@@ -9,4 +9,5 @@ class ApiConstants {
   static const String articles = 'articles';
   static const String doctors = 'doctors';
   static const String userProfile = 'users/user';
+  static const String uvIndex = 'uvIndex/latest-uv';
 }

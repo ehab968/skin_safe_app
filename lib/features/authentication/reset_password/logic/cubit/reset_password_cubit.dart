@@ -15,16 +15,12 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
   TextEditingController confirmPasswordController = TextEditingController();
   Future<void> resetPassword() async {
     emit(const ResetPasswordState.resetPasswordLoading());
-    final validtoken = await SharedPrefHelper.getString(
-      SharedPrefKeys.forgetPasswordToken,
-    );
-    final response = await resetPasswordRepo.resetPassword( 
+    final response = await resetPasswordRepo.resetPassword(
       ResetPasswordRequest(
         email: emailController.text,
         newPassword: newPasswordController.text,
         passwordConfirm: confirmPasswordController.text,
       ),
-      'Bearer $validtoken',
     );
     response.when(
       success: (data) {

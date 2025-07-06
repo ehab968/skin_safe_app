@@ -11,6 +11,7 @@ import 'package:skin_care_app/features/authentication/sign_up/data/models/signup
 import 'package:skin_care_app/features/authentication/sign_up/data/models/signup_response.dart';
 import 'package:skin_care_app/features/authentication/verfication_code/data/models/verfication_response.dart';
 import 'package:skin_care_app/features/home/data/models/top_doctors_model.dart';
+import 'package:skin_care_app/features/home/data/models/uv_index_model.dart';
 import 'package:skin_care_app/features/Profile/data/models/user_profile_model.dart';
 part 'api_service.g.dart';
 
@@ -24,7 +25,6 @@ abstract class ApiService {
   @POST(ApiConstants.signUpVerfication)
   Future<VerficationResponse> verficationCode(
     @Body() dynamic verficationCodeRequest,
-    @Header('Authorization') String token,
   );
   // login
   @POST(ApiConstants.login)
@@ -38,13 +38,11 @@ abstract class ApiService {
   @POST(ApiConstants.verifyResetPassword)
   Future<ConfirmationCodeResponse> verifyResetPassword(
     @Body() ConfirmationCodeRequest confirmationCodeRequest,
-    @Header('Authorization') String token,
   );
   // reset password
   @POST(ApiConstants.resetPassword)
   Future<ResetPasswordResponse> resetPassword(
     @Body() ResetPasswordRequest resetPasswordRequest,
-    @Header('Authorization') String token,
   );
 
   // articles
@@ -57,8 +55,12 @@ abstract class ApiService {
 
   // user profile
   @GET('${ApiConstants.userProfile}/{userId}')
-  Future<UserProfileResponse> getUserProfile(
-    @Path('userId') String userId,
-    @Header('Authorization') String token,
+  Future<UserProfileResponse> getUserProfile(@Path('userId') String userId);
+
+  // uv index
+  @GET(ApiConstants.uvIndex)
+  Future<UVIndexResponse> getUVIndex(
+    @Query('lat') double latitude,
+    @Query('lon') double longitude,
   );
 }

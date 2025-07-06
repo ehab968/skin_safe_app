@@ -12,9 +12,8 @@ class UserProfileRepo {
 
   Future<ApiResult<UserProfileData>> getUserProfile() async {
     try {
-      // Get user ID and token from shared preferences
+      // Get user ID from shared preferences
       final userId = await SharedPrefHelper.getString(SharedPrefKeys.userId);
-      final token = await SharedPrefHelper.getString(SharedPrefKeys.userToken);
 
       if (userId.isEmpty) {
         return ApiResult.failure(
@@ -22,16 +21,8 @@ class UserProfileRepo {
         );
       }
 
-      if (token.isEmpty) {
-        return ApiResult.failure(
-          ApiErrorModel(
-            message: 'Authentication token not found. Please login again.',
-          ),
-        );
-      }
-
-      // Make API call with Bearer token
-      final response = await apiService.getUserProfile(userId, 'Bearer $token');
+      // Make API call - token will be automatically added by DioFactory interceptor
+      final response = await apiService.getUserProfile(userId);
 
       if (response.data != null) {
         return ApiResult.success(response.data!);

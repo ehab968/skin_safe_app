@@ -56,7 +56,7 @@ class SignUpCubit extends Cubit<SignUpState> {
   }
 
   Future<void> saveSignUpToken(String token, String userId) async {
-    await SharedPrefHelper.setData(SharedPrefKeys.signUpToken, token);
+    await SharedPrefHelper.setData(SharedPrefKeys.userToken, token);
     await SharedPrefHelper.setData(SharedPrefKeys.userId, userId);
   }
 }
