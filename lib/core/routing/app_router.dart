@@ -22,6 +22,7 @@ import 'package:skin_care_app/features/authentication/reset_password/logic/cubit
 import 'package:skin_care_app/features/authentication/verfication_code/logic/cubit/verfication_cubit.dart';
 import 'package:skin_care_app/features/authentication/verfication_code/ui/verfication_code_view.dart';
 import 'package:skin_care_app/features/history/ui/history_view.dart';
+import 'package:skin_care_app/features/home/ui/all_doctors_view.dart';
 import 'package:skin_care_app/features/home/ui/home_view.dart';
 import 'package:skin_care_app/features/on_boarding/ui/get_started_view.dart';
 import 'package:skin_care_app/features/on_boarding/ui/on_boarding_view.dart';
@@ -153,6 +154,8 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const BookingCalendarWidget(bookedDays: []),
         );
+      case Routes.allDoctorsView:
+        return MaterialPageRoute(builder: (_) => const AllDoctorsView());
 
       default:
         return null;

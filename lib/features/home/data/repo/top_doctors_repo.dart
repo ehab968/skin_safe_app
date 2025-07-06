@@ -26,4 +26,24 @@ class TopDoctorsRepo {
       return ApiResult.failure(ApiErrorHandler.handle(e));
     }
   }
+
+  Future<ApiResult<List<TopDoctorsModel>>> getAllDoctorsComplete() async {
+    try {
+      final response = await apiService.getAllDoctors();
+
+      // Return all doctors without limiting
+      final allDoctors = response.data ?? [];
+
+      // Sort doctors by rating (descending) for better presentation
+      allDoctors.sort((a, b) {
+        final ratingA = a.ratingsAverage ?? 0.0;
+        final ratingB = b.ratingsAverage ?? 0.0;
+        return ratingB.compareTo(ratingA);
+      });
+
+      return ApiResult.success(allDoctors);
+    } catch (e) {
+      return ApiResult.failure(ApiErrorHandler.handle(e));
+    }
+  }
 }

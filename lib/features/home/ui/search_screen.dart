@@ -7,6 +7,7 @@ import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 import 'package:skin_care_app/features/home/logic/cubit/search_cubit.dart';
 import 'package:skin_care_app/features/home/logic/cubit/top_doctors_cubit.dart';
+import 'package:skin_care_app/features/home/logic/cubit/top_doctors_state.dart';
 import 'package:skin_care_app/features/home/ui/widgets/search_bloc_builder.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -18,7 +19,8 @@ class SearchScreen extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => getIt<SearchCubit>()),
         BlocProvider(
-          create: (context) => getIt<TopDoctorsCubit>()..getTopDoctors(),
+          create:
+              (context) => getIt<TopDoctorsCubit>()..getAllDoctorsComplete(),
         ),
       ],
       child: Scaffold(
@@ -30,9 +32,19 @@ class SearchScreen extends StatelessWidget {
             icon: Icon(Icons.arrow_back, color: ColorManager.black),
             onPressed: () => Navigator.pop(context),
           ),
-          title: Text('Search Doctors', style: Styles.font18Black600Weight),
+          title: Text('Search All Doctors', style: Styles.font18Black600Weight),
         ),
-        body: const SearchScreenBody(),
+        body: BlocListener<TopDoctorsCubit, TopDoctorsState>(
+          listener: (context, state) {
+            state.maybeWhen(
+              success: (doctors) {
+                context.read<SearchCubit>().initializeWithDoctors(doctors);
+              },
+              orElse: () {},
+            );
+          },
+          child: const SearchScreenBody(),
+        ),
       ),
     );
   }
@@ -46,29 +58,6 @@ class SearchScreenBody extends StatefulWidget {
 }
 
 class _SearchScreenBodyState extends State<SearchScreenBody> {
-  @override
-  void initState() {
-    super.initState();
-    // Initialize search data after the frame is built
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      // Try to get top doctors and initialize search
-      final topDoctorsCubit = context.read<TopDoctorsCubit>();
-      topDoctorsCubit.getTopDoctors().then((_) {
-        // Listen for the success state
-        topDoctorsCubit.stream.listen((state) {
-          state.maybeWhen(
-            success: (doctors) {
-              if (mounted) {
-                context.read<SearchCubit>().initializeWithDoctors(doctors);
-              }
-            },
-            orElse: () {},
-          );
-        });
-      });
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     final searchCubit = context.read<SearchCubit>();
@@ -88,7 +77,7 @@ class _SearchScreenBodyState extends State<SearchScreenBody> {
               controller: searchCubit.searchController,
               onChanged: searchCubit.onSearchChanged,
               decoration: InputDecoration(
-                hintText: "Search for doctors...",
+                hintText: "Search for doctors, specialists...",
                 hintStyle: Styles.font14LightGray300Weight,
                 border: InputBorder.none,
                 prefixIcon: Icon(

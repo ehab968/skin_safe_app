@@ -17,4 +17,16 @@ class TopDoctorsCubit extends Cubit<TopDoctorsState> {
       failure: (apiErrorModel) => emit(TopDoctorsState.error(apiErrorModel)),
     );
   }
+
+  Future<void> getAllDoctorsComplete() async {
+    emit(const TopDoctorsState.loading());
+    final response = await topDoctorsRepo.getAllDoctorsComplete();
+
+    if (isClosed) return;
+
+    response.when(
+      success: (doctors) => emit(TopDoctorsState.success(doctors)),
+      failure: (apiErrorModel) => emit(TopDoctorsState.error(apiErrorModel)),
+    );
+  }
 }

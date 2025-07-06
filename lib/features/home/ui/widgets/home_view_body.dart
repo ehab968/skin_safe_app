@@ -71,7 +71,7 @@ class HomeViewBody extends StatelessWidget {
                       child: AbsorbPointer(
                         child: TextField(
                           decoration: InputDecoration(
-                            hintText: "Search for doctor, articles...",
+                            hintText: "Search for doctors, specialists...",
                             hintStyle: Styles.font14LightGray300Weight,
                             border: InputBorder.none,
                             prefixIcon: Icon(
@@ -96,7 +96,23 @@ class HomeViewBody extends StatelessWidget {
                     child: const UVIndexBlocBuilder(),
                   ),
                   verticalSpace(height: 24.h),
-                  Text('Top Doctors', style: Styles.font18Black600Weight),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('Top Doctors', style: Styles.font18Black600Weight),
+                      GestureDetector(
+                        onTap: () {
+                          context.pushNamed(Routes.allDoctorsView);
+                        },
+                        child: Text(
+                          'View All',
+                          style: Styles.font14PrimaryBlue400Weight.copyWith(
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                   verticalSpace(height: 16.h),
                   const TopDoctorsBlocBuilder(),
                   verticalSpace(height: 24.h),

@@ -12,12 +12,15 @@ class SearchCubit extends Cubit<SearchState> {
 
   // Initialize with all doctors data
   void initializeWithDoctors(List<TopDoctorsModel> doctors) {
+    print('SearchCubit: Initializing with ${doctors.length} doctors');
     searchRepo.setAllDoctors(doctors);
     getRecentSearches();
   }
 
   // Search doctors
   Future<void> searchDoctors(String query) async {
+    print('SearchCubit: Searching for "$query"');
+
     if (query.isEmpty) {
       getRecentSearches();
       return;
@@ -29,10 +32,14 @@ class SearchCubit extends Cubit<SearchState> {
 
     result.when(
       success: (doctors) {
+        print(
+          'SearchCubit: Search successful, found ${doctors.length} doctors',
+        );
         emit(SearchState.searchSuccess(doctors));
         // Don't call getRecentSearches() here as it will overwrite search results
       },
       failure: (error) {
+        print('SearchCubit: Search failed: ${error.message}');
         emit(SearchState.error(error.message ?? 'Failed to search doctors'));
       },
     );

@@ -14,11 +14,16 @@ class SearchRepo {
 
   void setAllDoctors(List<TopDoctorsModel> doctors) {
     _allDoctors = doctors;
+    print('SearchRepo: Set ${doctors.length} doctors for search');
   }
 
   // Search doctors locally
   Future<ApiResult<List<TopDoctorsModel>>> searchDoctors(String query) async {
     try {
+      print(
+        'SearchRepo: Searching for "$query" in ${_allDoctors.length} doctors',
+      );
+
       if (query.isEmpty) {
         return ApiResult.success(_allDoctors);
       }
@@ -33,8 +38,10 @@ class SearchRepo {
                 specialty.contains(searchQuery);
           }).toList();
 
+      print('SearchRepo: Found ${filteredDoctors.length} matching doctors');
       return ApiResult.success(filteredDoctors);
     } catch (e) {
+      print('SearchRepo: Error searching doctors: $e');
       return ApiResult.failure(
         ApiErrorHandler.handle(Exception('Failed to search doctors')),
       );
