@@ -4,9 +4,28 @@ import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 import 'package:skin_care_app/core/widgets/custom_text_button.dart';
+import 'package:skin_care_app/features/scan_report/logic/download_pdf.dart';
 
 class DownloadAndShareButton extends StatelessWidget {
-  const DownloadAndShareButton({super.key});
+  const DownloadAndShareButton({
+    super.key,
+    required this.imagePath,
+    required this.feedback,
+    required this.name,
+    required this.date,
+    required this.phone,
+    required this.skinTone,
+    required this.gender,
+    required this.typeDetected,
+  });
+  final String imagePath;
+  final String feedback;
+  final String name;
+  final String date;
+  final String phone;
+  final String skinTone;
+  final String gender;
+  final String typeDetected;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +41,18 @@ class DownloadAndShareButton extends StatelessWidget {
               textStyle: Styles.font16White500Weight.copyWith(
                 color: ColorManager.primaryBlue,
               ),
+              onPressed: () async {
+                await generatePdfReport(
+                  imagePath: imagePath,
+                  feedback: feedback,
+                  name: name,
+                  date: date,
+                  phone: phone,
+                  skinTone: skinTone,
+                  gender: gender,
+                  typeDetected: typeDetected,
+                );
+              },
             ),
             const Spacer(),
             CustomTextButton(

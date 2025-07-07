@@ -56,7 +56,17 @@ class ScanReportViewBody extends StatelessWidget {
               ),
             ],
           ),
-          const DownloadAndShareButton(),
+          DownloadAndShareButton(
+            imagePath: imagePath,
+            feedback:
+                'You should visit a dermatologist specialized in skin cancer.',
+            name: 'Muhammed Ali',
+            date: '14-Mar-2025',
+            phone: '(20) 10 222 333 44',
+            skinTone: 'Light to medium',
+            gender: 'male',
+            typeDetected: 'Melanoma',
+          ),
         ],
       ),
     );
