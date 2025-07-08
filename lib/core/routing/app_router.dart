@@ -120,7 +120,10 @@ class AppRouter {
       case Routes.viewReport:
         return MaterialPageRoute(builder: (_) => const ViewReport());
       case Routes.aboutDoctorView:
-        return MaterialPageRoute(builder: (_) => const AboutDoctorView());
+        return MaterialPageRoute(
+          builder: (_) => const AboutDoctorView(),
+          settings: settings,
+        );
       case Routes.historyView:
         return MaterialPageRoute(builder: (_) => const HistoryView());
       case Routes.getStartedView:

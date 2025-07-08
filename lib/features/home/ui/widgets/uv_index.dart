@@ -26,7 +26,7 @@ class _UvIndexState extends State<UvIndex> with SingleTickerProviderStateMixin {
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
       vsync: this,
     );
 
@@ -65,7 +65,7 @@ class _UvIndexState extends State<UvIndex> with SingleTickerProviderStateMixin {
           color: ColorManager.primaryBlue,
           borderRadius: BorderRadius.circular(12),
         ),
-        child: Center(
+        child: const Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -95,12 +95,12 @@ class _UvIndexState extends State<UvIndex> with SingleTickerProviderStateMixin {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBox(height: 20), // تقليل المساحة الفارغة
+            const SizedBox(height: 20), // تقليل المساحة الفارغة
             AnimatedBuilder(
               animation: _animation,
               builder:
                   (_, __) => CustomPaint(
-                    size: Size(240, 90),
+                    size: const Size(240, 90),
                     painter: UVIndexArcPainter(_animation.value),
                   ),
             ),
@@ -112,7 +112,7 @@ class _UvIndexState extends State<UvIndex> with SingleTickerProviderStateMixin {
                     children: [
                       Text(
                         _animation.value.toStringAsFixed(1),
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 32, // تصغير الخط لتجنب overflow
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
@@ -155,7 +155,7 @@ class UVIndexArcPainter extends CustomPainter {
     // Gradient arc paint
     final Paint paint =
         Paint()
-          ..shader = LinearGradient(
+          ..shader = const LinearGradient(
             colors: [
               Colors.green,
               Colors.yellow,

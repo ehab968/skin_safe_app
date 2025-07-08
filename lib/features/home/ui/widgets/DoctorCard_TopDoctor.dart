@@ -5,6 +5,7 @@ import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/routing/routes.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
+import 'package:skin_care_app/features/home/data/models/top_doctors_model.dart';
 
 class DoctorCard extends StatelessWidget {
   final String? doctorId;
@@ -13,6 +14,7 @@ class DoctorCard extends StatelessWidget {
   final double rating;
   final String distance;
   final String image;
+  final TopDoctorsModel doctorData;
 
   const DoctorCard({
     super.key,
@@ -22,13 +24,14 @@ class DoctorCard extends StatelessWidget {
     required this.rating,
     required this.distance,
     required this.image,
+    required this.doctorData,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed(Routes.aboutDoctorView);
+        context.pushNamed(Routes.aboutDoctorView, arguments: doctorData);
       },
       child: SizedBox(
         width: 139.w,

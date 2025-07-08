@@ -5,8 +5,9 @@ import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 
 class DoctorRate extends StatelessWidget {
-  const DoctorRate({super.key});
-
+  const DoctorRate({super.key, required this.rating, required this.reviews});
+  final double rating;
+  final int reviews;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -15,11 +16,11 @@ class DoctorRate extends StatelessWidget {
         horizontalSpace(width: 6),
         RichText(
           text: TextSpan(
-            text: '4.9',
+            text: rating.toStringAsFixed(1),
             style: Styles.font16Black400Weight,
             children: [
               TextSpan(
-                text: ' (30 reviews)',
+                text: ' ($reviews reviews)',
                 style: Styles.font14Black400Weight.copyWith(
                   color: ColorManager.gray2,
                 ),

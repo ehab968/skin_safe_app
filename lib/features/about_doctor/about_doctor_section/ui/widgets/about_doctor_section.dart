@@ -4,8 +4,13 @@ import 'package:skin_care_app/features/about_doctor/about_doctor_section/ui/widg
 import 'package:skin_care_app/features/about_doctor/about_doctor_section/ui/widgets/certficate_section.dart';
 
 class AboutDoctorSection extends StatelessWidget {
-  const AboutDoctorSection({super.key});
-
+  const AboutDoctorSection({
+    super.key,
+    required this.aboutDoctorDetails,
+    required this.certficateDetails,
+  });
+  final String aboutDoctorDetails;
+  final String certficateDetails;
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -14,9 +19,9 @@ class AboutDoctorSection extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
-            const AboutDoctordetails(),
+            AboutDoctordetails(aboutDoctorDetails: aboutDoctorDetails),
             verticalSpace(height: 16),
-            const CertficateSection(),
+             CertficateSection(certficateDetails:certficateDetails),
           ],
         ),
       ),

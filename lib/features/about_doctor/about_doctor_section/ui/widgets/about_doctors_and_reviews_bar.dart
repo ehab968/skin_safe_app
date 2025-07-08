@@ -3,8 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 
-class AboutDoctorsAndReviewsSection extends StatelessWidget {
-  const AboutDoctorsAndReviewsSection({super.key, required this.selectedIndex, required this.onTapChanged});
+class AboutDoctorsAndReviewsBar extends StatelessWidget {
+  const AboutDoctorsAndReviewsBar({
+    super.key,
+    required this.selectedIndex,
+    required this.onTapChanged,
+  });
   final int selectedIndex;
   final void Function(int) onTapChanged;
   @override
@@ -20,7 +24,10 @@ class AboutDoctorsAndReviewsSection extends StatelessWidget {
               border: BorderDirectional(
                 bottom:
                     selectedIndex == 0
-                        ? BorderSide(color: ColorManager.primaryBlue, width: 2.r)
+                        ? BorderSide(
+                          color: ColorManager.primaryBlue,
+                          width: 2.r,
+                        )
                         : BorderSide.none,
               ),
             ),
@@ -44,7 +51,10 @@ class AboutDoctorsAndReviewsSection extends StatelessWidget {
               border: BorderDirectional(
                 bottom:
                     selectedIndex == 1
-                        ? BorderSide(color: ColorManager.primaryBlue, width: 2.r)
+                        ? BorderSide(
+                          color: ColorManager.primaryBlue,
+                          width: 2.r,
+                        )
                         : BorderSide.none,
               ),
             ),

@@ -1,7 +1,5 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skin_care_app/core/helper/constants.dart';
-import 'package:skin_care_app/core/helper/shared_pref_helper.dart';
 import 'package:skin_care_app/features/authentication/reset_password/data/models/reset_password_model.dart';
 import 'package:skin_care_app/features/authentication/reset_password/data/repo/reset_password_repo.dart';
 import 'package:skin_care_app/features/authentication/reset_password/logic/cubit/reset_password_state.dart';

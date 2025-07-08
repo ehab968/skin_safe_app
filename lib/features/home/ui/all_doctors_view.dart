@@ -121,6 +121,7 @@ class AllDoctorsViewBody extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final doctor = doctors[index];
                   return DoctorCard(
+                    doctorData: doctor,
                     doctorId: doctor.id,
                     name: doctor.fullName,
                     specialty: doctor.specialty ?? 'Dermatologist',
