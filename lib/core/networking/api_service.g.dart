@@ -59,13 +59,10 @@ class _ApiService implements ApiService {
 
   @override
   Future<VerficationResponse> verficationCode(
-    dynamic verficationCodeRequest,
-    String token,
-  ) async {
+      dynamic verficationCodeRequest) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Authorization': token};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = verficationCodeRequest;
     final _options = _setStreamType<VerficationResponse>(Options(
       method: 'POST',
@@ -165,13 +162,10 @@ class _ApiService implements ApiService {
 
   @override
   Future<ConfirmationCodeResponse> verifyResetPassword(
-    ConfirmationCodeRequest confirmationCodeRequest,
-    String token,
-  ) async {
+      ConfirmationCodeRequest confirmationCodeRequest) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Authorization': token};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(confirmationCodeRequest.toJson());
     final _options = _setStreamType<ConfirmationCodeResponse>(Options(
@@ -203,13 +197,10 @@ class _ApiService implements ApiService {
 
   @override
   Future<ResetPasswordResponse> resetPassword(
-    ResetPasswordRequest resetPasswordRequest,
-    String token,
-  ) async {
+      ResetPasswordRequest resetPasswordRequest) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Authorization': token};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(resetPasswordRequest.toJson());
     final _options = _setStreamType<ResetPasswordResponse>(Options(
@@ -267,6 +258,146 @@ class _ApiService implements ApiService {
       _value = _result.data!
           .map((dynamic i) => ArticleModel.fromJson(i as Map<String, dynamic>))
           .toList();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<DoctorsResponse> getAllDoctors() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<DoctorsResponse>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'doctors',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DoctorsResponse _value;
+    try {
+      _value = DoctorsResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<UserProfileResponse> getUserProfile(String userId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<UserProfileResponse>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'users/user/${userId}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late UserProfileResponse _value;
+    try {
+      _value = UserProfileResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<UVIndexResponse> getUVIndex(
+    double latitude,
+    double longitude,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'lat': latitude,
+      r'lon': longitude,
+    };
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<UVIndexResponse>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'uvIndex/latest-uv',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late UVIndexResponse _value;
+    try {
+      _value = UVIndexResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<AppointmentResponse> bookAppointment(
+      AppointmentRequest appointmentRequest) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(appointmentRequest.toJson());
+    final _options = _setStreamType<AppointmentResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'appointments',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late AppointmentResponse _value;
+    try {
+      _value = AppointmentResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

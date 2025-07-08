@@ -7,6 +7,7 @@ import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 
 class DoctorCard extends StatelessWidget {
+  final String? doctorId;
   final String name;
   final String specialty;
   final double rating;
@@ -15,6 +16,7 @@ class DoctorCard extends StatelessWidget {
 
   const DoctorCard({
     super.key,
+    this.doctorId,
     required this.name,
     required this.specialty,
     required this.rating,
@@ -54,9 +56,7 @@ class DoctorCard extends StatelessWidget {
                   child: SizedBox(
                     width: 80.w,
                     height: 80.w,
-                    child: ClipOval(
-                      child: Image.asset(image, fit: BoxFit.cover),
-                    ),
+                    child: ClipOval(child: _buildDoctorImage()),
                   ),
                 ),
 
@@ -99,7 +99,7 @@ class DoctorCard extends StatelessWidget {
                         size: 12.sp,
                       ),
                       Text(
-                        rating.toString(),
+                        rating.toStringAsFixed(1),
                         style: Styles.font10PrimaryBlue500Weight,
                       ),
                       horizontalSpace(width: 4.w),
@@ -108,10 +108,12 @@ class DoctorCard extends StatelessWidget {
                         color: ColorManager.MainGray,
                         size: 12.sp,
                       ),
-                      Text(
-                        distance,
-                        style: Styles.font10GrayLIGHT500Weight,
-                        overflow: TextOverflow.ellipsis,
+                      Flexible(
+                        child: Text(
+                          distance,
+                          style: Styles.font10GrayLIGHT500Weight,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                     ],
                   ),
@@ -122,5 +124,40 @@ class DoctorCard extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget _buildDoctorImage() {
+    // Check if the image is a network URL or local asset
+    if (image.startsWith('http') || image.startsWith('https')) {
+      return Image.network(
+        image,
+        fit: BoxFit.cover,
+        errorBuilder: (context, error, stackTrace) {
+          // Fallback to default asset image if network image fails
+          return Image.asset('assets/images/doctorMale.jpg', fit: BoxFit.cover);
+        },
+        loadingBuilder: (context, child, loadingProgress) {
+          if (loadingProgress == null) return child;
+          return Center(
+            child: CircularProgressIndicator(
+              value:
+                  loadingProgress.expectedTotalBytes != null
+                      ? loadingProgress.cumulativeBytesLoaded /
+                          loadingProgress.expectedTotalBytes!
+                      : null,
+            ),
+          );
+        },
+      );
+    } else {
+      // Use asset image
+      return Image.asset(
+        image,
+        fit: BoxFit.cover,
+        errorBuilder: (context, error, stackTrace) {
+          return Image.asset('assets/images/doctorMale.jpg', fit: BoxFit.cover);
+        },
+      );
+    }
   }
 }

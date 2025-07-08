@@ -8,12 +8,10 @@ class ConfirmationCodeRepo {
   ConfirmationCodeRepo(this.apiService);
   Future<ApiResult<ConfirmationCodeResponse>> verifyResetPassword(
     ConfirmationCodeRequest confirmationCodeRequest,
-    String token,
   ) async {
     try {
       final response = await apiService.verifyResetPassword(
         confirmationCodeRequest,
-        token,
       );
       return ApiResult.success(response);
     } catch (e) {

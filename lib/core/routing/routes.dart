@@ -26,4 +26,5 @@ class Routes {
   static const String ArticleBodyScreen = '/ArticleBodyScreen';
   static const String NotificationsScreen = '/NotificationsScreen';
   static const String historyView = '/HistoryView';
+  static const String allDoctorsView = '/AllDoctorsView';
 }

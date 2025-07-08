@@ -13,12 +13,8 @@ class ConfirmationCodeCubit extends Cubit<ConfirmationCodeState> {
   TextEditingController confirmationCodeController = TextEditingController();
   Future<void> verifyResetPassword() async {
     emit(const ConfirmationCodeState.loading());
-    final validtoken = await SharedPrefHelper.getString(
-      SharedPrefKeys.forgetPasswordToken,
-    );
     final response = await confirmationCodeRepo.verifyResetPassword(
       ConfirmationCodeRequest(resetCode: confirmationCodeController.text),
-      'Bearer $validtoken',
     );
     response.when(
       success: (data) async {
@@ -32,6 +28,6 @@ class ConfirmationCodeCubit extends Cubit<ConfirmationCodeState> {
   }
 
   Future<void> saveForgetPasswordToken(String token) async {
-    await SharedPrefHelper.setData(SharedPrefKeys.forgetPasswordToken, token);
+    await SharedPrefHelper.setData(SharedPrefKeys.userToken, token);
   }
 }

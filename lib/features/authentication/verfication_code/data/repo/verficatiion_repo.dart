@@ -8,9 +8,9 @@ class VerficatiionRepo {
   final ApiService apiService;
   VerficatiionRepo(this.apiService);
   Future<ApiResult<VerficationResponse>> verficationCode(
-      VerficationRequest verficationRequest,String token) async {
+      VerficationRequest verficationRequest) async {
     try {
-      final response = await apiService.verficationCode(verficationRequest,token);
+      final response = await apiService.verficationCode(verficationRequest);
       return ApiResult.success(response);
     } catch (e) {
       return ApiResult.failure(ApiErrorHandler.handle(e));

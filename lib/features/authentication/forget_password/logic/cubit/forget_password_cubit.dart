@@ -29,6 +29,6 @@ class ForgetPasswordCubit
   }
 
   Future<void> saveForgetPasswordToken(String token) async {
-    await SharedPrefHelper.setData(SharedPrefKeys.forgetPasswordToken, token);
+    await SharedPrefHelper.setData(SharedPrefKeys.userToken, token);
   }
 }
