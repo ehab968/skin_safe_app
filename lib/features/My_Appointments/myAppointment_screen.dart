@@ -1,72 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:skin_care_app/core/di/dependancy_injection.dart';
 import 'package:skin_care_app/core/helper/helper.dart';
+import 'package:skin_care_app/core/helper/spacing.dart';
+import 'package:skin_care_app/core/theme/colors.dart';
+import 'package:skin_care_app/core/theme/styles.dart';
 import 'package:skin_care_app/core/widgets/app_bottom_navigation_bar.dart';
-import 'package:skin_care_app/features/My_Appointments/ui/widgets/appointment_case_card.dart';
-import 'package:skin_care_app/features/My_Appointments/ui/widgets/appointment_model.dart';
+import 'package:skin_care_app/features/My_Appointments/logic/cubit/appointments_cubit.dart';
+import 'package:skin_care_app/features/My_Appointments/ui/widgets/appointments_bloc_builder.dart';
+import 'package:skin_care_app/features/My_Appointments/ui/widgets/appointments_bloc_listener.dart';
 
-class MyAppointmentsScreen extends StatelessWidget {
-  final List<Appointment> appointments = [
-    Appointment(
-      doctorName: "Dr.Hady Helmy",
-      specialty: "Dermatologist",
-      location: "Salah Salem Street,\n Ismailia, Egypt",
-      dateTime: "Mars 12, 2025 10:00 PM",
-      status: "upcoming",
-      image: "assets/images/DrHadyHelmy.jpg",
-    ),
-    Appointment(
-      doctorName: "Dr.Hend Khaled",
-      specialty: "Dermatologist",
-      location: "Salah Salem Street,\n Ismailia, Egypt",
-      dateTime: "Mars 02, 2025 09:00 PM",
-      status: "cancelled",
-      image: "assets/images/drHendKhaled.jpg",
-    ),
-    Appointment(
-      doctorName: "Dr.Gamila Emad",
-      specialty: "Dermatologist",
-      location: "Salah Salem Street,\n Ismailia, Egypt",
-      dateTime: "Feb 12, 2025 11:00 PM",
-      status: "past",
-      image: "assets/images/DrGamilaEmad.jpg",
-    ),
-    Appointment(
-      doctorName: "Dr.Hossam Ali",
-      specialty: "Dermatologist",
-      location: "Salah Salem Street,\n Ismailia, Egypt",
-      dateTime: "Feb 01, 2025 09:00 Pm",
-      status: "past",
-      image: "assets/images/DrHossamAli.jpg",
-    ),
-  ];
-
-  MyAppointmentsScreen({super.key});
+class MyAppointmentScreen extends StatelessWidget {
+  const MyAppointmentScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return BlocProvider(
+      create: (context) => getIt<AppointmentsCubit>()..getAppointments(),
       child: Scaffold(
+        appBar: AppBar(
+          title: Text('My Appointments', style: Styles.font18Black600Weight),
+          centerTitle: true,
+          elevation: 0,
+        ),
         bottomNavigationBar: AppBottomNavigationBar(
-          currentIndex: null,
+          currentIndex: 1, // Assuming 1 is the index for appointments tab
           onTap: (index) => navigateToTab(context, index),
         ),
-        body: ListView.builder(
-          padding: const EdgeInsets.all(12),
-          itemCount: appointments.length,
-          itemBuilder: (context, index) {
-            final a = appointments[index];
-            return AppointmentCard(
-              status: a.status,
-              dateTime: a.dateTime,
-              doctorName: a.doctorName,
-              specialty: a.specialty,
-              location: a.location,
-              image: a.image,
-              onViewDetails: () {
-                // print('Tapped on ${a.doctorName}');
-              },
-            );
-          },
+        body: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.all(16.h),
+                child: Text(
+                  'Your scheduled appointments',
+                  style: Styles.font16Black500Weight,
+                ),
+              ),
+              const Expanded(child: AppointmentsBlocBuilder()),
+            ],
+          ),
         ),
       ),
     );

@@ -15,6 +15,10 @@ import 'package:skin_care_app/features/home/data/models/uv_index_model.dart';
 import 'package:skin_care_app/features/Profile/data/models/user_profile_model.dart';
 import 'package:skin_care_app/features/BookingAppointment/data/models/appointment_request.dart';
 import 'package:skin_care_app/features/BookingAppointment/data/models/appointment_response.dart';
+import 'package:skin_care_app/features/BookingAppointment/data/models/availability_response.dart';
+import 'package:skin_care_app/features/Appointment_details/data/models/appointment_details_response.dart';
+import 'package:skin_care_app/features/My_Appointments/data/models/appointments_response.dart';
+import 'package:skin_care_app/features/Notifications/data/models/notification_response.dart';
 part 'api_service.g.dart';
 
 @RestApi(baseUrl: ApiConstants.baseUrl)
@@ -71,4 +75,23 @@ abstract class ApiService {
   Future<AppointmentResponse> bookAppointment(
     @Body() AppointmentRequest appointmentRequest,
   );
+
+  // get doctor availability
+  @GET('${ApiConstants.availability}/{doctorId}')
+  Future<AvailabilityResponse> getDoctorAvailability(
+    @Path('doctorId') String doctorId,
+  );
+
+  // get appointment details
+  @GET('${ApiConstants.appointmentDetails}/{appointmentId}')
+  Future<AppointmentDetailsResponse> getAppointmentDetails(
+    @Path('appointmentId') String appointmentId,
+  );
+
+  // get all appointments
+  @GET(ApiConstants.appointments)
+  Future<AppointmentsResponse> getAppointments();
+
+  @GET(ApiConstants.notifications)
+  Future<List<NotificationItemModel>> getNotifications();
 }

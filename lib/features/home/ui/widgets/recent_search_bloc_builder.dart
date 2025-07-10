@@ -240,10 +240,7 @@ class RecentDoctorCard extends StatelessWidget {
                     height: 30.h,
                     textName: 'Schedule',
                     onPressed: () {
-                      context.pushNamed(
-                        Routes.bookingView,
-                        arguments: doctor.id,
-                      );
+                      context.pushNamed(Routes.bookingView, arguments: doctor);
                     },
                     textStyle: Styles.font11White500Weight,
                   ),

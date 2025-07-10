@@ -2,39 +2,44 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skin_care_app/core/di/dependancy_injection.dart';
 import 'package:skin_care_app/core/routing/routes.dart';
+import 'package:skin_care_app/features/home/data/models/top_doctors_model.dart';
 
 import 'package:skin_care_app/features/Appointment_details/appointment_screen.dart';
+import 'package:skin_care_app/features/Appointment_details/logic/cubit/appointment_details_cubit.dart';
 import 'package:skin_care_app/features/Articles/logic/cubit/article_cubit.dart';
 import 'package:skin_care_app/features/Articles/ui/article_view.dart';
-import 'package:skin_care_app/features/BookingAppointment/ui/widgets/appointment_confirmation.dart';
+import 'package:skin_care_app/features/BookingAppointment/logic/cubit/appointment_cubit.dart';
 import 'package:skin_care_app/features/BookingAppointment/ui/booking_view.dart';
+import 'package:skin_care_app/features/BookingAppointment/ui/widgets/appointment_confirmation.dart';
 import 'package:skin_care_app/features/My_Appointments/myAppointment_screen.dart';
 import 'package:skin_care_app/features/Notifications/notification_screen.dart';
 import 'package:skin_care_app/features/Profile/profile_screen.dart';
-
 import 'package:skin_care_app/features/about_doctor/about_doctor_section/ui/about_doctor_view.dart';
 import 'package:skin_care_app/features/article_body/ui/article_body_screen.dart';
+import 'package:skin_care_app/features/authentication/confirmation_code/ui/confirmation_code_view.dart';
 import 'package:skin_care_app/features/authentication/confirmation_code/logic/cubit/confirmation_code_cubit.dart';
+import 'package:skin_care_app/features/authentication/forget_password/ui/forget_password_view.dart';
 import 'package:skin_care_app/features/authentication/forget_password/logic/cubit/forget_password_cubit.dart';
-
 import 'package:skin_care_app/features/authentication/login/ui/login_view.dart';
+import 'package:skin_care_app/features/authentication/login/logic/login_cubit/login_cubit.dart';
+import 'package:skin_care_app/features/authentication/reset_password/ui/reset_password_view.dart';
 import 'package:skin_care_app/features/authentication/reset_password/logic/cubit/reset_password_cubit.dart';
-import 'package:skin_care_app/features/authentication/verfication_code/logic/cubit/verfication_cubit.dart';
+import 'package:skin_care_app/features/authentication/sign_up/ui/sign_up_view.dart';
+import 'package:skin_care_app/features/authentication/sign_up/ui/sign_up_view_2.dart';
+import 'package:skin_care_app/features/authentication/sign_up/logic/sign_up_cubit/sign_up_cubit.dart';
 import 'package:skin_care_app/features/authentication/verfication_code/ui/verfication_code_view.dart';
+import 'package:skin_care_app/features/authentication/verfication_code/logic/cubit/verfication_cubit.dart';
 import 'package:skin_care_app/features/history/ui/history_view.dart';
+import 'package:skin_care_app/features/home/logic/cubit/all_doctors_cubit.dart';
+import 'package:skin_care_app/features/home/logic/cubit/top_doctors_cubit.dart';
+import 'package:skin_care_app/features/home/logic/cubit/uv_index_cubit.dart';
 import 'package:skin_care_app/features/home/ui/all_doctors_view.dart';
 import 'package:skin_care_app/features/home/ui/home_view.dart';
+import 'package:skin_care_app/features/home/ui/search_screen.dart';
 import 'package:skin_care_app/features/on_boarding/ui/get_started_view.dart';
 import 'package:skin_care_app/features/on_boarding/ui/on_boarding_view.dart';
 import 'package:skin_care_app/features/on_boarding/ui/second_on_boarding_view.dart';
 import 'package:skin_care_app/features/on_boarding/ui/third_on_boarding_view.dart';
-import 'package:skin_care_app/features/authentication/confirmation_code/ui/confirmation_code_view.dart';
-import 'package:skin_care_app/features/authentication/forget_password/ui/forget_password_view.dart';
-import 'package:skin_care_app/features/authentication/login/logic/login_cubit/login_cubit.dart';
-import 'package:skin_care_app/features/authentication/reset_password/ui/reset_password_view.dart';
-import 'package:skin_care_app/features/authentication/sign_up/logic/sign_up_cubit/sign_up_cubit.dart';
-import 'package:skin_care_app/features/authentication/sign_up/ui/sign_up_view.dart';
-import 'package:skin_care_app/features/authentication/sign_up/ui/sign_up_view_2.dart';
 import 'package:skin_care_app/features/scan/logic/camera_cubit/camera_cubit.dart';
 import 'package:skin_care_app/features/scan/ui/scan_view.dart';
 import 'package:skin_care_app/features/scan_report/ui/scan_report_view.dart';
@@ -42,7 +47,10 @@ import 'package:skin_care_app/features/scan_report/ui/view_report.dart';
 import 'package:skin_care_app/features/splash/splash_view.dart';
 
 class AppRouter {
-  Route? generateRoute(RouteSettings settings) {
+  Route generateRoute(RouteSettings settings) {
+    // Handle route settings and parameters
+    final arguments = settings.arguments;
+
     switch (settings.name) {
       case Routes.splashView:
         return MaterialPageRoute(builder: (_) => const SplashView());
@@ -130,9 +138,16 @@ class AppRouter {
           builder: (_) => const AppointmentConfirmationDialog(),
         );
       case Routes.appointmentScreen:
-        return MaterialPageRoute(builder: (_) => const AppointmentScreen());
+        final appointmentId = settings.arguments as String?;
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (_) => getIt<AppointmentDetailsCubit>(),
+                child: AppointmentScreen(appointmentId: appointmentId),
+              ),
+        );
       case Routes.myAppointmentsScreen:
-        return MaterialPageRoute(builder: (_) => MyAppointmentsScreen());
+        return MaterialPageRoute(builder: (_) => const MyAppointmentScreen());
       case Routes.profileView:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
       case Routes.articlesView:
@@ -151,17 +166,39 @@ class AppRouter {
       case Routes.NotificationsScreen:
         return MaterialPageRoute(builder: (_) => NotificationsScreen());
       case Routes.bookingView:
-        // Get doctor ID from route arguments
-        final String? doctorId = settings.arguments as String?;
-        return MaterialPageRoute(
-          builder: (_) => BookingView(doctorId: doctorId),
-          settings: settings,
-        );
+        // Handle both doctor object and doctor ID from route arguments
+        final arguments = settings.arguments;
+        if (arguments is TopDoctorsModel) {
+          // Full doctor object passed
+          return MaterialPageRoute(
+            builder: (_) => BookingView(doctor: arguments),
+            settings: settings,
+          );
+        } else if (arguments is String) {
+          // Doctor ID passed
+          return MaterialPageRoute(
+            builder: (_) => BookingView(doctorId: arguments),
+            settings: settings,
+          );
+        } else {
+          // No arguments
+          return MaterialPageRoute(
+            builder: (_) => const BookingView(),
+            settings: settings,
+          );
+        }
       case Routes.allDoctorsView:
         return MaterialPageRoute(builder: (_) => const AllDoctorsView());
 
       default:
-        return null;
+        return MaterialPageRoute(
+          builder:
+              (_) => Scaffold(
+                body: Center(
+                  child: Text('No route defined for ${settings.name}'),
+                ),
+              ),
+        );
     }
   }
 }

@@ -22,6 +22,10 @@ mixin _$AppointmentState<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function() availabilityLoading,
+    required TResult Function(T data) availabilityLoaded,
+    required TResult Function() appointmentDetailsLoading,
+    required TResult Function(T data) appointmentDetailsLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +34,10 @@ mixin _$AppointmentState<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function()? availabilityLoading,
+    TResult? Function(T data)? availabilityLoaded,
+    TResult? Function()? appointmentDetailsLoading,
+    TResult? Function(T data)? appointmentDetailsLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +46,10 @@ mixin _$AppointmentState<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function()? availabilityLoading,
+    TResult Function(T data)? availabilityLoaded,
+    TResult Function()? appointmentDetailsLoading,
+    TResult Function(T data)? appointmentDetailsLoaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +59,12 @@ mixin _$AppointmentState<T> {
     required TResult Function(AppointmentLoading<T> value) loading,
     required TResult Function(AppointmentSuccess<T> value) success,
     required TResult Function(AppointmentError<T> value) error,
+    required TResult Function(AvailabilityLoading<T> value) availabilityLoading,
+    required TResult Function(AvailabilityLoaded<T> value) availabilityLoaded,
+    required TResult Function(AppointmentDetailsLoading<T> value)
+        appointmentDetailsLoading,
+    required TResult Function(AppointmentDetailsLoaded<T> value)
+        appointmentDetailsLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +73,12 @@ mixin _$AppointmentState<T> {
     TResult? Function(AppointmentLoading<T> value)? loading,
     TResult? Function(AppointmentSuccess<T> value)? success,
     TResult? Function(AppointmentError<T> value)? error,
+    TResult? Function(AvailabilityLoading<T> value)? availabilityLoading,
+    TResult? Function(AvailabilityLoaded<T> value)? availabilityLoaded,
+    TResult? Function(AppointmentDetailsLoading<T> value)?
+        appointmentDetailsLoading,
+    TResult? Function(AppointmentDetailsLoaded<T> value)?
+        appointmentDetailsLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +87,12 @@ mixin _$AppointmentState<T> {
     TResult Function(AppointmentLoading<T> value)? loading,
     TResult Function(AppointmentSuccess<T> value)? success,
     TResult Function(AppointmentError<T> value)? error,
+    TResult Function(AvailabilityLoading<T> value)? availabilityLoading,
+    TResult Function(AvailabilityLoaded<T> value)? availabilityLoaded,
+    TResult Function(AppointmentDetailsLoading<T> value)?
+        appointmentDetailsLoading,
+    TResult Function(AppointmentDetailsLoaded<T> value)?
+        appointmentDetailsLoaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,6 +164,10 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function() availabilityLoading,
+    required TResult Function(T data) availabilityLoaded,
+    required TResult Function() appointmentDetailsLoading,
+    required TResult Function(T data) appointmentDetailsLoaded,
   }) {
     return initial();
   }
@@ -145,6 +179,10 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function()? availabilityLoading,
+    TResult? Function(T data)? availabilityLoaded,
+    TResult? Function()? appointmentDetailsLoading,
+    TResult? Function(T data)? appointmentDetailsLoaded,
   }) {
     return initial?.call();
   }
@@ -156,6 +194,10 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function()? availabilityLoading,
+    TResult Function(T data)? availabilityLoaded,
+    TResult Function()? appointmentDetailsLoading,
+    TResult Function(T data)? appointmentDetailsLoaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -171,6 +213,12 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(AppointmentLoading<T> value) loading,
     required TResult Function(AppointmentSuccess<T> value) success,
     required TResult Function(AppointmentError<T> value) error,
+    required TResult Function(AvailabilityLoading<T> value) availabilityLoading,
+    required TResult Function(AvailabilityLoaded<T> value) availabilityLoaded,
+    required TResult Function(AppointmentDetailsLoading<T> value)
+        appointmentDetailsLoading,
+    required TResult Function(AppointmentDetailsLoaded<T> value)
+        appointmentDetailsLoaded,
   }) {
     return initial(this);
   }
@@ -182,6 +230,12 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(AppointmentLoading<T> value)? loading,
     TResult? Function(AppointmentSuccess<T> value)? success,
     TResult? Function(AppointmentError<T> value)? error,
+    TResult? Function(AvailabilityLoading<T> value)? availabilityLoading,
+    TResult? Function(AvailabilityLoaded<T> value)? availabilityLoaded,
+    TResult? Function(AppointmentDetailsLoading<T> value)?
+        appointmentDetailsLoading,
+    TResult? Function(AppointmentDetailsLoaded<T> value)?
+        appointmentDetailsLoaded,
   }) {
     return initial?.call(this);
   }
@@ -193,6 +247,12 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(AppointmentLoading<T> value)? loading,
     TResult Function(AppointmentSuccess<T> value)? success,
     TResult Function(AppointmentError<T> value)? error,
+    TResult Function(AvailabilityLoading<T> value)? availabilityLoading,
+    TResult Function(AvailabilityLoaded<T> value)? availabilityLoaded,
+    TResult Function(AppointmentDetailsLoading<T> value)?
+        appointmentDetailsLoading,
+    TResult Function(AppointmentDetailsLoaded<T> value)?
+        appointmentDetailsLoaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -252,6 +312,10 @@ class _$AppointmentLoadingImpl<T> implements AppointmentLoading<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function() availabilityLoading,
+    required TResult Function(T data) availabilityLoaded,
+    required TResult Function() appointmentDetailsLoading,
+    required TResult Function(T data) appointmentDetailsLoaded,
   }) {
     return loading();
   }
@@ -263,6 +327,10 @@ class _$AppointmentLoadingImpl<T> implements AppointmentLoading<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function()? availabilityLoading,
+    TResult? Function(T data)? availabilityLoaded,
+    TResult? Function()? appointmentDetailsLoading,
+    TResult? Function(T data)? appointmentDetailsLoaded,
   }) {
     return loading?.call();
   }
@@ -274,6 +342,10 @@ class _$AppointmentLoadingImpl<T> implements AppointmentLoading<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function()? availabilityLoading,
+    TResult Function(T data)? availabilityLoaded,
+    TResult Function()? appointmentDetailsLoading,
+    TResult Function(T data)? appointmentDetailsLoaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -289,6 +361,12 @@ class _$AppointmentLoadingImpl<T> implements AppointmentLoading<T> {
     required TResult Function(AppointmentLoading<T> value) loading,
     required TResult Function(AppointmentSuccess<T> value) success,
     required TResult Function(AppointmentError<T> value) error,
+    required TResult Function(AvailabilityLoading<T> value) availabilityLoading,
+    required TResult Function(AvailabilityLoaded<T> value) availabilityLoaded,
+    required TResult Function(AppointmentDetailsLoading<T> value)
+        appointmentDetailsLoading,
+    required TResult Function(AppointmentDetailsLoaded<T> value)
+        appointmentDetailsLoaded,
   }) {
     return loading(this);
   }
@@ -300,6 +378,12 @@ class _$AppointmentLoadingImpl<T> implements AppointmentLoading<T> {
     TResult? Function(AppointmentLoading<T> value)? loading,
     TResult? Function(AppointmentSuccess<T> value)? success,
     TResult? Function(AppointmentError<T> value)? error,
+    TResult? Function(AvailabilityLoading<T> value)? availabilityLoading,
+    TResult? Function(AvailabilityLoaded<T> value)? availabilityLoaded,
+    TResult? Function(AppointmentDetailsLoading<T> value)?
+        appointmentDetailsLoading,
+    TResult? Function(AppointmentDetailsLoaded<T> value)?
+        appointmentDetailsLoaded,
   }) {
     return loading?.call(this);
   }
@@ -311,6 +395,12 @@ class _$AppointmentLoadingImpl<T> implements AppointmentLoading<T> {
     TResult Function(AppointmentLoading<T> value)? loading,
     TResult Function(AppointmentSuccess<T> value)? success,
     TResult Function(AppointmentError<T> value)? error,
+    TResult Function(AvailabilityLoading<T> value)? availabilityLoading,
+    TResult Function(AvailabilityLoaded<T> value)? availabilityLoaded,
+    TResult Function(AppointmentDetailsLoading<T> value)?
+        appointmentDetailsLoading,
+    TResult Function(AppointmentDetailsLoaded<T> value)?
+        appointmentDetailsLoaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -398,6 +488,10 @@ class _$AppointmentSuccessImpl<T> implements AppointmentSuccess<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function() availabilityLoading,
+    required TResult Function(T data) availabilityLoaded,
+    required TResult Function() appointmentDetailsLoading,
+    required TResult Function(T data) appointmentDetailsLoaded,
   }) {
     return success(data);
   }
@@ -409,6 +503,10 @@ class _$AppointmentSuccessImpl<T> implements AppointmentSuccess<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function()? availabilityLoading,
+    TResult? Function(T data)? availabilityLoaded,
+    TResult? Function()? appointmentDetailsLoading,
+    TResult? Function(T data)? appointmentDetailsLoaded,
   }) {
     return success?.call(data);
   }
@@ -420,6 +518,10 @@ class _$AppointmentSuccessImpl<T> implements AppointmentSuccess<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function()? availabilityLoading,
+    TResult Function(T data)? availabilityLoaded,
+    TResult Function()? appointmentDetailsLoading,
+    TResult Function(T data)? appointmentDetailsLoaded,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -435,6 +537,12 @@ class _$AppointmentSuccessImpl<T> implements AppointmentSuccess<T> {
     required TResult Function(AppointmentLoading<T> value) loading,
     required TResult Function(AppointmentSuccess<T> value) success,
     required TResult Function(AppointmentError<T> value) error,
+    required TResult Function(AvailabilityLoading<T> value) availabilityLoading,
+    required TResult Function(AvailabilityLoaded<T> value) availabilityLoaded,
+    required TResult Function(AppointmentDetailsLoading<T> value)
+        appointmentDetailsLoading,
+    required TResult Function(AppointmentDetailsLoaded<T> value)
+        appointmentDetailsLoaded,
   }) {
     return success(this);
   }
@@ -446,6 +554,12 @@ class _$AppointmentSuccessImpl<T> implements AppointmentSuccess<T> {
     TResult? Function(AppointmentLoading<T> value)? loading,
     TResult? Function(AppointmentSuccess<T> value)? success,
     TResult? Function(AppointmentError<T> value)? error,
+    TResult? Function(AvailabilityLoading<T> value)? availabilityLoading,
+    TResult? Function(AvailabilityLoaded<T> value)? availabilityLoaded,
+    TResult? Function(AppointmentDetailsLoading<T> value)?
+        appointmentDetailsLoading,
+    TResult? Function(AppointmentDetailsLoaded<T> value)?
+        appointmentDetailsLoaded,
   }) {
     return success?.call(this);
   }
@@ -457,6 +571,12 @@ class _$AppointmentSuccessImpl<T> implements AppointmentSuccess<T> {
     TResult Function(AppointmentLoading<T> value)? loading,
     TResult Function(AppointmentSuccess<T> value)? success,
     TResult Function(AppointmentError<T> value)? error,
+    TResult Function(AvailabilityLoading<T> value)? availabilityLoading,
+    TResult Function(AvailabilityLoaded<T> value)? availabilityLoaded,
+    TResult Function(AppointmentDetailsLoading<T> value)?
+        appointmentDetailsLoading,
+    TResult Function(AppointmentDetailsLoaded<T> value)?
+        appointmentDetailsLoaded,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -552,6 +672,10 @@ class _$AppointmentErrorImpl<T> implements AppointmentError<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function() availabilityLoading,
+    required TResult Function(T data) availabilityLoaded,
+    required TResult Function() appointmentDetailsLoading,
+    required TResult Function(T data) appointmentDetailsLoaded,
   }) {
     return error(apiErrorModel);
   }
@@ -563,6 +687,10 @@ class _$AppointmentErrorImpl<T> implements AppointmentError<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function()? availabilityLoading,
+    TResult? Function(T data)? availabilityLoaded,
+    TResult? Function()? appointmentDetailsLoading,
+    TResult? Function(T data)? appointmentDetailsLoaded,
   }) {
     return error?.call(apiErrorModel);
   }
@@ -574,6 +702,10 @@ class _$AppointmentErrorImpl<T> implements AppointmentError<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function()? availabilityLoading,
+    TResult Function(T data)? availabilityLoaded,
+    TResult Function()? appointmentDetailsLoading,
+    TResult Function(T data)? appointmentDetailsLoaded,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -589,6 +721,12 @@ class _$AppointmentErrorImpl<T> implements AppointmentError<T> {
     required TResult Function(AppointmentLoading<T> value) loading,
     required TResult Function(AppointmentSuccess<T> value) success,
     required TResult Function(AppointmentError<T> value) error,
+    required TResult Function(AvailabilityLoading<T> value) availabilityLoading,
+    required TResult Function(AvailabilityLoaded<T> value) availabilityLoaded,
+    required TResult Function(AppointmentDetailsLoading<T> value)
+        appointmentDetailsLoading,
+    required TResult Function(AppointmentDetailsLoaded<T> value)
+        appointmentDetailsLoaded,
   }) {
     return error(this);
   }
@@ -600,6 +738,12 @@ class _$AppointmentErrorImpl<T> implements AppointmentError<T> {
     TResult? Function(AppointmentLoading<T> value)? loading,
     TResult? Function(AppointmentSuccess<T> value)? success,
     TResult? Function(AppointmentError<T> value)? error,
+    TResult? Function(AvailabilityLoading<T> value)? availabilityLoading,
+    TResult? Function(AvailabilityLoaded<T> value)? availabilityLoaded,
+    TResult? Function(AppointmentDetailsLoading<T> value)?
+        appointmentDetailsLoading,
+    TResult? Function(AppointmentDetailsLoaded<T> value)?
+        appointmentDetailsLoaded,
   }) {
     return error?.call(this);
   }
@@ -611,6 +755,12 @@ class _$AppointmentErrorImpl<T> implements AppointmentError<T> {
     TResult Function(AppointmentLoading<T> value)? loading,
     TResult Function(AppointmentSuccess<T> value)? success,
     TResult Function(AppointmentError<T> value)? error,
+    TResult Function(AvailabilityLoading<T> value)? availabilityLoading,
+    TResult Function(AvailabilityLoaded<T> value)? availabilityLoaded,
+    TResult Function(AppointmentDetailsLoading<T> value)?
+        appointmentDetailsLoading,
+    TResult Function(AppointmentDetailsLoaded<T> value)?
+        appointmentDetailsLoaded,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -631,4 +781,678 @@ abstract class AppointmentError<T> implements AppointmentState<T> {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AppointmentErrorImplCopyWith<T, _$AppointmentErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AvailabilityLoadingImplCopyWith<T, $Res> {
+  factory _$$AvailabilityLoadingImplCopyWith(_$AvailabilityLoadingImpl<T> value,
+          $Res Function(_$AvailabilityLoadingImpl<T>) then) =
+      __$$AvailabilityLoadingImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$AvailabilityLoadingImplCopyWithImpl<T, $Res>
+    extends _$AppointmentStateCopyWithImpl<T, $Res,
+        _$AvailabilityLoadingImpl<T>>
+    implements _$$AvailabilityLoadingImplCopyWith<T, $Res> {
+  __$$AvailabilityLoadingImplCopyWithImpl(_$AvailabilityLoadingImpl<T> _value,
+      $Res Function(_$AvailabilityLoadingImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AppointmentState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$AvailabilityLoadingImpl<T> implements AvailabilityLoading<T> {
+  const _$AvailabilityLoadingImpl();
+
+  @override
+  String toString() {
+    return 'AppointmentState<$T>.availabilityLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AvailabilityLoadingImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T data) success,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function() availabilityLoading,
+    required TResult Function(T data) availabilityLoaded,
+    required TResult Function() appointmentDetailsLoading,
+    required TResult Function(T data) appointmentDetailsLoaded,
+  }) {
+    return availabilityLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T data)? success,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function()? availabilityLoading,
+    TResult? Function(T data)? availabilityLoaded,
+    TResult? Function()? appointmentDetailsLoading,
+    TResult? Function(T data)? appointmentDetailsLoaded,
+  }) {
+    return availabilityLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T data)? success,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function()? availabilityLoading,
+    TResult Function(T data)? availabilityLoaded,
+    TResult Function()? appointmentDetailsLoading,
+    TResult Function(T data)? appointmentDetailsLoaded,
+    required TResult orElse(),
+  }) {
+    if (availabilityLoading != null) {
+      return availabilityLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(AppointmentLoading<T> value) loading,
+    required TResult Function(AppointmentSuccess<T> value) success,
+    required TResult Function(AppointmentError<T> value) error,
+    required TResult Function(AvailabilityLoading<T> value) availabilityLoading,
+    required TResult Function(AvailabilityLoaded<T> value) availabilityLoaded,
+    required TResult Function(AppointmentDetailsLoading<T> value)
+        appointmentDetailsLoading,
+    required TResult Function(AppointmentDetailsLoaded<T> value)
+        appointmentDetailsLoaded,
+  }) {
+    return availabilityLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(AppointmentLoading<T> value)? loading,
+    TResult? Function(AppointmentSuccess<T> value)? success,
+    TResult? Function(AppointmentError<T> value)? error,
+    TResult? Function(AvailabilityLoading<T> value)? availabilityLoading,
+    TResult? Function(AvailabilityLoaded<T> value)? availabilityLoaded,
+    TResult? Function(AppointmentDetailsLoading<T> value)?
+        appointmentDetailsLoading,
+    TResult? Function(AppointmentDetailsLoaded<T> value)?
+        appointmentDetailsLoaded,
+  }) {
+    return availabilityLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(AppointmentLoading<T> value)? loading,
+    TResult Function(AppointmentSuccess<T> value)? success,
+    TResult Function(AppointmentError<T> value)? error,
+    TResult Function(AvailabilityLoading<T> value)? availabilityLoading,
+    TResult Function(AvailabilityLoaded<T> value)? availabilityLoaded,
+    TResult Function(AppointmentDetailsLoading<T> value)?
+        appointmentDetailsLoading,
+    TResult Function(AppointmentDetailsLoaded<T> value)?
+        appointmentDetailsLoaded,
+    required TResult orElse(),
+  }) {
+    if (availabilityLoading != null) {
+      return availabilityLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AvailabilityLoading<T> implements AppointmentState<T> {
+  const factory AvailabilityLoading() = _$AvailabilityLoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$AvailabilityLoadedImplCopyWith<T, $Res> {
+  factory _$$AvailabilityLoadedImplCopyWith(_$AvailabilityLoadedImpl<T> value,
+          $Res Function(_$AvailabilityLoadedImpl<T>) then) =
+      __$$AvailabilityLoadedImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T data});
+}
+
+/// @nodoc
+class __$$AvailabilityLoadedImplCopyWithImpl<T, $Res>
+    extends _$AppointmentStateCopyWithImpl<T, $Res, _$AvailabilityLoadedImpl<T>>
+    implements _$$AvailabilityLoadedImplCopyWith<T, $Res> {
+  __$$AvailabilityLoadedImplCopyWithImpl(_$AvailabilityLoadedImpl<T> _value,
+      $Res Function(_$AvailabilityLoadedImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AppointmentState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_$AvailabilityLoadedImpl<T>(
+      freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AvailabilityLoadedImpl<T> implements AvailabilityLoaded<T> {
+  const _$AvailabilityLoadedImpl(this.data);
+
+  @override
+  final T data;
+
+  @override
+  String toString() {
+    return 'AppointmentState<$T>.availabilityLoaded(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AvailabilityLoadedImpl<T> &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  /// Create a copy of AppointmentState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AvailabilityLoadedImplCopyWith<T, _$AvailabilityLoadedImpl<T>>
+      get copyWith => __$$AvailabilityLoadedImplCopyWithImpl<T,
+          _$AvailabilityLoadedImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T data) success,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function() availabilityLoading,
+    required TResult Function(T data) availabilityLoaded,
+    required TResult Function() appointmentDetailsLoading,
+    required TResult Function(T data) appointmentDetailsLoaded,
+  }) {
+    return availabilityLoaded(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T data)? success,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function()? availabilityLoading,
+    TResult? Function(T data)? availabilityLoaded,
+    TResult? Function()? appointmentDetailsLoading,
+    TResult? Function(T data)? appointmentDetailsLoaded,
+  }) {
+    return availabilityLoaded?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T data)? success,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function()? availabilityLoading,
+    TResult Function(T data)? availabilityLoaded,
+    TResult Function()? appointmentDetailsLoading,
+    TResult Function(T data)? appointmentDetailsLoaded,
+    required TResult orElse(),
+  }) {
+    if (availabilityLoaded != null) {
+      return availabilityLoaded(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(AppointmentLoading<T> value) loading,
+    required TResult Function(AppointmentSuccess<T> value) success,
+    required TResult Function(AppointmentError<T> value) error,
+    required TResult Function(AvailabilityLoading<T> value) availabilityLoading,
+    required TResult Function(AvailabilityLoaded<T> value) availabilityLoaded,
+    required TResult Function(AppointmentDetailsLoading<T> value)
+        appointmentDetailsLoading,
+    required TResult Function(AppointmentDetailsLoaded<T> value)
+        appointmentDetailsLoaded,
+  }) {
+    return availabilityLoaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(AppointmentLoading<T> value)? loading,
+    TResult? Function(AppointmentSuccess<T> value)? success,
+    TResult? Function(AppointmentError<T> value)? error,
+    TResult? Function(AvailabilityLoading<T> value)? availabilityLoading,
+    TResult? Function(AvailabilityLoaded<T> value)? availabilityLoaded,
+    TResult? Function(AppointmentDetailsLoading<T> value)?
+        appointmentDetailsLoading,
+    TResult? Function(AppointmentDetailsLoaded<T> value)?
+        appointmentDetailsLoaded,
+  }) {
+    return availabilityLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(AppointmentLoading<T> value)? loading,
+    TResult Function(AppointmentSuccess<T> value)? success,
+    TResult Function(AppointmentError<T> value)? error,
+    TResult Function(AvailabilityLoading<T> value)? availabilityLoading,
+    TResult Function(AvailabilityLoaded<T> value)? availabilityLoaded,
+    TResult Function(AppointmentDetailsLoading<T> value)?
+        appointmentDetailsLoading,
+    TResult Function(AppointmentDetailsLoaded<T> value)?
+        appointmentDetailsLoaded,
+    required TResult orElse(),
+  }) {
+    if (availabilityLoaded != null) {
+      return availabilityLoaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AvailabilityLoaded<T> implements AppointmentState<T> {
+  const factory AvailabilityLoaded(final T data) = _$AvailabilityLoadedImpl<T>;
+
+  T get data;
+
+  /// Create a copy of AppointmentState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AvailabilityLoadedImplCopyWith<T, _$AvailabilityLoadedImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AppointmentDetailsLoadingImplCopyWith<T, $Res> {
+  factory _$$AppointmentDetailsLoadingImplCopyWith(
+          _$AppointmentDetailsLoadingImpl<T> value,
+          $Res Function(_$AppointmentDetailsLoadingImpl<T>) then) =
+      __$$AppointmentDetailsLoadingImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$AppointmentDetailsLoadingImplCopyWithImpl<T, $Res>
+    extends _$AppointmentStateCopyWithImpl<T, $Res,
+        _$AppointmentDetailsLoadingImpl<T>>
+    implements _$$AppointmentDetailsLoadingImplCopyWith<T, $Res> {
+  __$$AppointmentDetailsLoadingImplCopyWithImpl(
+      _$AppointmentDetailsLoadingImpl<T> _value,
+      $Res Function(_$AppointmentDetailsLoadingImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AppointmentState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$AppointmentDetailsLoadingImpl<T>
+    implements AppointmentDetailsLoading<T> {
+  const _$AppointmentDetailsLoadingImpl();
+
+  @override
+  String toString() {
+    return 'AppointmentState<$T>.appointmentDetailsLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AppointmentDetailsLoadingImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T data) success,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function() availabilityLoading,
+    required TResult Function(T data) availabilityLoaded,
+    required TResult Function() appointmentDetailsLoading,
+    required TResult Function(T data) appointmentDetailsLoaded,
+  }) {
+    return appointmentDetailsLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T data)? success,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function()? availabilityLoading,
+    TResult? Function(T data)? availabilityLoaded,
+    TResult? Function()? appointmentDetailsLoading,
+    TResult? Function(T data)? appointmentDetailsLoaded,
+  }) {
+    return appointmentDetailsLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T data)? success,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function()? availabilityLoading,
+    TResult Function(T data)? availabilityLoaded,
+    TResult Function()? appointmentDetailsLoading,
+    TResult Function(T data)? appointmentDetailsLoaded,
+    required TResult orElse(),
+  }) {
+    if (appointmentDetailsLoading != null) {
+      return appointmentDetailsLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(AppointmentLoading<T> value) loading,
+    required TResult Function(AppointmentSuccess<T> value) success,
+    required TResult Function(AppointmentError<T> value) error,
+    required TResult Function(AvailabilityLoading<T> value) availabilityLoading,
+    required TResult Function(AvailabilityLoaded<T> value) availabilityLoaded,
+    required TResult Function(AppointmentDetailsLoading<T> value)
+        appointmentDetailsLoading,
+    required TResult Function(AppointmentDetailsLoaded<T> value)
+        appointmentDetailsLoaded,
+  }) {
+    return appointmentDetailsLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(AppointmentLoading<T> value)? loading,
+    TResult? Function(AppointmentSuccess<T> value)? success,
+    TResult? Function(AppointmentError<T> value)? error,
+    TResult? Function(AvailabilityLoading<T> value)? availabilityLoading,
+    TResult? Function(AvailabilityLoaded<T> value)? availabilityLoaded,
+    TResult? Function(AppointmentDetailsLoading<T> value)?
+        appointmentDetailsLoading,
+    TResult? Function(AppointmentDetailsLoaded<T> value)?
+        appointmentDetailsLoaded,
+  }) {
+    return appointmentDetailsLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(AppointmentLoading<T> value)? loading,
+    TResult Function(AppointmentSuccess<T> value)? success,
+    TResult Function(AppointmentError<T> value)? error,
+    TResult Function(AvailabilityLoading<T> value)? availabilityLoading,
+    TResult Function(AvailabilityLoaded<T> value)? availabilityLoaded,
+    TResult Function(AppointmentDetailsLoading<T> value)?
+        appointmentDetailsLoading,
+    TResult Function(AppointmentDetailsLoaded<T> value)?
+        appointmentDetailsLoaded,
+    required TResult orElse(),
+  }) {
+    if (appointmentDetailsLoading != null) {
+      return appointmentDetailsLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AppointmentDetailsLoading<T> implements AppointmentState<T> {
+  const factory AppointmentDetailsLoading() =
+      _$AppointmentDetailsLoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$AppointmentDetailsLoadedImplCopyWith<T, $Res> {
+  factory _$$AppointmentDetailsLoadedImplCopyWith(
+          _$AppointmentDetailsLoadedImpl<T> value,
+          $Res Function(_$AppointmentDetailsLoadedImpl<T>) then) =
+      __$$AppointmentDetailsLoadedImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T data});
+}
+
+/// @nodoc
+class __$$AppointmentDetailsLoadedImplCopyWithImpl<T, $Res>
+    extends _$AppointmentStateCopyWithImpl<T, $Res,
+        _$AppointmentDetailsLoadedImpl<T>>
+    implements _$$AppointmentDetailsLoadedImplCopyWith<T, $Res> {
+  __$$AppointmentDetailsLoadedImplCopyWithImpl(
+      _$AppointmentDetailsLoadedImpl<T> _value,
+      $Res Function(_$AppointmentDetailsLoadedImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AppointmentState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_$AppointmentDetailsLoadedImpl<T>(
+      freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AppointmentDetailsLoadedImpl<T> implements AppointmentDetailsLoaded<T> {
+  const _$AppointmentDetailsLoadedImpl(this.data);
+
+  @override
+  final T data;
+
+  @override
+  String toString() {
+    return 'AppointmentState<$T>.appointmentDetailsLoaded(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AppointmentDetailsLoadedImpl<T> &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  /// Create a copy of AppointmentState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AppointmentDetailsLoadedImplCopyWith<T, _$AppointmentDetailsLoadedImpl<T>>
+      get copyWith => __$$AppointmentDetailsLoadedImplCopyWithImpl<T,
+          _$AppointmentDetailsLoadedImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T data) success,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function() availabilityLoading,
+    required TResult Function(T data) availabilityLoaded,
+    required TResult Function() appointmentDetailsLoading,
+    required TResult Function(T data) appointmentDetailsLoaded,
+  }) {
+    return appointmentDetailsLoaded(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T data)? success,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function()? availabilityLoading,
+    TResult? Function(T data)? availabilityLoaded,
+    TResult? Function()? appointmentDetailsLoading,
+    TResult? Function(T data)? appointmentDetailsLoaded,
+  }) {
+    return appointmentDetailsLoaded?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T data)? success,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function()? availabilityLoading,
+    TResult Function(T data)? availabilityLoaded,
+    TResult Function()? appointmentDetailsLoading,
+    TResult Function(T data)? appointmentDetailsLoaded,
+    required TResult orElse(),
+  }) {
+    if (appointmentDetailsLoaded != null) {
+      return appointmentDetailsLoaded(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(AppointmentLoading<T> value) loading,
+    required TResult Function(AppointmentSuccess<T> value) success,
+    required TResult Function(AppointmentError<T> value) error,
+    required TResult Function(AvailabilityLoading<T> value) availabilityLoading,
+    required TResult Function(AvailabilityLoaded<T> value) availabilityLoaded,
+    required TResult Function(AppointmentDetailsLoading<T> value)
+        appointmentDetailsLoading,
+    required TResult Function(AppointmentDetailsLoaded<T> value)
+        appointmentDetailsLoaded,
+  }) {
+    return appointmentDetailsLoaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(AppointmentLoading<T> value)? loading,
+    TResult? Function(AppointmentSuccess<T> value)? success,
+    TResult? Function(AppointmentError<T> value)? error,
+    TResult? Function(AvailabilityLoading<T> value)? availabilityLoading,
+    TResult? Function(AvailabilityLoaded<T> value)? availabilityLoaded,
+    TResult? Function(AppointmentDetailsLoading<T> value)?
+        appointmentDetailsLoading,
+    TResult? Function(AppointmentDetailsLoaded<T> value)?
+        appointmentDetailsLoaded,
+  }) {
+    return appointmentDetailsLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(AppointmentLoading<T> value)? loading,
+    TResult Function(AppointmentSuccess<T> value)? success,
+    TResult Function(AppointmentError<T> value)? error,
+    TResult Function(AvailabilityLoading<T> value)? availabilityLoading,
+    TResult Function(AvailabilityLoaded<T> value)? availabilityLoaded,
+    TResult Function(AppointmentDetailsLoading<T> value)?
+        appointmentDetailsLoading,
+    TResult Function(AppointmentDetailsLoaded<T> value)?
+        appointmentDetailsLoaded,
+    required TResult orElse(),
+  }) {
+    if (appointmentDetailsLoaded != null) {
+      return appointmentDetailsLoaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AppointmentDetailsLoaded<T> implements AppointmentState<T> {
+  const factory AppointmentDetailsLoaded(final T data) =
+      _$AppointmentDetailsLoadedImpl<T>;
+
+  T get data;
+
+  /// Create a copy of AppointmentState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AppointmentDetailsLoadedImplCopyWith<T, _$AppointmentDetailsLoadedImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }

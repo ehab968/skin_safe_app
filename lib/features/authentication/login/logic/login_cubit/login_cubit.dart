@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skin_care_app/core/helper/constants.dart';
@@ -16,10 +17,12 @@ class LoginCubit extends Cubit<LoginState<LoginResponse>> {
   final LoginRepo loginRepo;
   Future<void> doLogin() async {
     emit(const LoginState.loginLoading());
+    String? fcmToken = await FirebaseMessaging.instance.getToken();
     final response = await loginRepo.logIn(
       LoginRequest(
         email: emailController.text,
         password: passwordController.text,
+        fcmToken: fcmToken ?? '',
       ),
     );
     response.when(
