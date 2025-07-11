@@ -11,4 +11,6 @@ class ApiConstants {
   static const String userProfile = 'users/user';
   static const String uvIndex = 'uvIndex/latest-uv';
   static const String appointments = 'appointments';
+  static const String createReport = 'https://skin-safe-two.vercel.app/api/v1/reports/';
+  static const String getReports = 'reports/user';
 }

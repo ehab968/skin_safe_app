@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
-import 'package:skin_care_app/features/scan_report/ui/widgets/report_history_list_view.dart';
 
 class HistoryViewBody extends StatelessWidget {
   const HistoryViewBody({super.key});
@@ -21,7 +20,7 @@ class HistoryViewBody extends StatelessWidget {
               style: Styles.font16Black500Weight,
             ),
             verticalSpace(height: 16),
-            const ReportHistoryListView(),
+            // const ReportHistoryListView(),
           ],
         ),
       ),

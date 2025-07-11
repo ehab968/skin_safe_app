@@ -15,7 +15,9 @@ class ProfileInfoDynamic extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 45.sp,
-          backgroundImage: const AssetImage('assets/images/profile_image.jpg'),
+          backgroundImage: const AssetImage(
+            'assets/images/default_profile_photo.jpg',
+          ),
           backgroundColor: Colors.grey[300],
         ),
         horizontalSpace(width: 32.w),

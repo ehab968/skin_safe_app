@@ -15,6 +15,7 @@ import 'package:skin_care_app/features/home/data/models/uv_index_model.dart';
 import 'package:skin_care_app/features/Profile/data/models/user_profile_model.dart';
 import 'package:skin_care_app/features/BookingAppointment/data/models/appointment_request.dart';
 import 'package:skin_care_app/features/BookingAppointment/data/models/appointment_response.dart';
+import 'package:skin_care_app/features/scan_report/data/models/user_report_response.dart';
 part 'api_service.g.dart';
 
 @RestApi(baseUrl: ApiConstants.baseUrl)
@@ -71,4 +72,8 @@ abstract class ApiService {
   Future<AppointmentResponse> bookAppointment(
     @Body() AppointmentRequest appointmentRequest,
   );
+
+  // get report
+  @GET('${ApiConstants.getReports}/{userId}')
+  Future<List<UserReportResponse>> getReports(@Path('userId') String userId);
 }

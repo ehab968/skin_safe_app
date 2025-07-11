@@ -27,6 +27,10 @@ import 'package:skin_care_app/features/home/logic/cubit/search_cubit.dart';
 import 'package:skin_care_app/features/home/logic/cubit/recent_search_cubit.dart';
 import 'package:skin_care_app/features/Profile/data/repo/user_profile_repo.dart';
 import 'package:skin_care_app/features/Profile/logic/cubit/user_profile_cubit.dart';
+import 'package:skin_care_app/features/scan_report/data/repo/scan_report_repo.dart';
+import 'package:skin_care_app/features/scan_report/data/repo/user_report_repo.dart';
+import 'package:skin_care_app/features/scan_report/logic/cubit/user_report_cubit.dart';
+import 'package:skin_care_app/features/scan_report/logic/scan_report_cubit/scan_report_cubit.dart';
 
 final GetIt getIt = GetIt.instance;
 void setUpGetIt() {
@@ -92,4 +96,12 @@ void setUpGetIt() {
   // appointment repo && appointment cubit
   getIt.registerLazySingleton<AppointmentRepo>(() => AppointmentRepo(getIt()));
   getIt.registerFactory<AppointmentCubit>(() => AppointmentCubit(getIt()));
+
+  // scan report repo && scan report cubit
+  getIt.registerLazySingleton<ScanReportRepo>(() => ScanReportRepo());
+  getIt.registerFactory<ScanReportCubit>(() => ScanReportCubit(getIt()));
+
+  // user report cubit
+  getIt.registerLazySingleton<UserReportRepo>(() => UserReportRepo(getIt()));
+  getIt.registerFactory<UserReportCubit>(() => UserReportCubit(getIt()));
 }

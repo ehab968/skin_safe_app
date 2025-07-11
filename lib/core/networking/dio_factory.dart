@@ -28,8 +28,8 @@ class DioFactory {
 
   static void addDioHeader() {
     dio?.options.headers = {
-      'Content-Type': 'application/json',
       'Accept': 'application/json',
+      'Content-Type': 'application/json',
     };
   }
 

@@ -1,30 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:skin_care_app/core/helper/extensions.dart';
-import 'package:skin_care_app/core/routing/routes.dart';
+import 'package:intl/intl.dart';
+import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 import 'package:skin_care_app/core/widgets/custom_text_button.dart';
+import 'package:skin_care_app/features/Profile/data/models/user_profile_model.dart';
+import 'package:skin_care_app/features/scan_report/data/models/user_report_response.dart';
+import 'package:skin_care_app/features/scan_report/ui/view_report.dart';
 
 import 'package:skin_care_app/features/scan_report/ui/widgets/report_history_image_container.dart';
 
 class ReportHistoryItem extends StatelessWidget {
-  const ReportHistoryItem({super.key});
-
+  const ReportHistoryItem({
+    super.key,
+    required this.report,
+    required this.userData,
+  });
+  final UserReportResponse report;
+  final UserProfileData userData;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(left: 4.w),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           const ReportHistoryImageContainer(),
-          Text('06:30 PM', style: Styles.font14Black400Weight),
-          Text('Tue, 04-Mar-2025', style: Styles.font14Black400Weight),
+          horizontalSpace(width: 21),
+          Text(setuTime(), style: Styles.font14Black400Weight),
+          horizontalSpace(width: 19),
+          Text(setuDate(), style: Styles.font14Black400Weight),
+          const Spacer(),
           CustomTextButton(
             textName: 'View',
             onPressed: () {
-              context.pushNamed(Routes.viewReport);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return ViewReport(reportData: report, userData: userData);
+                  },
+                ),
+              );
             },
             backgroundColor: ColorManager.primaryBlue,
             textStyle: Styles.font14White500Weight,
@@ -32,8 +49,23 @@ class ReportHistoryItem extends StatelessWidget {
             height: 22.h,
             borderRadius: BorderRadius.circular(5.r),
           ),
+          horizontalSpace(width: 26),
         ],
       ),
     );
+  }
+
+  String setuDate() {
+    String stringDate = report.createdAt!;
+    DateTime dateTime = DateTime.parse(stringDate);
+    String onlyDate = DateFormat('dd-MMM-yyyy').format(dateTime);
+    return onlyDate;
+  }
+
+  String setuTime() {
+    String stringDate = report.createdAt!;
+    DateTime dateTime = DateTime.parse(stringDate);
+    String onlyTime = DateFormat('hh:mm a').format(dateTime);
+    return onlyTime;
   }
 }
