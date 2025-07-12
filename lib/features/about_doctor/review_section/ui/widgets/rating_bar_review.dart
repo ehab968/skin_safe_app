@@ -4,12 +4,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 
 class RatingBarReview extends StatelessWidget {
-  const RatingBarReview({super.key});
-
+  const RatingBarReview({super.key, required this.rating});
+  final int rating;
   @override
   Widget build(BuildContext context) {
     return RatingBarIndicator(
-      rating: 3.5,
+      rating: rating.toDouble(),
       itemSize: 20.r,
       itemCount: 5,
       unratedColor: ColorManager.morelightergray,

@@ -19,6 +19,7 @@ import 'package:skin_care_app/features/BookingAppointment/data/models/availabili
 import 'package:skin_care_app/features/Appointment_details/data/models/appointment_details_response.dart';
 import 'package:skin_care_app/features/My_Appointments/data/models/appointments_response.dart';
 import 'package:skin_care_app/features/Notifications/data/models/notification_response.dart';
+import 'package:skin_care_app/features/reports/data/models/user_report_response.dart';
 part 'api_service.g.dart';
 
 @RestApi(baseUrl: ApiConstants.baseUrl)
@@ -94,4 +95,8 @@ abstract class ApiService {
 
   @GET(ApiConstants.notifications)
   Future<List<NotificationItemModel>> getNotifications();
+  
+  // get report
+  @GET('${ApiConstants.getReports}/{userId}')
+  Future<List<UserReportResponse>> getReports(@Path('userId') String userId);
 }

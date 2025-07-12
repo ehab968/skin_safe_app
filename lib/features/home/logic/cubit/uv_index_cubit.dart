@@ -17,7 +17,7 @@ class UVIndexCubit extends Cubit<UVIndexState> {
       latitude: latitude,
       longitude: longitude,
     );
-
+    if (isClosed) return;
     result.when(
       success: (uvIndexData) {
         emit(UVIndexState.success(uvIndexData));

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:skin_care_app/core/helper/constants.dart';
 import 'package:skin_care_app/core/helper/extensions.dart';
-import 'package:skin_care_app/core/helper/shared_pref_helper.dart';
+import 'package:skin_care_app/core/networking/dio_factory.dart';
 import 'package:skin_care_app/core/routing/routes.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
@@ -113,9 +112,7 @@ class ProfileSettings extends StatelessWidget {
                                   onPressed: () async {
                                     // await GoogleSignIn().signOut();
                                     // await FirebaseAuth.instance.signOut();
-                                    SharedPrefHelper.removeData(
-                                      SharedPrefKeys.userToken,
-                                    );
+                                    DioFactory.clearToken();
                                     context.pushNamedAndRemoveUntil(
                                       Routes.loginView,
                                       predicate: (route) => false,

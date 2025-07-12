@@ -13,6 +13,7 @@ import 'package:skin_care_app/features/BookingAppointment/ui/booking_view.dart';
 import 'package:skin_care_app/features/BookingAppointment/ui/widgets/appointment_confirmation.dart';
 import 'package:skin_care_app/features/My_Appointments/myAppointment_screen.dart';
 import 'package:skin_care_app/features/Notifications/notification_screen.dart';
+import 'package:skin_care_app/features/Profile/logic/cubit/user_profile_cubit.dart';
 import 'package:skin_care_app/features/Profile/profile_screen.dart';
 import 'package:skin_care_app/features/about_doctor/about_doctor_section/ui/about_doctor_view.dart';
 import 'package:skin_care_app/features/article_body/ui/article_body_screen.dart';
@@ -33,6 +34,7 @@ import 'package:skin_care_app/features/history/ui/history_view.dart';
 import 'package:skin_care_app/features/home/logic/cubit/all_doctors_cubit.dart';
 import 'package:skin_care_app/features/home/logic/cubit/top_doctors_cubit.dart';
 import 'package:skin_care_app/features/home/logic/cubit/uv_index_cubit.dart';
+import 'package:skin_care_app/features/reports/report_history/ui/history_view.dart';
 import 'package:skin_care_app/features/home/ui/all_doctors_view.dart';
 import 'package:skin_care_app/features/home/ui/home_view.dart';
 import 'package:skin_care_app/features/home/ui/search_screen.dart';
@@ -40,10 +42,17 @@ import 'package:skin_care_app/features/on_boarding/ui/get_started_view.dart';
 import 'package:skin_care_app/features/on_boarding/ui/on_boarding_view.dart';
 import 'package:skin_care_app/features/on_boarding/ui/second_on_boarding_view.dart';
 import 'package:skin_care_app/features/on_boarding/ui/third_on_boarding_view.dart';
+import 'package:skin_care_app/features/authentication/confirmation_code/ui/confirmation_code_view.dart';
+import 'package:skin_care_app/features/authentication/forget_password/ui/forget_password_view.dart';
+import 'package:skin_care_app/features/authentication/login/logic/login_cubit/login_cubit.dart';
+import 'package:skin_care_app/features/authentication/reset_password/ui/reset_password_view.dart';
+import 'package:skin_care_app/features/authentication/sign_up/ui/sign_up_view.dart';
+import 'package:skin_care_app/features/authentication/sign_up/ui/sign_up_view_2.dart';
 import 'package:skin_care_app/features/scan/logic/camera_cubit/camera_cubit.dart';
 import 'package:skin_care_app/features/scan/ui/scan_view.dart';
-import 'package:skin_care_app/features/scan_report/ui/scan_report_view.dart';
-import 'package:skin_care_app/features/scan_report/ui/view_report.dart';
+import 'package:skin_care_app/features/reports/logic/cubit/user_report_cubit.dart';
+import 'package:skin_care_app/features/reports/logic/scan_report_cubit/scan_report_cubit.dart';
+import 'package:skin_care_app/features/reports/scan_report/ui/scan_report_view.dart';
 import 'package:skin_care_app/features/splash/splash_view.dart';
 
 class AppRouter {
@@ -65,13 +74,7 @@ class AppRouter {
               ),
         );
       case Routes.signUpView:
-        return MaterialPageRoute(
-          builder:
-              (_) => BlocProvider(
-                create: (context) => getIt<SignUpCubit>(),
-                child: const SignUpView(),
-              ),
-        );
+        return MaterialPageRoute(builder: (_) => const SignUpView());
       case Routes.signUpView2:
         return MaterialPageRoute(builder: (_) => const SignUpView2());
       case Routes.verficationCodeView:
@@ -123,14 +126,52 @@ class AppRouter {
       case Routes.scanReportView:
         final imagePath = settings.arguments as String?;
         return MaterialPageRoute(
-          builder: (_) => ScanReportView(imagePath: imagePath ?? ''),
+          builder:
+              (_) => MultiBlocProvider(
+                providers: [
+                  BlocProvider(
+                    create:
+                        (context) =>
+                            getIt<ScanReportCubit>()..createScanReport(
+                              imagePath ?? 'no image path sent',
+                            ),
+                  ),
+                  BlocProvider(
+                    create:
+                        (context) =>
+                            getIt<UserProfileCubit>()..getUserProfile(),
+                  ),
+                  BlocProvider(
+                    create:
+                        (context) => getIt<UserReportCubit>()..getUserReports(),
+                  ),
+                ],
+                child: ScanReportView(imagePath: imagePath ?? ''),
+              ),
         );
-      case Routes.viewReport:
-        return MaterialPageRoute(builder: (_) => const ViewReport());
       case Routes.aboutDoctorView:
-        return MaterialPageRoute(builder: (_) => const AboutDoctorView());
+        return MaterialPageRoute(
+          builder: (_) => const AboutDoctorView(),
+          settings: settings,
+        );
       case Routes.historyView:
-        return MaterialPageRoute(builder: (_) => const HistoryView());
+        return MaterialPageRoute(
+          builder:
+              (_) => MultiBlocProvider(
+                providers: [
+                  BlocProvider(
+                    create:
+                        (context) => getIt<UserReportCubit>()..getUserReports(),
+                  ),
+                  BlocProvider(
+                    create:
+                        (context) =>
+                            getIt<UserProfileCubit>()..getUserProfile(),
+                  ),
+                ],
+                child: const HistoryView(),
+              ),
+        );
       case Routes.getStartedView:
         return MaterialPageRoute(builder: (_) => const GetStartedView());
       case Routes.showAppointmentConfirmation:

@@ -68,7 +68,7 @@ class CameraCubit extends Cubit<CameraState> {
 
       int originalWidth = image.width;
       int originalHeight = image.height;
-      int cropSize = 450;
+      int cropSize = 850;
       int centerX = (originalWidth / 2).toInt();
       int centerY = (originalHeight / 2).toInt();
 
@@ -82,7 +82,7 @@ class CameraCubit extends Cubit<CameraState> {
 
       // 💾 4️⃣ حفظ الصورة الجديدة
       File croppedFile = File(imageFile.path)
-        ..writeAsBytesSync(img.encodePng(imageCropped));
+        ..writeAsBytesSync(img.encodeJpg(imageCropped));
 
       emit(
         CameraState.imageCaptured(croppedFile.path),

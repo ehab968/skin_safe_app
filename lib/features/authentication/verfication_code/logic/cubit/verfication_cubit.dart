@@ -13,7 +13,6 @@ class VerficationCubit extends Cubit<VerficationState> {
   VerficationCubit(this.verficatiionRepo)
     : super(const VerficationState.initial());
   Future<void> doVerfication() async {
-
     emit(const VerficationState.verficationLoading());
     final request = VerficationRequest(
       code: verficationCodeController.text.trim(),
@@ -25,7 +24,7 @@ class VerficationCubit extends Cubit<VerficationState> {
     );
     response.when(
       success: (data) async {
-        await saveUserToken(data.token ?? '');
+        await saveUserToken(data.token ?? '', data.data?.id ?? '');
         emit(VerficationState.verficationSuccess(data));
       },
       failure: (apiErrorModel) {
@@ -36,6 +35,7 @@ class VerficationCubit extends Cubit<VerficationState> {
   }
 }
 
-Future<void> saveUserToken(String token) async {
+Future<void> saveUserToken(String token, String userId) async {
   await SharedPrefHelper.setData(SharedPrefKeys.userToken, token);
+  await SharedPrefHelper.setData(SharedPrefKeys.userId, userId);
 }

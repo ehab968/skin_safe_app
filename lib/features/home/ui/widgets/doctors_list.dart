@@ -16,26 +16,25 @@ class DoctorsList extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              child: SizedBox(
-                height: 270.h,
-                width: 400.w,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: doctors.length,
-                  itemBuilder: (context, index) {
-                    final doctor = doctors[index];
-                    return DoctorCard(
-                      doctorId: doctor.id,
-                      name: doctor.fullName,
-                      specialty: doctor.specialty ?? 'Dermatologist',
-                      rating: doctor.ratingsAverage ?? 0.0,
-                      distance: '${doctor.experience ?? 0} years exp',
-                      image: doctor.image ?? 'assets/images/doctorMale.jpg',
-                    );
-                  },
-                ),
+            SizedBox(
+              height: 270.h,
+              width: 400.w,
+              child: ListView.builder(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: doctors.length,
+                itemBuilder: (context, index) {
+                  final doctor = doctors[index];
+                  return DoctorCard(
+                    doctorData: doctor,
+                    doctorId: doctor.id,
+                    name: doctor.fullName,
+                    specialty: doctor.specialty ?? 'Dermatologist',
+                    rating: doctor.ratingsAverage ?? 0.0,
+                    distance: '${doctor.experience ?? 0} years exp',
+                    image: doctor.image ?? 'assets/images/doctorMale.jpg',
+                  );
+                },
               ),
             ),
           ],

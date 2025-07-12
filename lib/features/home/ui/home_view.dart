@@ -32,7 +32,7 @@ class HomeView extends StatelessWidget {
             bottomNavigationBar: AppBottomNavigationBar(
               currentIndex: 0,
               onTap: (index) {
-                index == 0 ? null : navigateToTab(context, index);
+                navigateToTab(context, index);
               },
             ),
             body: const HomeViewBody(),

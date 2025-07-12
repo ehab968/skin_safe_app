@@ -15,4 +15,7 @@ class ApiConstants {
   static const String availability = 'availability';
   static const String notifications = 'notifications';
   static const String patientProfile = 'patients/profile';
+  static const String createReport = 'https://skin-safe-two.vercel.app/api/v1/reports/';
+  static const String getReports = 'reports/user';
+
 }
