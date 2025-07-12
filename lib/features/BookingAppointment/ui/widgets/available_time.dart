@@ -3,11 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 
 class TimeSlotsGrid extends StatefulWidget {
+  final List<String> availableSlots;
   final List<String> disabledSlots;
   final Function(String)? onSlotSelected;
 
   const TimeSlotsGrid({
     Key? key,
+    this.availableSlots = const [],
     this.disabledSlots = const [],
     this.onSlotSelected,
   }) : super(key: key);
@@ -23,7 +25,27 @@ class _TimeSlotsGridState extends State<TimeSlotsGrid> {
   @override
   void initState() {
     super.initState();
-    generateTimeSlots();
+    if (widget.availableSlots.isNotEmpty) {
+      timeSlots = widget.availableSlots;
+    } else {
+      generateTimeSlots();
+    }
+  }
+
+  @override
+  void didUpdateWidget(TimeSlotsGrid oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.availableSlots != oldWidget.availableSlots) {
+      setState(() {
+        if (widget.availableSlots.isNotEmpty) {
+          timeSlots = widget.availableSlots;
+        } else {
+          generateTimeSlots();
+        }
+        // Reset selection when slots change
+        selectedSlot = null;
+      });
+    }
   }
 
   void generateTimeSlots() {
@@ -64,7 +86,7 @@ class _TimeSlotsGridState extends State<TimeSlotsGrid> {
                   String time = timeSlots[index];
                   bool isDisabled = widget.disabledSlots.contains(time);
                   bool isSelected = selectedSlot == time;
-              
+
                   return GestureDetector(
                     onTap:
                         isDisabled
@@ -87,7 +109,10 @@ class _TimeSlotsGridState extends State<TimeSlotsGrid> {
                                 ? ColorManager.blubuttonblue
                                 : Colors.white,
                         border: Border.all(
-                          color: isSelected ? ColorManager.primaryBlue : ColorManager.black,
+                          color:
+                              isSelected
+                                  ? ColorManager.primaryBlue
+                                  : ColorManager.black,
                           width: isSelected ? 2 : 1,
                         ),
                         borderRadius: BorderRadius.circular(10),
@@ -96,8 +121,8 @@ class _TimeSlotsGridState extends State<TimeSlotsGrid> {
                         time,
                         style: TextStyle(
                           color: isDisabled ? Colors.grey : Colors.black,
-                           fontSize: 14.sp,
-                      fontWeight: FontWeight.w500,
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),

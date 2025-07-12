@@ -27,10 +27,18 @@ import 'package:skin_care_app/features/home/logic/cubit/search_cubit.dart';
 import 'package:skin_care_app/features/home/logic/cubit/recent_search_cubit.dart';
 import 'package:skin_care_app/features/Profile/data/repo/user_profile_repo.dart';
 import 'package:skin_care_app/features/Profile/logic/cubit/user_profile_cubit.dart';
+import 'package:skin_care_app/features/Appointment_details/data/repo/appointment_details_repo.dart';
+import 'package:skin_care_app/features/Appointment_details/logic/cubit/appointment_details_cubit.dart';
+import 'package:skin_care_app/features/My_Appointments/data/repo/appointment_list_repo.dart';
+import 'package:skin_care_app/features/My_Appointments/data/repo/appointments_repo.dart';
+import 'package:skin_care_app/features/My_Appointments/logic/cubit/appointments_cubit.dart';
+import 'package:skin_care_app/features/Notifications/data/repo/notification_repo.dart';
+import 'package:skin_care_app/features/Notifications/logic/cubit/notification_cubit.dart';
 import 'package:skin_care_app/features/reports/data/repo/scan_report_repo.dart';
 import 'package:skin_care_app/features/reports/data/repo/user_report_repo.dart';
 import 'package:skin_care_app/features/reports/logic/cubit/user_report_cubit.dart';
 import 'package:skin_care_app/features/reports/logic/scan_report_cubit/scan_report_cubit.dart';
+
 
 final GetIt getIt = GetIt.instance;
 void setUpGetIt() {
@@ -97,6 +105,27 @@ void setUpGetIt() {
   getIt.registerLazySingleton<AppointmentRepo>(() => AppointmentRepo(getIt()));
   getIt.registerFactory<AppointmentCubit>(() => AppointmentCubit(getIt()));
 
+  // Appointment Details
+  getIt.registerLazySingleton<AppointmentDetailsRepo>(
+    () => AppointmentDetailsRepo(getIt()),
+  );
+  getIt.registerFactory<AppointmentDetailsCubit>(
+    () => AppointmentDetailsCubit(getIt()),
+  );
+
+  // My Appointments
+  getIt.registerLazySingleton<AppointmentListRepo>(
+    () => AppointmentListRepo(getIt()),
+  );
+  getIt.registerLazySingleton<AppointmentsRepo>(
+    () => AppointmentsRepo(getIt()),
+  );
+  getIt.registerFactory<AppointmentsCubit>(() => AppointmentsCubit(getIt()));
+
+  getIt.registerLazySingleton<NotificationRepo>(
+      () => NotificationRepo(getIt<ApiService>()));
+  getIt.registerFactory<NotificationCubit>(
+      () => NotificationCubit(getIt<NotificationRepo>()));
   // scan report repo && scan report cubit
   getIt.registerLazySingleton<ScanReportRepo>(() => ScanReportRepo());
   getIt.registerFactory<ScanReportCubit>(() => ScanReportCubit(getIt()));

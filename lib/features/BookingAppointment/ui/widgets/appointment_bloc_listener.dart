@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skin_care_app/core/helper/extensions.dart';
 import 'package:skin_care_app/core/helper/helper.dart';
-import 'package:skin_care_app/core/routing/routes.dart';
 import 'package:skin_care_app/features/BookingAppointment/logic/cubit/appointment_cubit.dart';
 import 'package:skin_care_app/features/BookingAppointment/logic/cubit/appointment_state.dart';
+import 'package:skin_care_app/features/BookingAppointment/ui/widgets/appointment_confirmation.dart';
+import 'package:intl/intl.dart';
 
 class AppointmentBlocListener extends StatelessWidget {
   const AppointmentBlocListener({super.key});
@@ -16,7 +16,8 @@ class AppointmentBlocListener extends StatelessWidget {
           (previous, current) =>
               current is AppointmentLoading ||
               current is AppointmentSuccess ||
-              current is AppointmentError,
+              current is AppointmentError ||
+              current is AvailabilityLoaded,
       listener: (context, state) {
         state.maybeWhen(
           loading: () => dataLoading(context),
@@ -24,8 +25,19 @@ class AppointmentBlocListener extends StatelessWidget {
             // Hide loading
             Navigator.pop(context);
 
+            // Get appointment details from cubit
+            final cubit = context.read<AppointmentCubit>();
+            final doctorName = _getDoctorName(cubit);
+            final formattedDate = _formatDate(cubit.selectedDate);
+            final timeSlot = cubit.selectedTimeSlot;
+
             // Show success confirmation dialog
-            showAppointmentConfirmationDialog(context);
+            showAppointmentConfirmationDialog(
+              context,
+              doctorName: doctorName,
+              appointmentDate: formattedDate,
+              appointmentTime: timeSlot,
+            );
           },
           error: (apiErrorModel) {
             // Hide loading
@@ -41,6 +53,16 @@ class AppointmentBlocListener extends StatelessWidget {
               ),
             );
           },
+          availabilityLoaded: (availabilityResponse) {
+            // Show success message for availability loading
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Doctor availability loaded successfully'),
+                backgroundColor: Colors.green,
+                duration: Duration(seconds: 2),
+              ),
+            );
+          },
           orElse: () {},
         );
       },
@@ -48,64 +70,36 @@ class AppointmentBlocListener extends StatelessWidget {
     );
   }
 
-  void showAppointmentConfirmationDialog(BuildContext context) {
+  void showAppointmentConfirmationDialog(
+    BuildContext context, {
+    String? doctorName,
+    String? appointmentDate,
+    String? appointmentTime,
+  }) {
     showDialog(
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {
-        return AlertDialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12.0),
-          ),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Icon(Icons.check_circle, color: Colors.green, size: 60),
-              const SizedBox(height: 16),
-              const Text(
-                'Appointment Booked Successfully!',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 8),
-              const Text(
-                'Your appointment has been confirmed.',
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 20),
-              Row(
-                children: [
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        context.pushNamedAndRemoveUntil(
-                          Routes.appointmentScreen,
-                          predicate: (route) => false,
-                        );
-                      },
-                      child: const Text('View Details'),
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: OutlinedButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        context.pushNamedAndRemoveUntil(
-                          Routes.homeView,
-                          predicate: (route) => false,
-                        );
-                      },
-                      child: const Text('Back to Home'),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
+        return AppointmentConfirmationDialog(
+          doctorName: doctorName,
+          appointmentDate: appointmentDate,
+          appointmentTime: appointmentTime,
         );
       },
     );
+  }
+
+  String? _getDoctorName(AppointmentCubit cubit) {
+    // Use the doctor's full name from the selected doctor model
+    if (cubit.selectedDoctor != null) {
+      return cubit.doctorFullName;
+    }
+    // Fallback if no doctor model is available
+    return 'Doctor';
+  }
+
+  String? _formatDate(DateTime? date) {
+    if (date == null) return null;
+    return DateFormat('MMM dd, yyyy').format(date);
   }
 }

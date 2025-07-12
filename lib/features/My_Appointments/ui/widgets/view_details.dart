@@ -1,50 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:skin_care_app/core/helper/extensions.dart';
-import 'package:skin_care_app/core/routing/routes.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 
 class ViewDetailsButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
-  final Color? textColor;
-  final Color? borderColor;
-  final double? fontSize;
-  final double? width;
-  final double? height;
 
   const ViewDetailsButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.onPressed,
-    this.textColor,
-    this.borderColor,
-    this.fontSize,
-    this.width,
-    this.height,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 115.w,
-      height: 28.h,
-      child: OutlinedButton(
-        onPressed: () {
-          context.pushNamed(Routes.appointmentScreen);
-        },
-        style: OutlinedButton.styleFrom(
-          side: BorderSide(color: borderColor ?? ColorManager.primaryBlue),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30),
-          ),
-          padding: EdgeInsets.symmetric(horizontal: 12),
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
+        decoration: BoxDecoration(
+          color: ColorManager.white,
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: ColorManager.primaryBlue, width: 1.5),
         ),
         child: Text(
           text,
           style: TextStyle(
-            color: textColor ?? ColorManager.primaryBlue,
-            fontSize: fontSize ?? 14.sp,
+            color: ColorManager.primaryBlue,
+            fontSize: 12.sp,
             fontWeight: FontWeight.w500,
           ),
         ),
