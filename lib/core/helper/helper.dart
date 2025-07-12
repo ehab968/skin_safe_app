@@ -27,7 +27,7 @@ void navigateToTab(BuildContext context, int index) {
   }
 }
 
-void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
+dynamic setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
   showDialog(
     context: context,
     builder:

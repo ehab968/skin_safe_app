@@ -27,10 +27,10 @@ import 'package:skin_care_app/features/home/logic/cubit/search_cubit.dart';
 import 'package:skin_care_app/features/home/logic/cubit/recent_search_cubit.dart';
 import 'package:skin_care_app/features/Profile/data/repo/user_profile_repo.dart';
 import 'package:skin_care_app/features/Profile/logic/cubit/user_profile_cubit.dart';
-import 'package:skin_care_app/features/scan_report/data/repo/scan_report_repo.dart';
-import 'package:skin_care_app/features/scan_report/data/repo/user_report_repo.dart';
-import 'package:skin_care_app/features/scan_report/logic/cubit/user_report_cubit.dart';
-import 'package:skin_care_app/features/scan_report/logic/scan_report_cubit/scan_report_cubit.dart';
+import 'package:skin_care_app/features/reports/data/repo/scan_report_repo.dart';
+import 'package:skin_care_app/features/reports/data/repo/user_report_repo.dart';
+import 'package:skin_care_app/features/reports/logic/cubit/user_report_cubit.dart';
+import 'package:skin_care_app/features/reports/logic/scan_report_cubit/scan_report_cubit.dart';
 
 final GetIt getIt = GetIt.instance;
 void setUpGetIt() {

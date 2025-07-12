@@ -20,7 +20,7 @@ import 'package:skin_care_app/features/authentication/login/ui/login_view.dart';
 import 'package:skin_care_app/features/authentication/reset_password/logic/cubit/reset_password_cubit.dart';
 import 'package:skin_care_app/features/authentication/verfication_code/logic/cubit/verfication_cubit.dart';
 import 'package:skin_care_app/features/authentication/verfication_code/ui/verfication_code_view.dart';
-import 'package:skin_care_app/features/report_history/ui/history_view.dart';
+import 'package:skin_care_app/features/reports/report_history/ui/history_view.dart';
 import 'package:skin_care_app/features/home/ui/all_doctors_view.dart';
 import 'package:skin_care_app/features/home/ui/home_view.dart';
 import 'package:skin_care_app/features/on_boarding/ui/get_started_view.dart';
@@ -35,9 +35,9 @@ import 'package:skin_care_app/features/authentication/sign_up/ui/sign_up_view.da
 import 'package:skin_care_app/features/authentication/sign_up/ui/sign_up_view_2.dart';
 import 'package:skin_care_app/features/scan/logic/camera_cubit/camera_cubit.dart';
 import 'package:skin_care_app/features/scan/ui/scan_view.dart';
-import 'package:skin_care_app/features/scan_report/logic/cubit/user_report_cubit.dart';
-import 'package:skin_care_app/features/scan_report/logic/scan_report_cubit/scan_report_cubit.dart';
-import 'package:skin_care_app/features/scan_report/ui/scan_report_view.dart';
+import 'package:skin_care_app/features/reports/logic/cubit/user_report_cubit.dart';
+import 'package:skin_care_app/features/reports/logic/scan_report_cubit/scan_report_cubit.dart';
+import 'package:skin_care_app/features/reports/scan_report/ui/scan_report_view.dart';
 import 'package:skin_care_app/features/splash/splash_view.dart';
 
 class AppRouter {
@@ -137,7 +137,23 @@ class AppRouter {
           settings: settings,
         );
       case Routes.historyView:
-        return MaterialPageRoute(builder: (_) => const HistoryView());
+        return MaterialPageRoute(
+          builder:
+              (_) => MultiBlocProvider(
+                providers: [
+                  BlocProvider(
+                    create:
+                        (context) => getIt<UserReportCubit>()..getUserReports(),
+                  ),
+                  BlocProvider(
+                    create:
+                        (context) =>
+                            getIt<UserProfileCubit>()..getUserProfile(),
+                  ),
+                ],
+                child: const HistoryView(),
+              ),
+        );
       case Routes.getStartedView:
         return MaterialPageRoute(builder: (_) => const GetStartedView());
       case Routes.showAppointmentConfirmation:
