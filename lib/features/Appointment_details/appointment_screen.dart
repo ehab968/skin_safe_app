@@ -3,11 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:skin_care_app/core/di/dependancy_injection.dart';
-import 'package:skin_care_app/core/helper/helper.dart';
 import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
-import 'package:skin_care_app/core/widgets/app_bottom_navigation_bar.dart';
 import 'package:skin_care_app/core/widgets/custom_text_button.dart';
 import 'package:skin_care_app/features/Appointment_details/logic/cubit/appointment_details_cubit.dart';
 import 'package:skin_care_app/features/Appointment_details/logic/cubit/appointment_details_state.dart';
@@ -26,7 +24,7 @@ class AppointmentScreen extends StatelessWidget {
       create: (context) {
         final cubit = getIt<AppointmentDetailsCubit>();
         // Fetch appointment details with the provided ID or use default for testing
-        final idToFetch = appointmentId ?? '686c231c5b884d22f21b92b1';
+        final idToFetch = appointmentId ?? '686aa3f23f76e96cfe9ce529';
         cubit.getAppointmentDetails(idToFetch);
         return cubit;
       },
@@ -38,10 +36,6 @@ class AppointmentScreen extends StatelessWidget {
             'Appointment Details',
             style: Styles.font18Black600Weight,
           ),
-        ),
-        bottomNavigationBar: AppBottomNavigationBar(
-          currentIndex: 1, // Assuming we're in the appointments tab
-          onTap: (index) => navigateToTab(context, index),
         ),
         body: SafeArea(
           child: BlocBuilder<AppointmentDetailsCubit, AppointmentDetailsState>(
@@ -140,7 +134,7 @@ class AppointmentScreen extends StatelessWidget {
                           ElevatedButton(
                             onPressed: () {
                               final idToFetch =
-                                  appointmentId ?? '686c231c5b884d22f21b92b1';
+                                  appointmentId ?? '686aa3f23f76e96cfe9ce529';
                               context
                                   .read<AppointmentDetailsCubit>()
                                   .getAppointmentDetails(idToFetch);

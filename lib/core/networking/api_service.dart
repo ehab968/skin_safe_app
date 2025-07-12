@@ -95,7 +95,7 @@ abstract class ApiService {
 
   @GET(ApiConstants.notifications)
   Future<List<NotificationItemModel>> getNotifications();
-  
+
   // get report
   @GET('${ApiConstants.getReports}/{userId}')
   Future<List<UserReportResponse>> getReports(@Path('userId') String userId);

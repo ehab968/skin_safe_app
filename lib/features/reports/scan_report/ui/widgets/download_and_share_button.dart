@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:skin_care_app/core/helper/snackbar.dart';
 import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
@@ -42,7 +43,7 @@ class DownloadAndShareButton extends StatelessWidget {
                 color: ColorManager.primaryBlue,
               ),
               onPressed: () async {
-                await generatePdfReport(
+                await PdfHelper.generatePdfReport(
                   imagePath: imagePath,
                   feedback: feedback,
                   name: name,
@@ -52,10 +53,25 @@ class DownloadAndShareButton extends StatelessWidget {
                   gender: gender,
                   typeDetected: typeDetected,
                 );
+                snackBarShow(
+                  context,
+                  'PDF downloaded successfully you can share it now',
+                  backgroundColor: Colors.green,
+                );
               },
             ),
             const Spacer(),
             CustomTextButton(
+              onPressed: () {
+                PdfHelper.openPdf();
+                if (PdfHelper.openPdf() == true) {
+                  snackBarShow(
+                    context,
+                    'PDF opened successfully',
+                    backgroundColor: Colors.green,
+                  );
+                }
+              },
               width: 164.w,
               backgroundColor: ColorManager.primaryBlue,
               textName: 'Share Report',

@@ -35,7 +35,10 @@ class ViewReport extends StatelessWidget {
               typeDetected: reportData.typeDetected!,
             ),
             verticalSpace(height: 16),
-            const CommentSection(comment: 'soon'),
+            const CommentSection(
+              comment:
+                  'You should visit a dermatologist specialized in skin cancer, you should do imaging (CT/MRI/PET) every 3-6 months based on disease stage',
+            ),
           ],
         ),
       ),

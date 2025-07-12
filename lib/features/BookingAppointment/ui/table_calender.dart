@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:skin_care_app/core/di/dependancy_injection.dart';
 import 'package:skin_care_app/core/helper/helper.dart';
 import 'package:skin_care_app/core/helper/spacing.dart';
 import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 import 'package:skin_care_app/core/widgets/app_bottom_navigation_bar.dart';
 import 'package:skin_care_app/core/widgets/custom_text_button.dart';
-import 'package:skin_care_app/features/BookingAppointment/logic/cubit/appointment_cubit.dart';
-import 'package:skin_care_app/features/BookingAppointment/ui/widgets/appointment_bloc_listener.dart';
 import 'package:skin_care_app/features/BookingAppointment/ui/widgets/available_time.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/intl.dart';

@@ -167,6 +167,7 @@ class AppRouter {
       case Routes.appointmentScreen:
         final appointmentId = settings.arguments as String?;
         return MaterialPageRoute(
+          settings: settings,
           builder:
               (_) => BlocProvider(
                 create: (_) => getIt<AppointmentDetailsCubit>(),

@@ -84,7 +84,7 @@ class _AboutDoctorBodyState extends State<AboutDoctorBody> {
                   ),
                 ],
               ),
-          const BookAppointmentButton(),
+          BookAppointmentButton(doctorId: widget.doctorData.id),
         ],
       ),
     );

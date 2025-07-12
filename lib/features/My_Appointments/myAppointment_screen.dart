@@ -3,13 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skin_care_app/core/di/dependancy_injection.dart';
 import 'package:skin_care_app/core/helper/helper.dart';
-import 'package:skin_care_app/core/helper/spacing.dart';
-import 'package:skin_care_app/core/theme/colors.dart';
 import 'package:skin_care_app/core/theme/styles.dart';
 import 'package:skin_care_app/core/widgets/app_bottom_navigation_bar.dart';
 import 'package:skin_care_app/features/My_Appointments/logic/cubit/appointments_cubit.dart';
 import 'package:skin_care_app/features/My_Appointments/ui/widgets/appointments_bloc_builder.dart';
-import 'package:skin_care_app/features/My_Appointments/ui/widgets/appointments_bloc_listener.dart';
 
 class MyAppointmentScreen extends StatelessWidget {
   const MyAppointmentScreen({super.key});
