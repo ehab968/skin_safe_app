@@ -3,12 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skin_care_app/core/di/dependancy_injection.dart';
 import 'package:skin_care_app/core/routing/routes.dart';
 import 'package:skin_care_app/features/home/data/models/top_doctors_model.dart';
-
 import 'package:skin_care_app/features/Appointment_details/appointment_screen.dart';
 import 'package:skin_care_app/features/Appointment_details/logic/cubit/appointment_details_cubit.dart';
 import 'package:skin_care_app/features/Articles/logic/cubit/article_cubit.dart';
 import 'package:skin_care_app/features/Articles/ui/article_view.dart';
-import 'package:skin_care_app/features/BookingAppointment/logic/cubit/appointment_cubit.dart';
 import 'package:skin_care_app/features/BookingAppointment/ui/booking_view.dart';
 import 'package:skin_care_app/features/BookingAppointment/ui/widgets/appointment_confirmation.dart';
 import 'package:skin_care_app/features/My_Appointments/myAppointment_screen.dart';
@@ -27,27 +25,15 @@ import 'package:skin_care_app/features/authentication/reset_password/ui/reset_pa
 import 'package:skin_care_app/features/authentication/reset_password/logic/cubit/reset_password_cubit.dart';
 import 'package:skin_care_app/features/authentication/sign_up/ui/sign_up_view.dart';
 import 'package:skin_care_app/features/authentication/sign_up/ui/sign_up_view_2.dart';
-import 'package:skin_care_app/features/authentication/sign_up/logic/sign_up_cubit/sign_up_cubit.dart';
 import 'package:skin_care_app/features/authentication/verfication_code/ui/verfication_code_view.dart';
 import 'package:skin_care_app/features/authentication/verfication_code/logic/cubit/verfication_cubit.dart';
-import 'package:skin_care_app/features/history/ui/history_view.dart';
-import 'package:skin_care_app/features/home/logic/cubit/all_doctors_cubit.dart';
-import 'package:skin_care_app/features/home/logic/cubit/top_doctors_cubit.dart';
-import 'package:skin_care_app/features/home/logic/cubit/uv_index_cubit.dart';
 import 'package:skin_care_app/features/reports/report_history/ui/history_view.dart';
 import 'package:skin_care_app/features/home/ui/all_doctors_view.dart';
 import 'package:skin_care_app/features/home/ui/home_view.dart';
-import 'package:skin_care_app/features/home/ui/search_screen.dart';
 import 'package:skin_care_app/features/on_boarding/ui/get_started_view.dart';
 import 'package:skin_care_app/features/on_boarding/ui/on_boarding_view.dart';
 import 'package:skin_care_app/features/on_boarding/ui/second_on_boarding_view.dart';
 import 'package:skin_care_app/features/on_boarding/ui/third_on_boarding_view.dart';
-import 'package:skin_care_app/features/authentication/confirmation_code/ui/confirmation_code_view.dart';
-import 'package:skin_care_app/features/authentication/forget_password/ui/forget_password_view.dart';
-import 'package:skin_care_app/features/authentication/login/logic/login_cubit/login_cubit.dart';
-import 'package:skin_care_app/features/authentication/reset_password/ui/reset_password_view.dart';
-import 'package:skin_care_app/features/authentication/sign_up/ui/sign_up_view.dart';
-import 'package:skin_care_app/features/authentication/sign_up/ui/sign_up_view_2.dart';
 import 'package:skin_care_app/features/scan/logic/camera_cubit/camera_cubit.dart';
 import 'package:skin_care_app/features/scan/ui/scan_view.dart';
 import 'package:skin_care_app/features/reports/logic/cubit/user_report_cubit.dart';
@@ -205,7 +191,7 @@ class AppRouter {
           settings: settings,
         );
       case Routes.NotificationsScreen:
-        return MaterialPageRoute(builder: (_) => NotificationsScreen());
+        return MaterialPageRoute(builder: (_) => const NotificationsScreen());
       case Routes.bookingView:
         // Handle both doctor object and doctor ID from route arguments
         final arguments = settings.arguments;
