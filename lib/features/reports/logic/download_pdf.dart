@@ -32,7 +32,7 @@ class PdfHelper {
                       topLeft: Radius.circular(16.r),
                       topRight: Radius.circular(16.r),
                     ),
-                    image: DecorationImage(image: image, fit: BoxFit.fill),
+                    image: DecorationImage(image: image, fit: BoxFit.cover),
                   ),
                 ),
                 SizedBox(height: 16.h),
